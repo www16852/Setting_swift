@@ -16,5 +16,4 @@ public class TextCell:UITableViewCell{
         self.detailTextLabel?.text = detail
     }
 
-
 }

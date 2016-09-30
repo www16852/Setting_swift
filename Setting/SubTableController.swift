@@ -13,6 +13,7 @@ class SubTableContoller: SettingController {
     override func viewDidLoad() {
         super.viewDidLoad()
         self.tableview = UITableView()
+        tableview.delegate = self
         tableview.dataSource = self
         self.view.addSubview(tableview)
         self.setupViews()
@@ -49,16 +50,16 @@ class SubTableContoller: SettingController {
                 heightForFooter: 10.0
             )
         ]
-        tableview.reloadData()
 
         // Do any additional setup after loading the view, typically from a nib.
     }
 
     func setupViews(){
-        view.addConstraint(NSLayoutConstraint(item: tableview, attribute: .right, relatedBy: .equal, toItem: super.view, attribute: .right, multiplier: 1, constant: 0))
-        view.addConstraint(NSLayoutConstraint(item: tableview, attribute: .left, relatedBy: .equal, toItem: super.view, attribute: .left, multiplier: 1, constant: 0))
-        view.addConstraint(NSLayoutConstraint(item: view, attribute: .bottom, relatedBy: .equal, toItem: bottomLayoutGuide, attribute: .bottom, multiplier: 1, constant: 0))
-        view.addConstraint(NSLayoutConstraint(item: tableview, attribute: .top, relatedBy: NSLayoutRelation.equal, toItem: super.view, attribute: .top, multiplier: 1, constant: 0))
+        tableview.translatesAutoresizingMaskIntoConstraints = false
+        view.addConstraint(NSLayoutConstraint(item: tableview, attribute: .top, relatedBy: .equal, toItem: view , attribute: .top, multiplier: 1, constant: 0))
+        view.addConstraint(NSLayoutConstraint(item: tableview, attribute: .bottom, relatedBy: .equal, toItem: view , attribute: .bottom, multiplier: 1, constant: 0))
+        view.addConstraint(NSLayoutConstraint(item: tableview, attribute: .left, relatedBy: .equal, toItem: view , attribute: .left, multiplier: 1, constant: 0))
+        view.addConstraint(NSLayoutConstraint(item: tableview, attribute: .right, relatedBy: .equal, toItem: view , attribute: .right, multiplier: 1, constant: 0))
     }
 
     override func didReceiveMemoryWarning() {
