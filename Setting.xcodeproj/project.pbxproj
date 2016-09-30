@@ -20,6 +20,7 @@
 		B80802401D9D09FA004B2771 /* TextCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B808023C1D9D09FA004B2771 /* TextCell.swift */; };
 		B80802411D9D09FA004B2771 /* SwitchCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B808023D1D9D09FA004B2771 /* SwitchCell.swift */; };
 		B80802421D9D09FA004B2771 /* AccessoryCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B808023E1D9D09FA004B2771 /* AccessoryCell.swift */; };
+		B80802451D9E15D2004B2771 /* SubTableController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B80802441D9E15D2004B2771 /* SubTableController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -59,6 +60,7 @@
 		B808023C1D9D09FA004B2771 /* TextCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TextCell.swift; sourceTree = "<group>"; };
 		B808023D1D9D09FA004B2771 /* SwitchCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SwitchCell.swift; sourceTree = "<group>"; };
 		B808023E1D9D09FA004B2771 /* AccessoryCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AccessoryCell.swift; sourceTree = "<group>"; };
+		B80802441D9E15D2004B2771 /* SubTableController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SubTableController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -89,6 +91,7 @@
 		B80801FB1D9D0598004B2771 = {
 			isa = PBXGroup;
 			children = (
+				B80802431D9E116F004B2771 /* Model */,
 				B808023A1D9D09E6004B2771 /* View */,
 				B80802351D9D062C004B2771 /* Controller */,
 				B80802061D9D0598004B2771 /* Setting */,
@@ -142,6 +145,7 @@
 		B80802351D9D062C004B2771 /* Controller */ = {
 			isa = PBXGroup;
 			children = (
+				B80802441D9E15D2004B2771 /* SubTableController.swift */,
 				B80802361D9D065B004B2771 /* SettingController.swift */,
 				B80802381D9D09A6004B2771 /* CustomController.swift */,
 			);
@@ -158,6 +162,14 @@
 				B808023E1D9D09FA004B2771 /* AccessoryCell.swift */,
 			);
 			name = View;
+			path = Setting;
+			sourceTree = "<group>";
+		};
+		B80802431D9E116F004B2771 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Model;
 			path = Setting;
 			sourceTree = "<group>";
 		};
@@ -302,6 +314,7 @@
 				B80802411D9D09FA004B2771 /* SwitchCell.swift in Sources */,
 				B808020A1D9D0598004B2771 /* ViewController.swift in Sources */,
 				B80802401D9D09FA004B2771 /* TextCell.swift in Sources */,
+				B80802451D9E15D2004B2771 /* SubTableController.swift in Sources */,
 				B80802081D9D0598004B2771 /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

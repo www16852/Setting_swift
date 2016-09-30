@@ -34,9 +34,9 @@ open class SettingController: UIViewController, UITableViewDelegate, UITableView
 
     override open func viewDidLoad() {
         super.viewDidLoad()
-        tableview.dataSource = self
-        tableview.delegate = self
-        tableview.allowsSelection = false
+//        tableview.dataSource = self
+//        tableview.delegate = self
+//        tableview.allowsSelection = false
     }
 
     //MARK: DataSource
@@ -68,7 +68,28 @@ open class SettingController: UIViewController, UITableViewDelegate, UITableView
     }
 
     open func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell{
-        return tableSections[indexPath.section].settingsCells[indexPath.row]
+        let cell = tableSections[indexPath.section].settingsCells[indexPath.row]
+        if cell is CellSelectProtocol{
+            let tapGesture = UITapGestureRecognizer(target: self, action: #selector(SettingController.tapCell(gesture:)))
+            cell.addGestureRecognizer(tapGesture)
+        }
+        return cell
     }
+
+    //MARK: Target
+    open func tapCell(gesture:UIPanGestureRecognizer){
+        let cell = gesture.view as! UITableViewCell
         
+        showDetail(title:(cell.textLabel?.text)!)
+    }
+
+    //MARK: 
+    private func showDetail(title:String) {
+        print("showDetail")
+        let controller = SubTableContoller()
+        controller.view.backgroundColor = UIColor.white
+        controller.title = title
+        navigationController?.pushViewController(controller, animated: true)
+    }
+
 }
