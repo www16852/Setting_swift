@@ -99,13 +99,19 @@ open class SettingController: UIViewController, UITableViewDelegate, UITableView
     //MARK: Target
     func tapCell(gesture:UIPanGestureRecognizer){
         let cell = gesture.view as! AccessoryCell
-        showDetail(title:(cell.textLabel?.text)!,cellArray:cell.detailTableCell)
+        if cell.detailSections.isEmpty == false{
+            showDetail(title:(cell.textLabel?.text)!,sections:cell.detailSections,push:cell.pushType)
+        }
     }
 
     //MARK: 
-    private func showDetail(title:String,cellArray:[UITableViewCell]) {
-        let controller = SubTableContoller()
-        controller.tableCells = cellArray
+    private func showDetail(title:String, sections:[Section],push: AccessoryCell.PushType) {
+        let controller:SettingController
+        switch push {
+        case .sub:  controller = SubTableController()
+        case .share:controller = ShareTableController()
+        }
+        controller.tableSections = sections
         controller.view.backgroundColor = UIColor.white
         controller.title = title
         navigationController?.pushViewController(controller, animated: true)

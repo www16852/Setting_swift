@@ -16,8 +16,9 @@ class ModelData{
     var text = "Keep Days"
     var detail = "5 days"
     var option:[String] = ["5days","10days","15days","20days"]
+    var shareOption:[String] = ["t1@walton.com.tw","t2@walton.com.tw","t3@walton.com.tw","t4@walton.com.tw"]
 
-    func creatOption() -> [UITableViewCell]{
+    func creatSections() -> [Section]{
         var optionCell = [UITableViewCell]()
         for str in option as [String]{
             let cell = UITableViewCell(style: .value1,reuseIdentifier: nil)
@@ -26,7 +27,34 @@ class ModelData{
             cell.selectionStyle = .none
             optionCell.append(cell)
         }
-        return optionCell
+        let tableSection = [
+            Section(
+                header: "choose Keep Days",
+                footer: "",
+                settingsCells: optionCell,
+                heightForFooter: 10.0
+            )
+        ]
+        return tableSection
+    }
+
+    func creatShareSections() -> [Section]{
+        var optionCell = [UITableViewCell]()
+        for str in shareOption as [String]{
+            let cell = UITableViewCell(style: .value1,reuseIdentifier: nil)
+            cell.textLabel?.text = str
+            cell.detailTextLabel?.text = ""
+            optionCell.append(cell)
+        }
+        let tableSection = [
+            Section(
+                header: "Share Management",
+                footer: "",
+                settingsCells: optionCell,
+                heightForFooter: 10.0
+            )
+        ]
+        return tableSection
     }
 }
 
@@ -61,10 +89,10 @@ class CustomController: SettingController {
                 footer: "",
                 settingsCells: [
                     TextCell(text: "Space Used",detail: ""),
-//                    AccessoryCell(text: "Legal and Privacy",detail: ""),
-                    AccessoryCell(text: "Keep Days",detail: "5 days",cellArray: modelData.creatOption()),
+                    AccessoryCell(text: "Legal and Privacy",detail: "",sections: [Section](),push: .sub),
+                    AccessoryCell(text: "Keep Days",detail: "5 days",sections: modelData.creatSections(),push: .sub),
                     TextCell(text: "Connected",detail: "UPnP"),
-//                    AccessoryCell(text: "Share Management",detail: ""),
+                    AccessoryCell(text: "Share Management",detail: "",sections: modelData.creatShareSections(),push: .share)
                     ],
                 heightForFooter: 10.0
             )

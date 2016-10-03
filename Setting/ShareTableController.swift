@@ -1,14 +1,14 @@
 //
-//  SubTableController.swift
+//  ShareTableController.swift
 //  Setting
 //
-//  Created by waltoncob on 2016/9/30.
+//  Created by waltoncob on 2016/10/3.
 //  Copyright © 2016年 waltoncob. All rights reserved.
 //
 
 import UIKit
 
-class SubTableController: SettingController {
+class ShareTableController: SettingController {
 
     var detailTable:UITableView!
 
@@ -39,15 +39,9 @@ class SubTableController: SettingController {
     //MAKE: Delegate
 
     override public func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath){
-        if let cell = tableView.cellForRow(at: indexPath) {
-            cell.accessoryType = .checkmark
-        }
     }
 
     override public func tableView(_ tableView: UITableView, didDeselectRowAt indexPath: IndexPath){
-        if let cell = tableView.cellForRow(at: indexPath) {
-            cell.accessoryType = .none
-        }
     }
 
     //MAKE:
@@ -58,3 +52,4 @@ class SubTableController: SettingController {
     }
     
 }
+

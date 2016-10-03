@@ -10,14 +10,20 @@ import UIKit
 
 public class AccessoryCell:UITableViewCell,CellSelectProtocol{
 
-    var detailTableCell = [UITableViewCell]()
+    var detailSections = [Section]()
+    var pushType:PushType
 
-    public convenience init(text: String, detail: String, style: UITableViewCellStyle = .value1,cellArray: [UITableViewCell]){
-        self.init(style: style,reuseIdentifier: nil)
+    public init(text: String, detail: String, sections: [Section], push:PushType, style: UITableViewCellStyle = .value1){
+        self.detailSections = sections
+        self.pushType = push
+        super.init(style: style,reuseIdentifier: nil)
         self.textLabel?.text = text
         self.detailTextLabel?.text = detail
         self.accessoryType = .disclosureIndicator
-        self.detailTableCell = cellArray
+    }
+    
+    required public init?(coder aDecoder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
     }
 
 
@@ -25,4 +31,11 @@ public class AccessoryCell:UITableViewCell,CellSelectProtocol{
         print("selectAction")
     }
 
+}
+
+public extension AccessoryCell{
+    enum PushType{
+        case sub
+        case share
+    }
 }
