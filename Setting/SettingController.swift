@@ -28,15 +28,22 @@ public struct Section {
 
 open class SettingController: UIViewController, UITableViewDelegate, UITableViewDataSource {
 
-    var tableview:UITableView!
+    @IBOutlet weak var tableview: UITableView!
 
     public var tableSections = [Section]()
 
     override open func viewDidLoad() {
         super.viewDidLoad()
-//        tableview.dataSource = self
-//        tableview.delegate = self
-//        tableview.allowsSelection = false
+        tableSet()
+    }
+
+    private func tableSet(){
+        guard tableview != nil else {
+            return
+        }
+        tableview.dataSource = self
+        tableview.delegate = self
+        tableview.allowsSelection = false
     }
 
     //MARK: DataSource
@@ -76,17 +83,29 @@ open class SettingController: UIViewController, UITableViewDelegate, UITableView
         return cell
     }
 
+    //MAKE: Delegate
+    open func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath){
+        if let cell = tableView.cellForRow(at: indexPath) {
+            cell.accessoryType = .checkmark
+        }
+    }
+
+    open func tableView(_ tableView: UITableView, didDeselectRowAt indexPath: IndexPath){
+        if let cell = tableView.cellForRow(at: indexPath) {
+            cell.accessoryType = .none
+        }
+    }
+
     //MARK: Target
-    open func tapCell(gesture:UIPanGestureRecognizer){
-        let cell = gesture.view as! UITableViewCell
-        
-        showDetail(title:(cell.textLabel?.text)!)
+    func tapCell(gesture:UIPanGestureRecognizer){
+        let cell = gesture.view as! AccessoryCell
+        showDetail(title:(cell.textLabel?.text)!,cellArray:cell.detailTableCell)
     }
 
     //MARK: 
-    private func showDetail(title:String) {
-        print("showDetail")
+    private func showDetail(title:String,cellArray:[UITableViewCell]) {
         let controller = SubTableContoller()
+        controller.tableCells = cellArray
         controller.view.backgroundColor = UIColor.white
         controller.title = title
         navigationController?.pushViewController(controller, animated: true)

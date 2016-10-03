@@ -10,18 +10,16 @@ import UIKit
 
 public class AccessoryCell:UITableViewCell,CellSelectProtocol{
 
-    public init(text: String, detail: String){
-        super.init(style: UITableViewCellStyle.value1,reuseIdentifier: nil)
-        self.selectionStyle = .blue
+    var detailTableCell = [UITableViewCell]()
+
+    public convenience init(text: String, detail: String, style: UITableViewCellStyle = .value1,cellArray: [UITableViewCell]){
+        self.init(style: style,reuseIdentifier: nil)
         self.textLabel?.text = text
         self.detailTextLabel?.text = detail
         self.accessoryType = .disclosureIndicator
+        self.detailTableCell = cellArray
+    }
 
-    }
-    
-    required public init?(coder aDecoder: NSCoder) {
-        fatalError("init(coder:) has not been implemented")
-    }
 
     public func selectAction(){
         print("selectAction")

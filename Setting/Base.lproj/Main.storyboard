@@ -20,23 +20,19 @@
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="qpF-Wb-Ac1">
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                <connections>
-                                    <outlet property="dataSource" destination="ltP-Xh-67F" id="IEY-5t-g3h"/>
-                                    <outlet property="delegate" destination="ltP-Xh-67F" id="Lkh-et-9fB"/>
-                                </connections>
                             </tableView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstItem="qpF-Wb-Ac1" firstAttribute="top" secondItem="7cR-ve-6TK" secondAttribute="top" id="0q9-Ds-Glk"/>
-                            <constraint firstAttribute="trailing" secondItem="qpF-Wb-Ac1" secondAttribute="trailing" id="6g1-Pa-dLz"/>
-                            <constraint firstItem="YU2-sY-ZiD" firstAttribute="top" secondItem="qpF-Wb-Ac1" secondAttribute="bottom" id="mR8-2i-TJU"/>
-                            <constraint firstItem="qpF-Wb-Ac1" firstAttribute="leading" secondItem="7cR-ve-6TK" secondAttribute="leading" id="oTc-y3-Dz7"/>
+                            <constraint firstAttribute="bottom" secondItem="qpF-Wb-Ac1" secondAttribute="bottom" id="0Od-fB-ZOa"/>
+                            <constraint firstItem="qpF-Wb-Ac1" firstAttribute="top" secondItem="7cR-ve-6TK" secondAttribute="top" id="0T7-rf-kNu"/>
+                            <constraint firstAttribute="trailing" secondItem="qpF-Wb-Ac1" secondAttribute="trailing" id="6gu-Qc-vh6"/>
+                            <constraint firstItem="qpF-Wb-Ac1" firstAttribute="leading" secondItem="7cR-ve-6TK" secondAttribute="leading" id="za2-zz-bJa"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="Setting" id="Rwe-aF-taT"/>
                     <connections>
-                        <outlet property="tableview" destination="qpF-Wb-Ac1" id="26v-kd-GXx"/>
+                        <outlet property="tableview" destination="qpF-Wb-Ac1" id="NSz-Lr-Lfn"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="aar-21-LHV" userLabel="First Responder" sceneMemberID="firstResponder"/>

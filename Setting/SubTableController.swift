@@ -10,43 +10,20 @@ import UIKit
 
 class SubTableContoller: SettingController {
 
+    var detailTable:UITableView!
+    public var tableCells = [UITableViewCell]()
+
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.tableview = UITableView()
-        tableview.delegate = self
-        tableview.dataSource = self
-        self.view.addSubview(tableview)
+        self.detailTable = UITableView()
+        self.view.addSubview(detailTable)
+        self.tableSet()
         self.setupViews()
-
         self.tableSections = [
             Section(
-                header: "ACCOUNT",
+                header: "CHOOSE KEEP DAYS",
                 footer: "",
-                settingsCells: [
-                    TextCell(text: "Email",detail: userEmail),
-                    TextCell(text: "Device",detail: userDevice),
-                    TextCell(text: "Version",detail: version)
-                ],
-                heightForFooter: 10.0
-            ),
-            Section(
-                header: "SETTING",
-                footer: "",
-                settingsCells: [
-                    SwitchCell(text: "Carmera Uploads")
-                ],
-                heightForFooter: 10.0
-            ),
-            Section(
-                header: "MANAGEMENT",
-                footer: "",
-                settingsCells: [
-                    TextCell(text: "Space Used",detail: ""),
-                    AccessoryCell(text: "Legal and Privacy",detail: ""),
-                    AccessoryCell(text: "Keep Days",detail: "5 days"),
-                    TextCell(text: "Connected",detail: "UPnP"),
-                    AccessoryCell(text: "Share Management",detail: ""),
-                    ],
+                settingsCells: tableCells,
                 heightForFooter: 10.0
             )
         ]
@@ -54,19 +31,35 @@ class SubTableContoller: SettingController {
         // Do any additional setup after loading the view, typically from a nib.
     }
 
+    private func tableSet(){
+        detailTable.allowsSelection = true
+        detailTable.delegate = self
+        detailTable.dataSource = self
+    }
+
     func setupViews(){
-        tableview.translatesAutoresizingMaskIntoConstraints = false
-        view.addConstraint(NSLayoutConstraint(item: tableview, attribute: .top, relatedBy: .equal, toItem: view , attribute: .top, multiplier: 1, constant: 0))
-        view.addConstraint(NSLayoutConstraint(item: tableview, attribute: .bottom, relatedBy: .equal, toItem: view , attribute: .bottom, multiplier: 1, constant: 0))
-        view.addConstraint(NSLayoutConstraint(item: tableview, attribute: .left, relatedBy: .equal, toItem: view , attribute: .left, multiplier: 1, constant: 0))
-        view.addConstraint(NSLayoutConstraint(item: tableview, attribute: .right, relatedBy: .equal, toItem: view , attribute: .right, multiplier: 1, constant: 0))
+        detailTable.translatesAutoresizingMaskIntoConstraints = false
+        view.addConstraint(NSLayoutConstraint(item: detailTable, attribute: .top, relatedBy: .equal, toItem: view , attribute: .top, multiplier: 1, constant: 0))
+        view.addConstraint(NSLayoutConstraint(item: detailTable, attribute: .bottom, relatedBy: .equal, toItem: view , attribute: .bottom, multiplier: 1, constant: 0))
+        view.addConstraint(NSLayoutConstraint(item: detailTable, attribute: .left, relatedBy: .equal, toItem: view , attribute: .left, multiplier: 1, constant: 0))
+        view.addConstraint(NSLayoutConstraint(item: detailTable, attribute: .right, relatedBy: .equal, toItem: view , attribute: .right, multiplier: 1, constant: 0))
     }
 
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
+    //MAKE: Delegate
+
+    override public func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath){
+        if let cell = tableView.cellForRow(at: indexPath) {
+            cell.accessoryType = .checkmark
+        }
     }
 
+    override public func tableView(_ tableView: UITableView, didDeselectRowAt indexPath: IndexPath){
+        if let cell = tableView.cellForRow(at: indexPath) {
+            cell.accessoryType = .none
+        }
+    }
+
+    //MAKE:
     override var prefersStatusBarHidden: Bool {
         get {
             return true
