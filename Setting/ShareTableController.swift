@@ -29,11 +29,28 @@ class ShareTableController: SettingController {
     }
 
     func setupViews(){
+        let shareButton = UIBarButtonItem(barButtonSystemItem: .action, target: self, action: #selector(shareAction(sender:)))
+        self.navigationItem.rightBarButtonItem = shareButton;
+
+    //Constraints
         detailTable.translatesAutoresizingMaskIntoConstraints = false
         view.addConstraint(NSLayoutConstraint(item: detailTable, attribute: .top, relatedBy: .equal, toItem: view , attribute: .top, multiplier: 1, constant: 0))
         view.addConstraint(NSLayoutConstraint(item: detailTable, attribute: .bottom, relatedBy: .equal, toItem: view , attribute: .bottom, multiplier: 1, constant: 0))
         view.addConstraint(NSLayoutConstraint(item: detailTable, attribute: .left, relatedBy: .equal, toItem: view , attribute: .left, multiplier: 1, constant: 0))
         view.addConstraint(NSLayoutConstraint(item: detailTable, attribute: .right, relatedBy: .equal, toItem: view , attribute: .right, multiplier: 1, constant: 0))
+    }
+
+    func shareAction(sender:UIButton){
+        print("T: shareAction")
+        let shareVC = UIActivityViewController(activityItems: [], applicationActivities: nil)
+//        shareVC.modalPresentationStyle = .popover
+        print(sender)
+//        shareVC.popoverPresentationController?.sourceView = sender
+//        shareVC.popoverPresentationController?.sourceRect = sender.bounds
+//        shareVC.popoverPresentationController?.permittedArrowDirections = .right
+//        shareVC.popoverPresentationController?.sourceRect = button.frame
+        self.present(shareVC, animated: true)
+
     }
 
     //MAKE: Delegate
