@@ -22,6 +22,13 @@ class SubTableController: SettingController {
         // Do any additional setup after loading the view, typically from a nib.
     }
 
+    override func viewWillDisappear(_ animated: Bool){
+        if let indexPath = detailTable.indexPathForSelectedRow , let cell = detailTable.cellForRow(at: indexPath){
+            cell.accessoryType = .none
+        }
+        super.viewWillDisappear(animated)
+    }
+
     private func tableSet(){
         detailTable.allowsSelection = true
         detailTable.delegate = self
@@ -29,6 +36,8 @@ class SubTableController: SettingController {
     }
 
     func setupViews(){
+
+    //Constraint
         detailTable.translatesAutoresizingMaskIntoConstraints = false
         view.addConstraint(NSLayoutConstraint(item: detailTable, attribute: .top, relatedBy: .equal, toItem: view , attribute: .top, multiplier: 1, constant: 0))
         view.addConstraint(NSLayoutConstraint(item: detailTable, attribute: .bottom, relatedBy: .equal, toItem: view , attribute: .bottom, multiplier: 1, constant: 0))
