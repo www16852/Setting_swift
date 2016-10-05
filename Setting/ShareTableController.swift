@@ -40,17 +40,16 @@ class ShareTableController: SettingController {
         view.addConstraint(NSLayoutConstraint(item: detailTable, attribute: .right, relatedBy: .equal, toItem: view , attribute: .right, multiplier: 1, constant: 0))
     }
 
-    func shareAction(sender:UIButton){
-        print("T: shareAction")
-        let shareVC = UIActivityViewController(activityItems: [], applicationActivities: nil)
-//        shareVC.modalPresentationStyle = .popover
-        print(sender)
-//        shareVC.popoverPresentationController?.sourceView = sender
-//        shareVC.popoverPresentationController?.sourceRect = sender.bounds
-//        shareVC.popoverPresentationController?.permittedArrowDirections = .right
-//        shareVC.popoverPresentationController?.sourceRect = button.frame
+    func shareAction(sender:UIBarButtonItem){
+        var shareMessage = ""
+        if let indexPath = detailTable.indexPathForSelectedRow , let cell = detailTable.cellForRow(at: indexPath){
+            shareMessage = (cell.textLabel?.text)!
+        }
+        let shareVC = UIActivityViewController(activityItems: [shareMessage], applicationActivities: nil)
+        shareVC.modalPresentationStyle = .popover
+        shareVC.popoverPresentationController?.barButtonItem = sender
+        shareVC.popoverPresentationController?.permittedArrowDirections = .up
         self.present(shareVC, animated: true)
-
     }
 
     //MAKE: Delegate
