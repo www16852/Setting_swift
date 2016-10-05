@@ -59,12 +59,21 @@ class ModelData{
 }
 
 
-class CustomController: SettingController {
+class CustomController: UIViewController {
+    public var tableSections = [Section]()
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        let modelData = ModelData()
+        setTableSections()
+        let tableview = SettingTableView(frame: view.bounds,tableSections: tableSections)
+        view.addSubview(tableview)
 
+        // Do any additional setup after loading the view, typically from a nib.
+    }
+
+    func setTableSections(){
+
+        let modelData = ModelData()
         self.tableSections = [
             Section(
                 header: "ACCOUNT",
@@ -93,12 +102,10 @@ class CustomController: SettingController {
                     AccessoryCell(text: "Keep Days",detail: "5 days",sections: modelData.creatSections(),push: .sub),
                     TextCell(text: "Connected",detail: "UPnP"),
                     AccessoryCell(text: "Share Management",detail: "",sections: modelData.creatShareSections(),push: .share)
-                    ],
+                ],
                 heightForFooter: 10.0
             )
         ]
-
-        // Do any additional setup after loading the view, typically from a nib.
     }
 
     override func didReceiveMemoryWarning() {

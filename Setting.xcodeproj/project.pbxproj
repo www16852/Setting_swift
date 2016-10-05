@@ -22,6 +22,9 @@
 		B80802421D9D09FA004B2771 /* AccessoryCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B808023E1D9D09FA004B2771 /* AccessoryCell.swift */; };
 		B80802451D9E15D2004B2771 /* SubTableController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B80802441D9E15D2004B2771 /* SubTableController.swift */; };
 		B808025E1DA25937004B2771 /* ShareTableController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B808025D1DA25937004B2771 /* ShareTableController.swift */; };
+		B875A3DC1DA4CCD300B30F59 /* TickTableDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B875A3DB1DA4CCD300B30F59 /* TickTableDelegate.swift */; };
+		B875A3DE1DA4D29900B30F59 /* SettingTableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B875A3DD1DA4D29900B30F59 /* SettingTableView.swift */; };
+		B875A3E21DA4D47700B30F59 /* SettingDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = B875A3E11DA4D47700B30F59 /* SettingDataSource.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -63,6 +66,9 @@
 		B808023E1D9D09FA004B2771 /* AccessoryCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AccessoryCell.swift; sourceTree = "<group>"; };
 		B80802441D9E15D2004B2771 /* SubTableController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SubTableController.swift; sourceTree = "<group>"; };
 		B808025D1DA25937004B2771 /* ShareTableController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ShareTableController.swift; sourceTree = "<group>"; };
+		B875A3DB1DA4CCD300B30F59 /* TickTableDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TickTableDelegate.swift; sourceTree = "<group>"; };
+		B875A3DD1DA4D29900B30F59 /* SettingTableView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingTableView.swift; sourceTree = "<group>"; };
+		B875A3E11DA4D47700B30F59 /* SettingDataSource.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingDataSource.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -147,10 +153,12 @@
 		B80802351D9D062C004B2771 /* Controller */ = {
 			isa = PBXGroup;
 			children = (
+				B875A3DA1DA4CC4400B30F59 /* Delegate */,
 				B808025D1DA25937004B2771 /* ShareTableController.swift */,
 				B80802441D9E15D2004B2771 /* SubTableController.swift */,
 				B80802361D9D065B004B2771 /* SettingController.swift */,
 				B80802381D9D09A6004B2771 /* CustomController.swift */,
+				B875A3DD1DA4D29900B30F59 /* SettingTableView.swift */,
 			);
 			name = Controller;
 			path = Setting;
@@ -174,6 +182,15 @@
 			);
 			name = Model;
 			path = Setting;
+			sourceTree = "<group>";
+		};
+		B875A3DA1DA4CC4400B30F59 /* Delegate */ = {
+			isa = PBXGroup;
+			children = (
+				B875A3DB1DA4CCD300B30F59 /* TickTableDelegate.swift */,
+				B875A3E11DA4D47700B30F59 /* SettingDataSource.swift */,
+			);
+			name = Delegate;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -313,6 +330,8 @@
 			files = (
 				B80802391D9D09A6004B2771 /* CustomController.swift in Sources */,
 				B80802371D9D065B004B2771 /* SettingController.swift in Sources */,
+				B875A3DE1DA4D29900B30F59 /* SettingTableView.swift in Sources */,
+				B875A3DC1DA4CCD300B30F59 /* TickTableDelegate.swift in Sources */,
 				B808025E1DA25937004B2771 /* ShareTableController.swift in Sources */,
 				B80802421D9D09FA004B2771 /* AccessoryCell.swift in Sources */,
 				B808023F1D9D09FA004B2771 /* CellSelectProtocol.swift in Sources */,
@@ -320,6 +339,7 @@
 				B808020A1D9D0598004B2771 /* ViewController.swift in Sources */,
 				B80802401D9D09FA004B2771 /* TextCell.swift in Sources */,
 				B80802451D9E15D2004B2771 /* SubTableController.swift in Sources */,
+				B875A3E21DA4D47700B30F59 /* SettingDataSource.swift in Sources */,
 				B80802081D9D0598004B2771 /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
