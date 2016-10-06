@@ -30,8 +30,8 @@ class SettingDataSource:NSObject,UITableViewDataSource{
 
     var tableSections:[Section]
 
-    init(tableSections: [Section]){
-        self.tableSections = tableSections
+    init(sections: [Section]){
+        self.tableSections = sections
     }
 
     open func numberOfSections(in tableView: UITableView) -> Int {
@@ -63,8 +63,10 @@ class SettingDataSource:NSObject,UITableViewDataSource{
     open func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell{
         let cell = tableSections[indexPath.section].settingsCells[indexPath.row]
         if cell is CellSelectProtocol{
-//            let tapGesture = UITapGestureRecognizer(target: self, action: #selector(SettingController.tapCell(gesture:)))
-//            cell.addGestureRecognizer(tapGesture)
+            let tableView = cell.superview as! SettingTableView
+            let tapGesture = UITapGestureRecognizer(target: tableView.controller, action: #selector(SettingController.tapCell(gesture:)))
+            print(self)
+            cell.addGestureRecognizer(tapGesture)
         }
         return cell
     }

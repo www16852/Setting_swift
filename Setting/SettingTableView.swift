@@ -12,12 +12,14 @@ class SettingTableView: UITableView {
 
     var dataSourcePtr:UITableViewDataSource?
     var delegatePtr:UITableViewDelegate?
+    var controller:SettingController
 
     init(frame: CGRect,tableSections:[Section]){
+        self.controller = SettingController(sections:tableSections)
+        self.dataSourcePtr = SettingDataSource(sections:tableSections)
+//        self.delegatePtr = TickTableDelegate()
         super.init(frame: frame, style: .plain)
-        self.dataSourcePtr = SettingDataSource(tableSections:tableSections)
         self.dataSource = dataSourcePtr
-        self.delegatePtr = TickTableDelegate()
         self.delegate = delegatePtr
     }
 

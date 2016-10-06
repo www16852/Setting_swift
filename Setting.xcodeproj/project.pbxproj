@@ -14,7 +14,7 @@
 		B80802121D9D0598004B2771 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B80802101D9D0598004B2771 /* LaunchScreen.storyboard */; };
 		B808021D1D9D0598004B2771 /* SettingTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B808021C1D9D0598004B2771 /* SettingTests.swift */; };
 		B80802281D9D0598004B2771 /* SettingUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B80802271D9D0598004B2771 /* SettingUITests.swift */; };
-		B80802371D9D065B004B2771 /* SettingController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B80802361D9D065B004B2771 /* SettingController.swift */; };
+		B80802371D9D065B004B2771 /* SettingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B80802361D9D065B004B2771 /* SettingViewController.swift */; };
 		B80802391D9D09A6004B2771 /* CustomController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B80802381D9D09A6004B2771 /* CustomController.swift */; };
 		B808023F1D9D09FA004B2771 /* CellSelectProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = B808023B1D9D09FA004B2771 /* CellSelectProtocol.swift */; };
 		B80802401D9D09FA004B2771 /* TextCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B808023C1D9D09FA004B2771 /* TextCell.swift */; };
@@ -25,6 +25,7 @@
 		B875A3DC1DA4CCD300B30F59 /* TickTableDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B875A3DB1DA4CCD300B30F59 /* TickTableDelegate.swift */; };
 		B875A3DE1DA4D29900B30F59 /* SettingTableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B875A3DD1DA4D29900B30F59 /* SettingTableView.swift */; };
 		B875A3E21DA4D47700B30F59 /* SettingDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = B875A3E11DA4D47700B30F59 /* SettingDataSource.swift */; };
+		B875A3E61DA5D79F00B30F59 /* SettingController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B875A3E51DA5D79F00B30F59 /* SettingController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -58,7 +59,7 @@
 		B80802231D9D0598004B2771 /* SettingUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = SettingUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		B80802271D9D0598004B2771 /* SettingUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingUITests.swift; sourceTree = "<group>"; };
 		B80802291D9D0598004B2771 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		B80802361D9D065B004B2771 /* SettingController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingController.swift; sourceTree = "<group>"; };
+		B80802361D9D065B004B2771 /* SettingViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingViewController.swift; sourceTree = "<group>"; };
 		B80802381D9D09A6004B2771 /* CustomController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomController.swift; sourceTree = "<group>"; };
 		B808023B1D9D09FA004B2771 /* CellSelectProtocol.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CellSelectProtocol.swift; sourceTree = "<group>"; };
 		B808023C1D9D09FA004B2771 /* TextCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TextCell.swift; sourceTree = "<group>"; };
@@ -69,6 +70,7 @@
 		B875A3DB1DA4CCD300B30F59 /* TickTableDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TickTableDelegate.swift; sourceTree = "<group>"; };
 		B875A3DD1DA4D29900B30F59 /* SettingTableView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingTableView.swift; sourceTree = "<group>"; };
 		B875A3E11DA4D47700B30F59 /* SettingDataSource.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingDataSource.swift; sourceTree = "<group>"; };
+		B875A3E51DA5D79F00B30F59 /* SettingController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -101,6 +103,7 @@
 			children = (
 				B80802431D9E116F004B2771 /* Model */,
 				B808023A1D9D09E6004B2771 /* View */,
+				B875A3E31DA5D6CE00B30F59 /* UIViewController */,
 				B80802351D9D062C004B2771 /* Controller */,
 				B80802061D9D0598004B2771 /* Setting */,
 				B808021B1D9D0598004B2771 /* SettingTests */,
@@ -153,12 +156,9 @@
 		B80802351D9D062C004B2771 /* Controller */ = {
 			isa = PBXGroup;
 			children = (
+				B875A3E51DA5D79F00B30F59 /* SettingController.swift */,
+				B875A3E41DA5D72500B30F59 /* DataSource */,
 				B875A3DA1DA4CC4400B30F59 /* Delegate */,
-				B808025D1DA25937004B2771 /* ShareTableController.swift */,
-				B80802441D9E15D2004B2771 /* SubTableController.swift */,
-				B80802361D9D065B004B2771 /* SettingController.swift */,
-				B80802381D9D09A6004B2771 /* CustomController.swift */,
-				B875A3DD1DA4D29900B30F59 /* SettingTableView.swift */,
 			);
 			name = Controller;
 			path = Setting;
@@ -171,6 +171,7 @@
 				B808023C1D9D09FA004B2771 /* TextCell.swift */,
 				B808023D1D9D09FA004B2771 /* SwitchCell.swift */,
 				B808023E1D9D09FA004B2771 /* AccessoryCell.swift */,
+				B875A3DD1DA4D29900B30F59 /* SettingTableView.swift */,
 			);
 			name = View;
 			path = Setting;
@@ -188,9 +189,28 @@
 			isa = PBXGroup;
 			children = (
 				B875A3DB1DA4CCD300B30F59 /* TickTableDelegate.swift */,
-				B875A3E11DA4D47700B30F59 /* SettingDataSource.swift */,
 			);
 			name = Delegate;
+			sourceTree = "<group>";
+		};
+		B875A3E31DA5D6CE00B30F59 /* UIViewController */ = {
+			isa = PBXGroup;
+			children = (
+				B808025D1DA25937004B2771 /* ShareTableController.swift */,
+				B80802441D9E15D2004B2771 /* SubTableController.swift */,
+				B80802361D9D065B004B2771 /* SettingViewController.swift */,
+				B80802381D9D09A6004B2771 /* CustomController.swift */,
+			);
+			name = UIViewController;
+			path = Setting;
+			sourceTree = "<group>";
+		};
+		B875A3E41DA5D72500B30F59 /* DataSource */ = {
+			isa = PBXGroup;
+			children = (
+				B875A3E11DA4D47700B30F59 /* SettingDataSource.swift */,
+			);
+			name = DataSource;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -329,11 +349,12 @@
 			buildActionMask = 2147483647;
 			files = (
 				B80802391D9D09A6004B2771 /* CustomController.swift in Sources */,
-				B80802371D9D065B004B2771 /* SettingController.swift in Sources */,
+				B80802371D9D065B004B2771 /* SettingViewController.swift in Sources */,
 				B875A3DE1DA4D29900B30F59 /* SettingTableView.swift in Sources */,
 				B875A3DC1DA4CCD300B30F59 /* TickTableDelegate.swift in Sources */,
 				B808025E1DA25937004B2771 /* ShareTableController.swift in Sources */,
 				B80802421D9D09FA004B2771 /* AccessoryCell.swift in Sources */,
+				B875A3E61DA5D79F00B30F59 /* SettingController.swift in Sources */,
 				B808023F1D9D09FA004B2771 /* CellSelectProtocol.swift in Sources */,
 				B80802411D9D09FA004B2771 /* SwitchCell.swift in Sources */,
 				B808020A1D9D0598004B2771 /* ViewController.swift in Sources */,
