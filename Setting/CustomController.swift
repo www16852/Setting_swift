@@ -60,12 +60,14 @@ class ModelData{
 
 
 class CustomController: UIViewController {
-    public var tableSections = [Section]()
+    var tableSections = [Section]()
+    var settingController:SettingController!
 
     override func viewDidLoad() {
         super.viewDidLoad()
         setTableSections()
-        let tableview = SettingTableView(frame: view.bounds,tableSections: tableSections)
+        settingController = SettingController(controller:self)
+        let tableview = SettingTableView(frame: view.bounds,tableSections: tableSections,controller: self.settingController)
         view.addSubview(tableview)
 
         // Do any additional setup after loading the view, typically from a nib.

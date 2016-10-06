@@ -9,33 +9,33 @@
 import  UIKit
 
 class SettingController:NSObject{
-    
-    var tableSections:[Section]
 
-    init(sections: [Section]){
-        self.tableSections = sections
+    unowned let controller:UIViewController
+
+    init(controller: UIViewController){
+        self.controller = controller
     }
 
     //MARK: Target
     func tapCell(gesture:UIPanGestureRecognizer){
         let cell = gesture.view as! AccessoryCell
-        print("T: tapCell")
         if cell.detailSections.isEmpty == false{
-//            showDetail(title:(cell.textLabel?.text)!,sections:cell.detailSections,push:cell.pushType)
+            showDetail(title:(cell.textLabel?.text)!,sections:cell.detailSections,push:cell.pushType)
         }
     }
 
     //MARK:
-//    private func showDetail(title:String, sections:[Section],push: AccessoryCell.PushType) {
-//        let controller:SettingController
+    private func showDetail(title:String, sections:[Section],push: AccessoryCell.PushType) {
+        print("T:showDetail")
+        let pushController = SubTableController(tableSections: sections,controller: self)
 //        switch push {
 //        case .sub:  controller = SubTableController()
 //        case .share:controller = ShareTableController()
 //        }
-//        controller.tableSections = sections
-//        controller.view.backgroundColor = UIColor.white
-//        controller.title = title
-//        navigationController?.pushViewController(controller, animated: true)
-//    }
+        pushController.tableSections = sections
+        pushController.view.backgroundColor = UIColor.white
+        pushController.title = title
+        self.controller.navigationController?.pushViewController(pushController, animated: true)
+    }
 
 }

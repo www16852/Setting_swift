@@ -197,8 +197,8 @@
 			isa = PBXGroup;
 			children = (
 				B808025D1DA25937004B2771 /* ShareTableController.swift */,
-				B80802441D9E15D2004B2771 /* SubTableController.swift */,
 				B80802361D9D065B004B2771 /* SettingViewController.swift */,
+				B80802441D9E15D2004B2771 /* SubTableController.swift */,
 				B80802381D9D09A6004B2771 /* CustomController.swift */,
 			);
 			name = UIViewController;
