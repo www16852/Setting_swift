@@ -11,11 +11,11 @@ import UIKit
 public class AccessoryCell:UITableViewCell,CellSelectProtocol{
 
     var detailSections = [Section]()
-    var pushType:PushType
+    var tableContent:TableContent
 
-    public init(text: String, detail: String, sections: [Section], push:PushType, style: UITableViewCellStyle = .value1){
+    public init(text: String, detail: String, tableContent:TableContent, sections: [Section], style: UITableViewCellStyle = .value1){
         self.detailSections = sections
-        self.pushType = push
+        self.tableContent = tableContent
         super.init(style: style,reuseIdentifier: nil)
         self.textLabel?.text = text
         self.detailTextLabel?.text = detail
@@ -33,9 +33,3 @@ public class AccessoryCell:UITableViewCell,CellSelectProtocol{
 
 }
 
-public extension AccessoryCell{
-    enum PushType{
-        case sub
-        case share
-    }
-}

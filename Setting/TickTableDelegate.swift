@@ -21,4 +21,5 @@ class TickTableDelegate:NSObject,UITableViewDelegate{
             cell.accessoryType = .none
         }
     }
+
 }

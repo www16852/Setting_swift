@@ -20,18 +20,14 @@ class SettingController:NSObject{
     func tapCell(gesture:UIPanGestureRecognizer){
         let cell = gesture.view as! AccessoryCell
         if cell.detailSections.isEmpty == false{
-            showDetail(title:(cell.textLabel?.text)!,sections:cell.detailSections,push:cell.pushType)
+            showDetail(title:(cell.textLabel?.text)!,content:cell.tableContent,sections:cell.detailSections)
         }
     }
 
     //MARK:
-    private func showDetail(title:String, sections:[Section],push: AccessoryCell.PushType) {
-        print("T:showDetail")
-        let pushController = SubTableController(tableSections: sections,controller: self)
-//        switch push {
-//        case .sub:  controller = SubTableController()
-//        case .share:controller = ShareTableController()
-//        }
+    private func showDetail(title:String, content:TableContent, sections:[Section]) {
+        print("T:showDetail \(title)")
+        let pushController = SubTableController(content:content, tableSections:sections, controller: self)
         pushController.tableSections = sections
         pushController.view.backgroundColor = UIColor.white
         pushController.title = title

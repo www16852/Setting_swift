@@ -11,18 +11,24 @@ import UIKit
 class SubTableController: UIViewController {
 
     var tableSections = [Section]()
-    var settingController:SettingController!
+    var settingController:SettingController
     var detailTable:UITableView!
+    var tableContent:TableContent
 
-    convenience init(tableSections:[Section],controller:SettingController){
-        self.init(nibName: nil, bundle: nil)
+    init(content:TableContent,tableSections:[Section],controller:SettingController){
+        self.tableContent = content
         self.tableSections = tableSections
         self.settingController = controller
+        super.init(nibName: nil, bundle: nil)
+    }
+    
+    required init?(coder aDecoder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
     }
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.detailTable = SettingTableView(frame: view.bounds,tableSections: tableSections,controller: self.settingController)
+        self.detailTable = SettingTableView(content: tableContent,tableSections: tableSections,controller: self.settingController)
         self.view.addSubview(detailTable)
         self.setupViews()
         settingController = SettingController(controller:self)

@@ -67,7 +67,8 @@ class CustomController: UIViewController {
         super.viewDidLoad()
         setTableSections()
         settingController = SettingController(controller:self)
-        let tableview = SettingTableView(frame: view.bounds,tableSections: tableSections,controller: self.settingController)
+        let content = TableContent(frame: view.bounds)
+        let tableview = SettingTableView(content: content,tableSections: tableSections,controller: self.settingController)
         view.addSubview(tableview)
 
         // Do any additional setup after loading the view, typically from a nib.
@@ -100,14 +101,22 @@ class CustomController: UIViewController {
                 footer: "",
                 settingsCells: [
                     TextCell(text: "Space Used",detail: ""),
-                    AccessoryCell(text: "Legal and Privacy",detail: "",sections: [Section](),push: .sub),
-                    AccessoryCell(text: "Keep Days",detail: "5 days",sections: modelData.creatSections(),push: .sub),
+                    AccessoryCell(text: "Legal and Privacy", detail: "", tableContent:shareTable(), sections: [Section]()),
+                    AccessoryCell(text: "Keep Days",detail: "5 days", tableContent:tickTable(), sections: modelData.creatSections()),
                     TextCell(text: "Connected",detail: "UPnP"),
-                    AccessoryCell(text: "Share Management",detail: "",sections: modelData.creatShareSections(),push: .share)
+                    AccessoryCell(text: "Share Management",detail: "", tableContent:shareTable(), sections: modelData.creatShareSections())
                 ],
                 heightForFooter: 10.0
             )
         ]
+    }
+
+    func shareTable() -> TableContent{
+        return TableContent(delegate: nil, allowsSelection: true)
+    }
+
+    func tickTable() -> TableContent{
+        return TableContent(delegate: TickTableDelegate(), allowsSelection: true)
     }
 
     override func didReceiveMemoryWarning() {
