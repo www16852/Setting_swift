@@ -108,6 +108,14 @@ class CustomController: UIViewController {
                     AccessoryCell(text: "Share Management",detail: "", tableContent:shareTable(), sections: modelData.creatShareSections())
                 ],
                 heightForFooter: 10.0
+            ),
+            Section(
+                header: "",
+                footer: "",
+                settingsCells: [
+                    ButtonCell(text: "Sign out",color: UIColor(red: 0.8, green: 0.5, blue: 0.5, alpha: 1))
+                ],
+                heightForFooter: 10.0
             )
         ]
     }

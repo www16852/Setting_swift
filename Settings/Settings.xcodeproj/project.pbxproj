@@ -19,6 +19,7 @@
 		B8DF3C6B1DB07ED400F31F46 /* SettingDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8DF3C681DB07ED400F31F46 /* SettingDataSource.swift */; };
 		B8DF3C6C1DB07ED400F31F46 /* SubTableController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8DF3C691DB07ED400F31F46 /* SubTableController.swift */; };
 		B8DF3C6D1DB07ED400F31F46 /* TickTableDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8DF3C6A1DB07ED400F31F46 /* TickTableDelegate.swift */; };
+		B8DF3C771DB082D400F31F46 /* ButtonCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8DF3C761DB082D400F31F46 /* ButtonCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -47,6 +48,7 @@
 		B8DF3C681DB07ED400F31F46 /* SettingDataSource.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingDataSource.swift; sourceTree = "<group>"; };
 		B8DF3C691DB07ED400F31F46 /* SubTableController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SubTableController.swift; path = Settings/SubTableController.swift; sourceTree = "<group>"; };
 		B8DF3C6A1DB07ED400F31F46 /* TickTableDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TickTableDelegate.swift; sourceTree = "<group>"; };
+		B8DF3C761DB082D400F31F46 /* ButtonCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ButtonCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -113,6 +115,7 @@
 				B8DF3C5C1DB07E9500F31F46 /* CellSelectProtocol.swift */,
 				B8DF3C5B1DB07E9500F31F46 /* AccessoryCell.swift */,
 				B8DF3C5E1DB07E9500F31F46 /* SwitchCell.swift */,
+				B8DF3C761DB082D400F31F46 /* ButtonCell.swift */,
 				B8DF3C5F1DB07E9500F31F46 /* TextCell.swift */,
 				B8DF3C5D1DB07E9500F31F46 /* SettingTableView.swift */,
 				B8DF3C5A1DB07A7A00F31F46 /* UIViewController */,
@@ -262,6 +265,7 @@
 				B8DF3C661DB07EA400F31F46 /* SettingController.swift in Sources */,
 				B8DF3C6C1DB07ED400F31F46 /* SubTableController.swift in Sources */,
 				B8DF3C641DB07E9500F31F46 /* TextCell.swift in Sources */,
+				B8DF3C771DB082D400F31F46 /* ButtonCell.swift in Sources */,
 				B8DF3C6D1DB07ED400F31F46 /* TickTableDelegate.swift in Sources */,
 				B8DF3C601DB07E9500F31F46 /* AccessoryCell.swift in Sources */,
 				B8DF3C631DB07E9500F31F46 /* SwitchCell.swift in Sources */,

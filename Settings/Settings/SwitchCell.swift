@@ -15,7 +15,6 @@ public class SwitchCell:UITableViewCell{
     public convenience init(text: String){
         self.init(style: UITableViewCellStyle.value1,reuseIdentifier: nil)
         self.textLabel?.text = text
-
         self.setupViews()
     }
 
@@ -27,6 +26,9 @@ public class SwitchCell:UITableViewCell{
 
     func save(sender: UISwitch){
         print("T: save")
+//        for (i,j) in contentView.constraints.enumerated(){
+//            print(i,"   ",j)
+//        }
     }
 
     override public func layoutSubviews() {
@@ -35,7 +37,6 @@ public class SwitchCell:UITableViewCell{
     }
 
     override public func updateConstraints() {
-
         let constraint = NSLayoutConstraint(item: boolSwitch, attribute: .trailing, relatedBy: .equal, toItem: contentView , attribute: .trailing, multiplier: 1, constant: -10)
         constraint.priority = 999
         contentView.addConstraint(constraint)
