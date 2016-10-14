@@ -8,6 +8,16 @@
 
 import UIKit
 
+public struct TextCellPack:MakeCellProtocol{
+
+    var title:String = " "
+    var detail:String = " "
+
+    public func packToCell() -> UITableViewCell{
+        return TextCell(text: title,detail: detail)
+    }
+}
+
 public class TextCell:UITableViewCell{
 
     public convenience init(text: String, detail: String){

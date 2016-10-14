@@ -8,6 +8,15 @@
 
 import UIKit
 
+public struct SwitchCellPack:MakeCellProtocol{
+
+    var title:String = " "
+
+    public func packToCell() -> UITableViewCell{
+        return SwitchCell(text: title)
+    }
+}
+
 public class SwitchCell:UITableViewCell{
 
     private let boolSwitch = UISwitch()

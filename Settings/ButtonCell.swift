@@ -8,6 +8,16 @@
 
 import UIKit
 
+public struct ButtonCellPack:MakeCellProtocol{
+
+    var title:String = " "
+    var color:UIColor = UIColor(red: 0.8, green: 0.5, blue: 0.5, alpha: 1)
+
+    public func packToCell() -> UITableViewCell{
+        return ButtonCell(text: title,color: color)
+    }
+}
+
 public class ButtonCell:UITableViewCell{
 
     private let button = UIButton()

@@ -20,6 +20,8 @@
 		B8DF3C6C1DB07ED400F31F46 /* SubTableController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8DF3C691DB07ED400F31F46 /* SubTableController.swift */; };
 		B8DF3C6D1DB07ED400F31F46 /* TickTableDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8DF3C6A1DB07ED400F31F46 /* TickTableDelegate.swift */; };
 		B8DF3C771DB082D400F31F46 /* ButtonCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8DF3C761DB082D400F31F46 /* ButtonCell.swift */; };
+		B8DF3C7E1DB0CD3D00F31F46 /* CellMaker.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8DF3C7D1DB0CD3D00F31F46 /* CellMaker.swift */; };
+		B8DF3C801DB0D1E400F31F46 /* MakeCellProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8DF3C7F1DB0D1E400F31F46 /* MakeCellProtocol.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -49,6 +51,8 @@
 		B8DF3C691DB07ED400F31F46 /* SubTableController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SubTableController.swift; path = Settings/SubTableController.swift; sourceTree = "<group>"; };
 		B8DF3C6A1DB07ED400F31F46 /* TickTableDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TickTableDelegate.swift; sourceTree = "<group>"; };
 		B8DF3C761DB082D400F31F46 /* ButtonCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ButtonCell.swift; sourceTree = "<group>"; };
+		B8DF3C7D1DB0CD3D00F31F46 /* CellMaker.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CellMaker.swift; sourceTree = "<group>"; };
+		B8DF3C7F1DB0D1E400F31F46 /* MakeCellProtocol.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MakeCellProtocol.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -112,7 +116,7 @@
 		B8DF3C4D1DB07A4100F31F46 /* View */ = {
 			isa = PBXGroup;
 			children = (
-				B8DF3C5C1DB07E9500F31F46 /* CellSelectProtocol.swift */,
+				B8DF3C811DB0D21500F31F46 /* Protocol */,
 				B8DF3C5B1DB07E9500F31F46 /* AccessoryCell.swift */,
 				B8DF3C5E1DB07E9500F31F46 /* SwitchCell.swift */,
 				B8DF3C761DB082D400F31F46 /* ButtonCell.swift */,
@@ -126,6 +130,7 @@
 		B8DF3C591DB07A6F00F31F46 /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				B8DF3C7D1DB0CD3D00F31F46 /* CellMaker.swift */,
 			);
 			name = Model;
 			sourceTree = "<group>";
@@ -147,6 +152,15 @@
 			);
 			name = Controller;
 			path = Settings;
+			sourceTree = "<group>";
+		};
+		B8DF3C811DB0D21500F31F46 /* Protocol */ = {
+			isa = PBXGroup;
+			children = (
+				B8DF3C7F1DB0D1E400F31F46 /* MakeCellProtocol.swift */,
+				B8DF3C5C1DB07E9500F31F46 /* CellSelectProtocol.swift */,
+			);
+			name = Protocol;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -262,11 +276,13 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B8DF3C7E1DB0CD3D00F31F46 /* CellMaker.swift in Sources */,
 				B8DF3C661DB07EA400F31F46 /* SettingController.swift in Sources */,
 				B8DF3C6C1DB07ED400F31F46 /* SubTableController.swift in Sources */,
 				B8DF3C641DB07E9500F31F46 /* TextCell.swift in Sources */,
 				B8DF3C771DB082D400F31F46 /* ButtonCell.swift in Sources */,
 				B8DF3C6D1DB07ED400F31F46 /* TickTableDelegate.swift in Sources */,
+				B8DF3C801DB0D1E400F31F46 /* MakeCellProtocol.swift in Sources */,
 				B8DF3C601DB07E9500F31F46 /* AccessoryCell.swift in Sources */,
 				B8DF3C631DB07E9500F31F46 /* SwitchCell.swift in Sources */,
 				B8DF3C6B1DB07ED400F31F46 /* SettingDataSource.swift in Sources */,
