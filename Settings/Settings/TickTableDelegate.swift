@@ -8,7 +8,7 @@
 
 import UIKit
 
-class TickTableDelegate:NSObject,UITableViewDelegate{
+public class TickTableDelegate:NSObject,UITableViewDelegate{
 
     public func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath){
         if let cell = tableView.cellForRow(at: indexPath) {

@@ -8,11 +8,11 @@
 
 import  UIKit
 
-class SettingController:NSObject{
+public class SettingController:NSObject{
 
     unowned let controller:UIViewController
 
-    init(controller: UIViewController){
+    public init(controller: UIViewController){
         self.controller = controller
     }
 

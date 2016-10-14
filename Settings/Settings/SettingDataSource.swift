@@ -16,7 +16,7 @@ public struct Section {
     fileprivate var heightForHeader: CGFloat
     fileprivate var heightForFooter: CGFloat
 
-    init(header: String,footer: String,settingsCells: [UITableViewCell],heightForHeader: CGFloat = 40,heightForFooter: CGFloat = 40){
+    public init(header: String,footer: String,settingsCells: [UITableViewCell],heightForHeader: CGFloat = 40,heightForFooter: CGFloat = 40){
         self.header = header
         self.footer = footer
         self.settingsCells = settingsCells

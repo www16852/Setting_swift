@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import Settings
 
 let userEmail = "Box03@walton.com.tw"
 let userDevice = "WAS-14-003"

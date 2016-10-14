@@ -14,25 +14,25 @@ public struct TableContent {
     fileprivate let delegate: UITableViewDelegate?
     fileprivate let allowsSelection: Bool
 
-    init(frame: CGRect, delegate: UITableViewDelegate? = nil,allowsSelection: Bool = false){
+    public init(frame: CGRect, delegate: UITableViewDelegate? = nil,allowsSelection: Bool = false){
         self.frame = frame
         self.delegate = delegate
         self.allowsSelection = allowsSelection
     }
 
-    init(delegate: UITableViewDelegate? = nil,allowsSelection: Bool = false){
+    public init(delegate: UITableViewDelegate? = nil,allowsSelection: Bool = false){
         self.init(frame: CGRect.zero, delegate: delegate, allowsSelection:allowsSelection)
     }
 
 
 }
 
-class SettingTableView: UITableView {
+public class SettingTableView: UITableView {
 
     private var dataSourcePtr:UITableViewDataSource?
     private var delegatePtr:UITableViewDelegate?
 
-    init(content: TableContent, tableSections: [Section], controller: SettingController){
+    public init(content: TableContent, tableSections: [Section], controller: SettingController){
         self.dataSourcePtr = SettingDataSource(sections:tableSections,controller:controller)
         super.init(frame: content.frame, style: .plain)
         self.setDelegate(delegate: content.delegate)
@@ -45,7 +45,7 @@ class SettingTableView: UITableView {
         self.delegate = delegatePtr
     }
 
-    required init?(coder aDecoder: NSCoder) {
+    public required init?(coder aDecoder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
 }
