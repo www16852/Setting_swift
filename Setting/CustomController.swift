@@ -75,7 +75,7 @@ class CustomController: UIViewController {
     }
 
     func shareTable() -> TableContent{
-        return TableContent(delegate: nil, allowsSelection: true)
+        return TableContent(allowsSelection: true)
     }
 
     func tickTable() -> TableContent{

@@ -15,8 +15,11 @@ public struct AccessoryCellPack:MakeCellProtocol{
     var tableContent:TableContent = TableContent(delegate: nil, allowsSelection: true)
     var sections = [Section]()
 
+    public var cellSet:(UITableViewCell) -> UITableViewCell = {return $0}
+
     public func packToCell() -> UITableViewCell{
-        return AccessoryCell(text: title, detail: detail, tableContent:tableContent, sections: sections)
+        let cell = cellSet(AccessoryCell(text: title, detail: detail, tableContent:tableContent, sections: sections))
+        return cell
     }
 
     public init(title: String, detail: String, tableContent:TableContent, sections: [Section]){

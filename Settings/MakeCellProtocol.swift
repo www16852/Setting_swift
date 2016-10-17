@@ -10,4 +10,5 @@ import UIKit
 
 public protocol MakeCellProtocol{
     func packToCell() -> UITableViewCell
+    var cellSet:(UITableViewCell) -> UITableViewCell {get set}
 }

@@ -10,42 +10,42 @@ import UIKit
 
 public class CellMaker{
 
-        public class func makeTickSections(header:String, options:[String]) -> [Section]{
-            var optionCell = [MakeCellProtocol]()
-            for str in options {
-                var pack = TextCellPack(title: str,detail: "")
-                pack.cellSet = {
-                    $0.selectionStyle = .none
-                    return $0
-                }
-                optionCell.append(pack)
+    public class func makeTickSections(header:String, options:[String]) -> [Section]{
+        var optionCellPacks = [MakeCellProtocol]()
+        for str in options {
+            var pack = TextCellPack(title: str,detail: "")
+            pack.cellSet = {
+                $0.selectionStyle = .none
+                return $0
             }
-            let tableSection = [
-                Section(
-                    header: header,
-                    footer: "",
-                    CellPacks: optionCell,
-                    heightForFooter: 10.0
-                )
-            ]
-            return tableSection
+            optionCellPacks.append(pack)
         }
+        let tableSection = [
+            Section(
+                header: header,
+                footer: "",
+                CellPacks: optionCellPacks,
+                heightForFooter: 10.0
+            )
+        ]
+        return tableSection
+    }
 
-        public class func makeSections(header:String, options:[String]) -> [Section]{
-            var optionCell = [MakeCellProtocol]()
-            for str in options as [String]{
-                let pack = TextCellPack(title: str,detail: "")
-                optionCell.append(pack)
-            }
-            let tableSection = [
-                Section(
-                    header: header,
-                    footer: "",
-                    CellPacks: optionCell,
-                    heightForFooter: 10.0
-                )
-            ]
-            return tableSection
+    public class func makeSections(header:String, options:[String]) -> [Section]{
+        var optionCellPacks = [MakeCellProtocol]()
+        for str in options as [String]{
+            let pack = TextCellPack(title: str,detail: "")
+            optionCellPacks.append(pack)
         }
+        let tableSection = [
+            Section(
+                header: header,
+                footer: "",
+                CellPacks: optionCellPacks,
+                heightForFooter: 10.0
+            )
+        ]
+        return tableSection
+    }
 
 }

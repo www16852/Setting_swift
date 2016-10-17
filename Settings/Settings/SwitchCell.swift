@@ -12,8 +12,11 @@ public struct SwitchCellPack:MakeCellProtocol{
 
     var title:String = " "
 
+    public var cellSet:(UITableViewCell) -> UITableViewCell = {return $0}
+
     public func packToCell() -> UITableViewCell{
-        return SwitchCell(text: title)
+        let cell = cellSet(SwitchCell(text: title))
+        return cell
     }
 
     public init(title: String){
