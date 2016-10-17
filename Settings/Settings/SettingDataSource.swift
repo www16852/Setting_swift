@@ -12,14 +12,14 @@ public struct Section {
 
     fileprivate let header: String
     fileprivate let footer: String
-    fileprivate let settingsCells: [UITableViewCell]
+    fileprivate let CellPacks: [MakeCellProtocol]
     fileprivate var heightForHeader: CGFloat
     fileprivate var heightForFooter: CGFloat
 
-    public init(header: String,footer: String,settingsCells: [UITableViewCell],heightForHeader: CGFloat = 40,heightForFooter: CGFloat = 40){
+    public init(header: String,footer: String,CellPacks: [MakeCellProtocol],heightForHeader: CGFloat = 40,heightForFooter: CGFloat = 40){
         self.header = header
         self.footer = footer
-        self.settingsCells = settingsCells
+        self.CellPacks = CellPacks
         self.heightForHeader = heightForHeader
         self.heightForFooter = heightForFooter
     }
@@ -41,7 +41,7 @@ class SettingDataSource:NSObject,UITableViewDataSource{
     }
 
     open func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return tableSections[section].settingsCells.count
+        return tableSections[section].CellPacks.count
     }
 
     open func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
@@ -63,10 +63,10 @@ class SettingDataSource:NSObject,UITableViewDataSource{
     }
 
     open func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell{
-        let cell = tableSections[indexPath.section].settingsCells[indexPath.row]
-        if cell is CellSelectProtocol{
+        let cell = tableSections[indexPath.section].CellPacks[indexPath.row].packToCell()
+        if let accessoryCell = cell as? AccessoryCell{
             let tapGesture = UITapGestureRecognizer(target: self.controller, action: #selector(SettingController.tapCell(gesture:)))
-            cell.addGestureRecognizer(tapGesture)
+            accessoryCell.addGestureRecognizer(tapGesture)
         }
         return cell
     }

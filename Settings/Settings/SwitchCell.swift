@@ -15,6 +15,12 @@ public struct SwitchCellPack:MakeCellProtocol{
     public func packToCell() -> UITableViewCell{
         return SwitchCell(text: title)
     }
+
+    public init(title: String){
+        self.title = title
+        if title == "" {self.title = " "}
+    }
+
 }
 
 public class SwitchCell:UITableViewCell{

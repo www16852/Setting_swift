@@ -20,19 +20,16 @@ class ModelData{
     var shareOption:[String] = ["t1@walton.com.tw","t2@walton.com.tw","t3@walton.com.tw","t4@walton.com.tw"]
 
     func creatSections() -> [Section]{
-        var optionCell = [UITableViewCell]()
+        var optionCell = [MakeCellProtocol]()
         for str in option as [String]{
-            let cell = UITableViewCell(style: .value1,reuseIdentifier: nil)
-            cell.textLabel?.text = str
-            cell.detailTextLabel?.text = ""
-            cell.selectionStyle = .none
-            optionCell.append(cell)
+            let pack = TextCellPack(title: str,detail: "")
+            optionCell.append(pack)
         }
         let tableSection = [
             Section(
                 header: "choose Keep Days",
                 footer: "",
-                settingsCells: optionCell,
+                CellPacks: optionCell,
                 heightForFooter: 10.0
             )
         ]
@@ -40,18 +37,16 @@ class ModelData{
     }
 
     func creatShareSections() -> [Section]{
-        var optionCell = [UITableViewCell]()
+        var optionCell = [MakeCellProtocol]()
         for str in shareOption as [String]{
-            let cell = UITableViewCell(style: .value1,reuseIdentifier: nil)
-            cell.textLabel?.text = str
-            cell.detailTextLabel?.text = ""
-            optionCell.append(cell)
+            let pack = TextCellPack(title: str,detail: "")
+            optionCell.append(pack)
         }
         let tableSection = [
             Section(
                 header: "Share Management",
                 footer: "",
-                settingsCells: optionCell,
+                CellPacks: optionCell,
                 heightForFooter: 10.0
             )
         ]
@@ -82,38 +77,38 @@ class CustomController: UIViewController {
             Section(
                 header: "ACCOUNT",
                 footer: "",
-                settingsCells: [
-                    TextCell(text: "Email",detail: userEmail),
-                    TextCell(text: "Device",detail: userDevice),
-                    TextCell(text: "Version",detail: version)
+                CellPacks: [
+                    TextCellPack(title: "Email",detail: userEmail),
+                    TextCellPack(title: "Device",detail: userDevice),
+                    TextCellPack(title: "Version",detail: version)
                 ],
                 heightForFooter: 10.0
             ),
             Section(
                 header: "SETTING",
                 footer: "",
-                settingsCells: [
-                    SwitchCell(text: "Carmera Uploads")
+                CellPacks: [
+                    SwitchCellPack(title: "Carmera Uploads")
                 ],
                 heightForFooter: 10.0
             ),
             Section(
                 header: "MANAGEMENT",
                 footer: "",
-                settingsCells: [
-                    TextCell(text: "Space Used",detail: ""),
-                    AccessoryCell(text: "Legal and Privacy", detail: "", tableContent:shareTable(), sections: [Section]()),
-                    AccessoryCell(text: "Keep Days",detail: "5 days", tableContent:tickTable(), sections: modelData.creatSections()),
-                    TextCell(text: "Connected",detail: "UPnP"),
-                    AccessoryCell(text: "Share Management",detail: "", tableContent:shareTable(), sections: modelData.creatShareSections())
+                CellPacks: [
+                    TextCellPack(title: "Space Used",detail: ""),
+                    AccessoryCellPack(title: "Legal and Privacy", detail: "", tableContent:shareTable(), sections: [Section]()),
+                    AccessoryCellPack(title: "Keep Days",detail: "5 days", tableContent:tickTable(), sections: modelData.creatSections()),
+                    TextCellPack(title: "Connected",detail: "UPnP"  ),
+                    AccessoryCellPack(title: "Share Management",detail: "", tableContent:shareTable(), sections: modelData.creatShareSections())
                 ],
                 heightForFooter: 10.0
             ),
             Section(
                 header: "",
                 footer: "",
-                settingsCells: [
-                    ButtonCell(text: "Sign out",color: UIColor(red: 0.8, green: 0.5, blue: 0.5, alpha: 1))
+                CellPacks: [
+                    ButtonCellPack(title: "Sign out",color: UIColor(red: 0.8, green: 0.5, blue: 0.5, alpha: 1))
                 ],
                 heightForFooter: 10.0
             )

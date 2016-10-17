@@ -16,6 +16,12 @@ public struct TextCellPack:MakeCellProtocol{
     public func packToCell() -> UITableViewCell{
         return TextCell(text: title,detail: detail)
     }
+
+    public init(title: String,detail: String){
+        self.title = title
+        self.detail = detail
+    }
+
 }
 
 public class TextCell:UITableViewCell{

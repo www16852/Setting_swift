@@ -11,11 +11,18 @@ import UIKit
 public struct ButtonCellPack:MakeCellProtocol{
 
     var title:String = " "
-    var color:UIColor = UIColor(red: 0.8, green: 0.5, blue: 0.5, alpha: 1)
+    var color:UIColor
 
     public func packToCell() -> UITableViewCell{
         return ButtonCell(text: title,color: color)
     }
+
+    public init(title: String,color: UIColor = UIColor(red: 0.8, green: 0.5, blue: 0.5, alpha: 1)){
+        self.title = title
+        self.color = color
+        if title == "" {self.title = " "}
+    }
+
 }
 
 public class ButtonCell:UITableViewCell{

@@ -11,7 +11,6 @@
 		B8DF3C381DB079C700F31F46 /* SettingsTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8DF3C371DB079C700F31F46 /* SettingsTests.swift */; };
 		B8DF3C3A1DB079C700F31F46 /* Settings.h in Headers */ = {isa = PBXBuildFile; fileRef = B8DF3C2C1DB079C700F31F46 /* Settings.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		B8DF3C601DB07E9500F31F46 /* AccessoryCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8DF3C5B1DB07E9500F31F46 /* AccessoryCell.swift */; };
-		B8DF3C611DB07E9500F31F46 /* CellSelectProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8DF3C5C1DB07E9500F31F46 /* CellSelectProtocol.swift */; };
 		B8DF3C621DB07E9500F31F46 /* SettingTableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8DF3C5D1DB07E9500F31F46 /* SettingTableView.swift */; };
 		B8DF3C631DB07E9500F31F46 /* SwitchCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8DF3C5E1DB07E9500F31F46 /* SwitchCell.swift */; };
 		B8DF3C641DB07E9500F31F46 /* TextCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8DF3C5F1DB07E9500F31F46 /* TextCell.swift */; };
@@ -42,7 +41,6 @@
 		B8DF3C371DB079C700F31F46 /* SettingsTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsTests.swift; sourceTree = "<group>"; };
 		B8DF3C391DB079C700F31F46 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		B8DF3C5B1DB07E9500F31F46 /* AccessoryCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = AccessoryCell.swift; path = Settings/AccessoryCell.swift; sourceTree = "<group>"; };
-		B8DF3C5C1DB07E9500F31F46 /* CellSelectProtocol.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = CellSelectProtocol.swift; path = Settings/CellSelectProtocol.swift; sourceTree = "<group>"; };
 		B8DF3C5D1DB07E9500F31F46 /* SettingTableView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SettingTableView.swift; path = Settings/SettingTableView.swift; sourceTree = "<group>"; };
 		B8DF3C5E1DB07E9500F31F46 /* SwitchCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SwitchCell.swift; path = Settings/SwitchCell.swift; sourceTree = "<group>"; };
 		B8DF3C5F1DB07E9500F31F46 /* TextCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = TextCell.swift; path = Settings/TextCell.swift; sourceTree = "<group>"; };
@@ -158,7 +156,6 @@
 			isa = PBXGroup;
 			children = (
 				B8DF3C7F1DB0D1E400F31F46 /* MakeCellProtocol.swift */,
-				B8DF3C5C1DB07E9500F31F46 /* CellSelectProtocol.swift */,
 			);
 			name = Protocol;
 			sourceTree = "<group>";
@@ -286,7 +283,6 @@
 				B8DF3C601DB07E9500F31F46 /* AccessoryCell.swift in Sources */,
 				B8DF3C631DB07E9500F31F46 /* SwitchCell.swift in Sources */,
 				B8DF3C6B1DB07ED400F31F46 /* SettingDataSource.swift in Sources */,
-				B8DF3C611DB07E9500F31F46 /* CellSelectProtocol.swift in Sources */,
 				B8DF3C621DB07E9500F31F46 /* SettingTableView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

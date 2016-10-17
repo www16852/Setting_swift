@@ -10,8 +10,4 @@ import UIKit
 
 open class CellMaker{
 
-    open func packAccessoryCell(){
-
-    }
-
 }
