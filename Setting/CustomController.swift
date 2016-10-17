@@ -12,48 +12,8 @@ import Settings
 let userEmail = "Box03@walton.com.tw"
 let userDevice = "WAS-14-003"
 let version = "1.0.13"
-
-class ModelData{
-    var text = "Keep Days"
-    var detail = "5 days"
-    var option:[String] = ["5days","10days","15days","20days"]
-    var shareOption:[String] = ["t1@walton.com.tw","t2@walton.com.tw","t3@walton.com.tw","t4@walton.com.tw"]
-
-    func creatSections() -> [Section]{
-        var optionCell = [MakeCellProtocol]()
-        for str in option as [String]{
-            let pack = TextCellPack(title: str,detail: "")
-            optionCell.append(pack)
-        }
-        let tableSection = [
-            Section(
-                header: "choose Keep Days",
-                footer: "",
-                CellPacks: optionCell,
-                heightForFooter: 10.0
-            )
-        ]
-        return tableSection
-    }
-
-    func creatShareSections() -> [Section]{
-        var optionCell = [MakeCellProtocol]()
-        for str in shareOption as [String]{
-            let pack = TextCellPack(title: str,detail: "")
-            optionCell.append(pack)
-        }
-        let tableSection = [
-            Section(
-                header: "Share Management",
-                footer: "",
-                CellPacks: optionCell,
-                heightForFooter: 10.0
-            )
-        ]
-        return tableSection
-    }
-}
-
+var dayOption:[String] = ["5days","10days","15days","20days"]
+var shareOption:[String] = ["t1@walton.com.tw","t2@walton.com.tw","t3@walton.com.tw","t4@walton.com.tw"]
 
 class CustomController: UIViewController {
     var tableSections = [Section]()
@@ -72,7 +32,6 @@ class CustomController: UIViewController {
 
     func setTableSections(){
 
-        let modelData = ModelData()
         self.tableSections = [
             Section(
                 header: "ACCOUNT",
@@ -98,9 +57,9 @@ class CustomController: UIViewController {
                 CellPacks: [
                     TextCellPack(title: "Space Used",detail: ""),
                     AccessoryCellPack(title: "Legal and Privacy", detail: "", tableContent:shareTable(), sections: [Section]()),
-                    AccessoryCellPack(title: "Keep Days",detail: "5 days", tableContent:tickTable(), sections: modelData.creatSections()),
+                    AccessoryCellPack(title: "Keep Days",detail: "5 days", tableContent:tickTable(), sections: CellMaker.makeTickSections(header:"choose Keep Days", options:dayOption)),
                     TextCellPack(title: "Connected",detail: "UPnP"  ),
-                    AccessoryCellPack(title: "Share Management",detail: "", tableContent:shareTable(), sections: modelData.creatShareSections())
+                    AccessoryCellPack(title: "Share Management",detail: "", tableContent:shareTable(), sections: CellMaker.makeSections(header:"Share Management", options:shareOption))
                 ],
                 heightForFooter: 10.0
             ),

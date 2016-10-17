@@ -12,9 +12,12 @@ public struct TextCellPack:MakeCellProtocol{
 
     var title:String = " "
     var detail:String = " "
+//    var cellSet = {(cell:TextCell) -> TextCell in return cell}
+    public var cellSet:(TextCell) -> TextCell = {return $0}
 
     public func packToCell() -> UITableViewCell{
-        return TextCell(text: title,detail: detail)
+        let cell = cellSet(TextCell(text: title,detail: detail))
+        return cell
     }
 
     public init(title: String,detail: String){
