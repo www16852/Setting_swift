@@ -21,6 +21,10 @@
 		B8DF3C771DB082D400F31F46 /* ButtonCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8DF3C761DB082D400F31F46 /* ButtonCell.swift */; };
 		B8DF3C7E1DB0CD3D00F31F46 /* CellMaker.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8DF3C7D1DB0CD3D00F31F46 /* CellMaker.swift */; };
 		B8DF3C801DB0D1E400F31F46 /* MakeCellProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8DF3C7F1DB0D1E400F31F46 /* MakeCellProtocol.swift */; };
+		B8DF3C951DB720FF00F31F46 /* AccessoryCellPack.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8DF3C941DB720FF00F31F46 /* AccessoryCellPack.swift */; };
+		B8DF3C971DB7210B00F31F46 /* SwitchCellPack.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8DF3C961DB7210B00F31F46 /* SwitchCellPack.swift */; };
+		B8DF3C991DB7211500F31F46 /* ButtonCellPack.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8DF3C981DB7211500F31F46 /* ButtonCellPack.swift */; };
+		B8DF3C9B1DB7211E00F31F46 /* TextCellPack.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8DF3C9A1DB7211E00F31F46 /* TextCellPack.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -51,6 +55,10 @@
 		B8DF3C761DB082D400F31F46 /* ButtonCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ButtonCell.swift; sourceTree = "<group>"; };
 		B8DF3C7D1DB0CD3D00F31F46 /* CellMaker.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CellMaker.swift; sourceTree = "<group>"; };
 		B8DF3C7F1DB0D1E400F31F46 /* MakeCellProtocol.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MakeCellProtocol.swift; sourceTree = "<group>"; };
+		B8DF3C941DB720FF00F31F46 /* AccessoryCellPack.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AccessoryCellPack.swift; sourceTree = "<group>"; };
+		B8DF3C961DB7210B00F31F46 /* SwitchCellPack.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SwitchCellPack.swift; sourceTree = "<group>"; };
+		B8DF3C981DB7211500F31F46 /* ButtonCellPack.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ButtonCellPack.swift; sourceTree = "<group>"; };
+		B8DF3C9A1DB7211E00F31F46 /* TextCellPack.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TextCellPack.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -115,6 +123,7 @@
 			isa = PBXGroup;
 			children = (
 				B8DF3C811DB0D21500F31F46 /* Protocol */,
+				B8DF3C931DB720C400F31F46 /* CellPack */,
 				B8DF3C5B1DB07E9500F31F46 /* AccessoryCell.swift */,
 				B8DF3C5E1DB07E9500F31F46 /* SwitchCell.swift */,
 				B8DF3C761DB082D400F31F46 /* ButtonCell.swift */,
@@ -158,6 +167,17 @@
 				B8DF3C7F1DB0D1E400F31F46 /* MakeCellProtocol.swift */,
 			);
 			name = Protocol;
+			sourceTree = "<group>";
+		};
+		B8DF3C931DB720C400F31F46 /* CellPack */ = {
+			isa = PBXGroup;
+			children = (
+				B8DF3C941DB720FF00F31F46 /* AccessoryCellPack.swift */,
+				B8DF3C961DB7210B00F31F46 /* SwitchCellPack.swift */,
+				B8DF3C981DB7211500F31F46 /* ButtonCellPack.swift */,
+				B8DF3C9A1DB7211E00F31F46 /* TextCellPack.swift */,
+			);
+			name = CellPack;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -274,15 +294,19 @@
 			buildActionMask = 2147483647;
 			files = (
 				B8DF3C7E1DB0CD3D00F31F46 /* CellMaker.swift in Sources */,
+				B8DF3C951DB720FF00F31F46 /* AccessoryCellPack.swift in Sources */,
 				B8DF3C661DB07EA400F31F46 /* SettingController.swift in Sources */,
+				B8DF3C9B1DB7211E00F31F46 /* TextCellPack.swift in Sources */,
 				B8DF3C6C1DB07ED400F31F46 /* SubTableController.swift in Sources */,
 				B8DF3C641DB07E9500F31F46 /* TextCell.swift in Sources */,
 				B8DF3C771DB082D400F31F46 /* ButtonCell.swift in Sources */,
 				B8DF3C6D1DB07ED400F31F46 /* TickTableDelegate.swift in Sources */,
 				B8DF3C801DB0D1E400F31F46 /* MakeCellProtocol.swift in Sources */,
+				B8DF3C971DB7210B00F31F46 /* SwitchCellPack.swift in Sources */,
 				B8DF3C601DB07E9500F31F46 /* AccessoryCell.swift in Sources */,
 				B8DF3C631DB07E9500F31F46 /* SwitchCell.swift in Sources */,
 				B8DF3C6B1DB07ED400F31F46 /* SettingDataSource.swift in Sources */,
+				B8DF3C991DB7211500F31F46 /* ButtonCellPack.swift in Sources */,
 				B8DF3C621DB07E9500F31F46 /* SettingTableView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

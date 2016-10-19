@@ -13,7 +13,7 @@ public class CellMaker{
     public class func makeTickSections(header:String, options:[String]) -> [Section]{
         var optionCellPacks = [MakeCellProtocol]()
         for str in options {
-            var pack = TextCellPack(title: str,detail: "")
+            let pack = TextCellPack(title: str,detail: "")
             pack.cellSet = {
                 $0.selectionStyle = .none
                 return $0
