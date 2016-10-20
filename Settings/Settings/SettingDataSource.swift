@@ -28,12 +28,10 @@ public struct Section {
 
 class SettingDataSource:NSObject,UITableViewDataSource{
 
-    unowned let controller:SettingController
     var tableSections:[Section]
 
-    init(sections: [Section], controller: SettingController){
+    init(sections: [Section]){
         self.tableSections = sections
-        self.controller = controller
     }
 
     open func numberOfSections(in tableView: UITableView) -> Int {
@@ -64,10 +62,6 @@ class SettingDataSource:NSObject,UITableViewDataSource{
 
     open func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell{
         let cell = tableSections[indexPath.section].CellPacks[indexPath.row].packToCell()
-        if let accessoryCell = cell as? AccessoryCell{
-            let tapGesture = UITapGestureRecognizer(target: self.controller, action: #selector(SettingController.tapCell(gesture:)))
-            accessoryCell.addGestureRecognizer(tapGesture)
-        }
         return cell
     }
 

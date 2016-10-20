@@ -10,6 +10,7 @@ import UIKit
 
 public class AccessoryCell:UITableViewCell{
 
+    public var listeners:listenerContainer!
     var detailSections = [Section]()
     var tableContent:TableContent
 
@@ -20,8 +21,21 @@ public class AccessoryCell:UITableViewCell{
         self.textLabel?.text = text
         self.detailTextLabel?.text = detail
         self.accessoryType = .disclosureIndicator
+        addGesture()
     }
-    
+
+    public func addGesture(){
+        let gesture = UITapGestureRecognizer(target: self, action: #selector(self.tapAction(cell:)))
+        self.addGestureRecognizer(gesture)
+    }
+
+    public func tapAction(cell:UITableViewCell){
+        print("T:AccesoryCell tapAction")
+        for tapL in listeners.tapListener{
+            tapL.tapAction(cell: cell)
+        }
+    }
+
     required public init?(coder aDecoder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }

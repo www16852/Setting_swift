@@ -32,8 +32,8 @@ public class SettingTableView: UITableView {
     private var dataSourcePtr:UITableViewDataSource?
     private var delegatePtr:UITableViewDelegate?
 
-    public init(content: TableContent, tableSections: [Section], controller: SettingController){
-        self.dataSourcePtr = SettingDataSource(sections:tableSections,controller:controller)
+    public init(content: TableContent, tableSections: [Section]){
+        self.dataSourcePtr = SettingDataSource(sections:tableSections)
         super.init(frame: content.frame, style: .plain)
         self.setDelegate(delegate: content.delegate)
         self.allowsSelection = content.allowsSelection

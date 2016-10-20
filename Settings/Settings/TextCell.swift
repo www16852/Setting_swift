@@ -10,10 +10,29 @@ import UIKit
 
 public class TextCell:UITableViewCell{
 
-    public convenience init(text: String, detail: String){
-        self.init(style: UITableViewCellStyle.value1,reuseIdentifier: nil)
+    public var listeners:listenerContainer!
+
+    public init(text: String, detail:String){
+        super.init(style: UITableViewCellStyle.value1,reuseIdentifier: nil)
         self.textLabel?.text = text
         self.detailTextLabel?.text = detail
+        addGesture()
+    }
+
+    public func addGesture(){
+        let gesture = UITapGestureRecognizer(target: self, action: #selector(self.tapAction(cell:)))
+        self.addGestureRecognizer(gesture)
+    }
+
+    public func tapAction(cell:UITableViewCell){
+        print("T: TextCell.tapAction")
+        for tapL in listeners.tapListener{
+            tapL.tapAction(cell: cell)
+        }
+    }
+
+    required public init?(coder aDecoder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
     }
 
 }

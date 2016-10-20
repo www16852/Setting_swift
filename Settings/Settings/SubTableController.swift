@@ -11,11 +11,11 @@ import UIKit
 class SubTableController: UIViewController {
 
     var tableSections = [Section]()
-    var settingController:SettingController
+    var settingController:PushController
     var detailTable:UITableView!
     var tableContent:TableContent
 
-    init(content:TableContent,tableSections:[Section],controller:SettingController){
+    init(content:TableContent,tableSections:[Section],controller:PushController){
         self.tableContent = content
         self.tableSections = tableSections
         self.settingController = controller
@@ -28,10 +28,10 @@ class SubTableController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.detailTable = SettingTableView(content: tableContent,tableSections: tableSections,controller: self.settingController)
+        self.detailTable = SettingTableView(content: tableContent,tableSections: tableSections)
         self.view.addSubview(detailTable)
         self.setupViews()
-        settingController = SettingController(controller:self)
+        settingController = PushController(controller:self)
         // Do any additional setup after loading the view, typically from a nib.
     }
 

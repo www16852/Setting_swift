@@ -10,27 +10,33 @@ import UIKit
 
 public class SwitchCell:UITableViewCell{
 
+    public var listeners:listenerContainer!
     private let boolSwitch = UISwitch()
 
     public convenience init(text: String){
         self.init(style: UITableViewCellStyle.value1,reuseIdentifier: nil)
         self.textLabel?.text = text
-        self.setupViews()
+        setupViews()
+        addGesture()
     }
 
     func setupViews(){
         contentView.addSubview(boolSwitch)
-        boolSwitch.addTarget(self, action: #selector(SwitchCell.save(sender:)), for: .valueChanged)
         boolSwitch.translatesAutoresizingMaskIntoConstraints = false
     }
 
-    func save(sender: UISwitch){
-        print("T: save")
-//        for (i,j) in contentView.constraints.enumerated(){
-//            print(i,"   ",j)
-//        }
+    public func addGesture(){
+        boolSwitch.addTarget(self, action: #selector(self.tapAction(cell:)), for: .valueChanged)
     }
 
+    public func tapAction(cell:UITableViewCell){
+        print("T:Switch tapAction")
+        for tapL in listeners.tapListener{
+            tapL.tapAction(cell: cell)
+        }
+    }
+
+//MARK:AutoLayout
     override public func layoutSubviews() {
         updateConstraints()
         super.layoutSubviews()

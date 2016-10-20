@@ -10,6 +10,7 @@ import UIKit
 
 public class ButtonCell:UITableViewCell{
 
+    public var listeners:listenerContainer!
     private let button = UIButton()
 
     public convenience init(text: String,color: UIColor){
@@ -18,19 +19,28 @@ public class ButtonCell:UITableViewCell{
         self.detailTextLabel?.text = " "
         button.setTitle(text, for: .normal)
         button.backgroundColor = color
-        self.setupViews()
+        setupViews()
+        addGesture()
     }
 
     func setupViews(){
         contentView.addSubview(button)
-        button.addTarget(self, action: #selector(ButtonCell.touchUp(sender:)), for: .touchUpInside)
         button.translatesAutoresizingMaskIntoConstraints = false
     }
 
-    func touchUp(sender: UISwitch){
-        print("T: touchUp")
+    public func addGesture(){
+        button.addTarget(self, action: #selector(self.tapAction(cell:)), for: .touchUpInside)
     }
 
+    public func tapAction(cell:UITableViewCell){
+        print("T:Button tapAction")
+        for tapL in listeners.tapListener{
+            print("T:",tapL)
+            tapL.tapAction(cell: cell)
+        }
+    }
+
+//MARK: AutoLayout
     override public func layoutSubviews() {
         updateConstraints()
         super.layoutSubviews()

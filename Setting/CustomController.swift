@@ -15,16 +15,20 @@ let version = "1.0.13"
 var dayOption:[String] = ["5days","10days","15days","20days"]
 var shareOption:[String] = ["t1@walton.com.tw","t2@walton.com.tw","t3@walton.com.tw","t4@walton.com.tw"]
 
+
+
 class CustomController: UIViewController {
     var tableSections = [Section]()
-    var settingController:SettingController!
+    var controllers:listenerContainer!
+    var p:PushController!
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        p = PushController(controller:self)
+        controllers = listenerContainer(listeners:[p])
         setTableSections()
-        settingController = SettingController(controller:self)
         let content = TableContent(frame: view.bounds)
-        let tableview = SettingTableView(content: content,tableSections: tableSections,controller: self.settingController)
+        let tableview = SettingTableView(content: content,tableSections: tableSections)
         view.addSubview(tableview)
 
         // Do any additional setup after loading the view, typically from a nib.
@@ -37,7 +41,7 @@ class CustomController: UIViewController {
                 header: "ACCOUNT",
                 footer: "",
                 CellPacks: [
-                    TextCellPack(title: "Email",detail: userEmail),
+                    TextCellPack(title: "Email",detail: userEmail, listeners:controllers),
                     TextCellPack(title: "Device",detail: userDevice),
                     TextCellPack(title: "Version",detail: version)
                 ],
