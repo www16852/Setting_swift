@@ -21,7 +21,6 @@ public class AccessoryCell:UITableViewCell,EventCell{
         self.textLabel?.text = text
         self.detailTextLabel?.text = detail
         self.accessoryType = .disclosureIndicator
-        addGesture()
     }
 
     public func addGesture(){

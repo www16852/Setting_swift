@@ -16,7 +16,6 @@ public class TextCell:UITableViewCell,EventCell{
         super.init(style: UITableViewCellStyle.value1,reuseIdentifier: nil)
         self.textLabel?.text = text
         self.detailTextLabel?.text = detail
-        addGesture()
     }
 
     public func addGesture(){

@@ -17,7 +17,6 @@ public class SwitchCell:UITableViewCell,EventCell{
         self.init(style: UITableViewCellStyle.value1,reuseIdentifier: nil)
         self.textLabel?.text = text
         setupViews()
-        addGesture()
     }
 
     func setupViews(){

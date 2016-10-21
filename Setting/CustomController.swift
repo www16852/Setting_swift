@@ -30,7 +30,7 @@ class CustomController: UIViewController {
         let content = TableContent(frame: view.bounds)
         let tableview = SettingTableView(content: content,tableSections: tableSections)
         view.addSubview(tableview)
-
+        SettingPlist().temp()
         // Do any additional setup after loading the view, typically from a nib.
     }
 

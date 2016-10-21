@@ -62,6 +62,9 @@ class SettingDataSource:NSObject,UITableViewDataSource{
 
     open func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell{
         let cell = tableSections[indexPath.section].CellPacks[indexPath.row].packToCell()
+        if let eventCell = cell as? EventCell{
+            eventCell.addGesture()
+        }
         return cell
     }
 

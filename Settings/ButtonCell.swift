@@ -20,7 +20,6 @@ public class ButtonCell:UITableViewCell,EventCell{
         button.setTitle(text, for: .normal)
         button.backgroundColor = color
         setupViews()
-        addGesture()
     }
 
     func setupViews(){
