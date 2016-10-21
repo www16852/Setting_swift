@@ -12,7 +12,7 @@ public struct Section {
 
     fileprivate let header: String
     fileprivate let footer: String
-    fileprivate let CellPacks: [MakeCellProtocol]
+    let CellPacks: [MakeCellProtocol]
     fileprivate var heightForHeader: CGFloat
     fileprivate var heightForFooter: CGFloat
 

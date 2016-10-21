@@ -1,5 +1,5 @@
 //
-//  SavePlist.swift
+//  LoadPlist.swift
 //  Settings
 //
 //  Created by waltoncob on 2016/10/21.
@@ -8,6 +8,6 @@
 
 import Foundation
 
-public protocol SavePlist{
-    func cellToPlist() -> [String:Any]
+public protocol LoadPlist{
+    func toPlist() -> (String,Any)
 }

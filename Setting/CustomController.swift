@@ -26,11 +26,13 @@ class CustomController: UIViewController {
         super.viewDidLoad()
         p = PushController(controller:self)
         controllers = ListenerContainer(listeners:[p])
+
         setTableSections()
+        SectionManager(sections:tableSections)
+
         let content = TableContent(frame: view.bounds)
         let tableview = SettingTableView(content: content,tableSections: tableSections)
         view.addSubview(tableview)
-        SettingPlist().temp()
         // Do any additional setup after loading the view, typically from a nib.
     }
 

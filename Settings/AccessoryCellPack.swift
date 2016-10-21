@@ -8,7 +8,7 @@
 
 import UIKit
 
-public class AccessoryCellPack:MakeCellProtocol{
+public class AccessoryCellPack:MakeCellProtocol,LoadPlist{
 
     var title:String = " "
     var detail:String = " "
@@ -23,6 +23,10 @@ public class AccessoryCellPack:MakeCellProtocol{
         let cell = cellSet(AccessoryCell(text: title, detail: detail, tableContent:tableContent, sections: sections)) as! AccessoryCell
         cell.listeners = listeners
         return cell
+    }
+
+    public func toPlist() -> (String,Any){
+        return (title,detail)
     }
 
     public init(title: String, detail: String, tableContent:TableContent, sections: [Section], listeners:ListenerContainer = ListenerContainer()){
