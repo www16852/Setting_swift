@@ -8,7 +8,7 @@
 
 import UIKit
 
-public class TextCell:UITableViewCell{
+public class TextCell:UITableViewCell,EventCell{
 
     public var listeners:ListenerContainer!
 

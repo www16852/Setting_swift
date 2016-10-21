@@ -7,7 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		B833FA3E1DB86D38003D2DDC /* CellEvent.swift in Sources */ = {isa = PBXBuildFile; fileRef = B833FA3D1DB86D38003D2DDC /* CellEvent.swift */; };
+		B833FA3E1DB86D38003D2DDC /* EventCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B833FA3D1DB86D38003D2DDC /* EventCell.swift */; };
 		B833FA411DB8B416003D2DDC /* ListenerContainer.swift in Sources */ = {isa = PBXBuildFile; fileRef = B833FA401DB8B416003D2DDC /* ListenerContainer.swift */; };
 		B8DF3C331DB079C700F31F46 /* Settings.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B8DF3C291DB079C700F31F46 /* Settings.framework */; };
 		B8DF3C381DB079C700F31F46 /* SettingsTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8DF3C371DB079C700F31F46 /* SettingsTests.swift */; };
@@ -28,7 +28,6 @@
 		B8DF3C991DB7211500F31F46 /* ButtonCellPack.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8DF3C981DB7211500F31F46 /* ButtonCellPack.swift */; };
 		B8DF3C9B1DB7211E00F31F46 /* TextCellPack.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8DF3C9A1DB7211E00F31F46 /* TextCellPack.swift */; };
 		B8DF3CA31DB7585B00F31F46 /* CellListener.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8DF3CA21DB7585B00F31F46 /* CellListener.swift */; };
-		B8DF3CAF1DB85F7800F31F46 /* CellGestureMaker.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8DF3CAE1DB85F7800F31F46 /* CellGestureMaker.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -42,7 +41,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		B833FA3D1DB86D38003D2DDC /* CellEvent.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CellEvent.swift; sourceTree = "<group>"; };
+		B833FA3D1DB86D38003D2DDC /* EventCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EventCell.swift; sourceTree = "<group>"; };
 		B833FA401DB8B416003D2DDC /* ListenerContainer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ListenerContainer.swift; sourceTree = "<group>"; };
 		B8DF3C291DB079C700F31F46 /* Settings.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Settings.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		B8DF3C2C1DB079C700F31F46 /* Settings.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Settings.h; sourceTree = "<group>"; };
@@ -66,7 +65,6 @@
 		B8DF3C981DB7211500F31F46 /* ButtonCellPack.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ButtonCellPack.swift; sourceTree = "<group>"; };
 		B8DF3C9A1DB7211E00F31F46 /* TextCellPack.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TextCellPack.swift; sourceTree = "<group>"; };
 		B8DF3CA21DB7585B00F31F46 /* CellListener.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CellListener.swift; sourceTree = "<group>"; };
-		B8DF3CAE1DB85F7800F31F46 /* CellGestureMaker.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CellGestureMaker.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -146,7 +144,6 @@
 			isa = PBXGroup;
 			children = (
 				B8DF3C7D1DB0CD3D00F31F46 /* CellMaker.swift */,
-				B8DF3CAE1DB85F7800F31F46 /* CellGestureMaker.swift */,
 			);
 			name = Model;
 			sourceTree = "<group>";
@@ -176,7 +173,7 @@
 			isa = PBXGroup;
 			children = (
 				B8DF3C7F1DB0D1E400F31F46 /* MakeCellProtocol.swift */,
-				B833FA3D1DB86D38003D2DDC /* CellEvent.swift */,
+				B833FA3D1DB86D38003D2DDC /* EventCell.swift */,
 			);
 			name = Protocol;
 			sourceTree = "<group>";
@@ -332,10 +329,9 @@
 				B8DF3C6D1DB07ED400F31F46 /* TickTableDelegate.swift in Sources */,
 				B8DF3C801DB0D1E400F31F46 /* MakeCellProtocol.swift in Sources */,
 				B8DF3C971DB7210B00F31F46 /* SwitchCellPack.swift in Sources */,
-				B8DF3CAF1DB85F7800F31F46 /* CellGestureMaker.swift in Sources */,
 				B8DF3C601DB07E9500F31F46 /* AccessoryCell.swift in Sources */,
 				B8DF3C631DB07E9500F31F46 /* SwitchCell.swift in Sources */,
-				B833FA3E1DB86D38003D2DDC /* CellEvent.swift in Sources */,
+				B833FA3E1DB86D38003D2DDC /* EventCell.swift in Sources */,
 				B8DF3C6B1DB07ED400F31F46 /* SettingDataSource.swift in Sources */,
 				B8DF3C991DB7211500F31F46 /* ButtonCellPack.swift in Sources */,
 				B833FA411DB8B416003D2DDC /* ListenerContainer.swift in Sources */,

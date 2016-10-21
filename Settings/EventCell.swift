@@ -8,6 +8,7 @@
 
 import UIKit
 
-public protocol CellEvent{
-    var listener:CellListener!{get set}
+public protocol EventCell{
+    var listeners:ListenerContainer!{get set}
+    func tapAction(obj:AnyObject)
 }
