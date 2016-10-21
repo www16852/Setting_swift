@@ -19,13 +19,13 @@ var shareOption:[String] = ["t1@walton.com.tw","t2@walton.com.tw","t3@walton.com
 
 class CustomController: UIViewController {
     var tableSections = [Section]()
-    var controllers:listenerContainer!
+    var controllers:ListenerContainer!
     var p:PushController!
 
     override func viewDidLoad() {
         super.viewDidLoad()
         p = PushController(controller:self)
-        controllers = listenerContainer(listeners:[p])
+        controllers = ListenerContainer(listeners:[p])
         setTableSections()
         let content = TableContent(frame: view.bounds)
         let tableview = SettingTableView(content: content,tableSections: tableSections)

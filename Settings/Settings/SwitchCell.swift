@@ -10,7 +10,7 @@ import UIKit
 
 public class SwitchCell:UITableViewCell{
 
-    public var listeners:listenerContainer!
+    public var listeners:ListenerContainer!
     private let boolSwitch = UISwitch()
 
     public convenience init(text: String){
@@ -26,13 +26,13 @@ public class SwitchCell:UITableViewCell{
     }
 
     public func addGesture(){
-        boolSwitch.addTarget(self, action: #selector(self.tapAction(cell:)), for: .valueChanged)
+        boolSwitch.addTarget(self, action: #selector(self.tapAction(obj:)), for: .valueChanged)
     }
 
-    public func tapAction(cell:UITableViewCell){
+    public func tapAction(obj:AnyObject){
         print("T:Switch tapAction")
         for tapL in listeners.tapListener{
-            tapL.tapAction(cell: cell)
+            tapL.tapAction(cell: self)
         }
     }
 

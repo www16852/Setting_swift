@@ -10,7 +10,7 @@ import UIKit
 
 public class AccessoryCell:UITableViewCell{
 
-    public var listeners:listenerContainer!
+    public var listeners:ListenerContainer!
     var detailSections = [Section]()
     var tableContent:TableContent
 
@@ -25,14 +25,14 @@ public class AccessoryCell:UITableViewCell{
     }
 
     public func addGesture(){
-        let gesture = UITapGestureRecognizer(target: self, action: #selector(self.tapAction(cell:)))
+        let gesture = UITapGestureRecognizer(target: self, action: #selector(self.tapAction(obj:)))
         self.addGestureRecognizer(gesture)
     }
 
-    public func tapAction(cell:UITableViewCell){
+    public func tapAction(obj:AnyObject){
         print("T:AccesoryCell tapAction")
         for tapL in listeners.tapListener{
-            tapL.tapAction(cell: cell)
+            tapL.tapAction(cell: self)
         }
     }
 

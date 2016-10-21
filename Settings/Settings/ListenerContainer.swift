@@ -8,7 +8,7 @@
 
 import UIKit
 
-public class listenerContainer{
+public class ListenerContainer{
 
     public var listeners:[CellListener]
 

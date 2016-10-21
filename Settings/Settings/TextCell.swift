@@ -10,7 +10,7 @@ import UIKit
 
 public class TextCell:UITableViewCell{
 
-    public var listeners:listenerContainer!
+    public var listeners:ListenerContainer!
 
     public init(text: String, detail:String){
         super.init(style: UITableViewCellStyle.value1,reuseIdentifier: nil)
@@ -20,14 +20,14 @@ public class TextCell:UITableViewCell{
     }
 
     public func addGesture(){
-        let gesture = UITapGestureRecognizer(target: self, action: #selector(self.tapAction(cell:)))
+        let gesture = UITapGestureRecognizer(target: self, action: #selector(self.tapAction(obj:)))
         self.addGestureRecognizer(gesture)
     }
 
-    public func tapAction(cell:UITableViewCell){
+    public func tapAction(obj:AnyObject){
         print("T: TextCell.tapAction")
         for tapL in listeners.tapListener{
-            tapL.tapAction(cell: cell)
+            tapL.tapAction(cell: self)
         }
     }
 

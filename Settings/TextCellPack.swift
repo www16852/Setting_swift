@@ -12,7 +12,7 @@ public class TextCellPack:MakeCellProtocol{
 
     var title:String = " "
     var detail:String = " "
-    public var listeners:listenerContainer
+    public var listeners:ListenerContainer
 
     public var cellSet:(UITableViewCell) -> UITableViewCell = {return $0}
 
@@ -22,7 +22,7 @@ public class TextCellPack:MakeCellProtocol{
         return cell
     }
 
-    public init(title: String,detail: String,listeners:listenerContainer = listenerContainer()){
+    public init(title: String,detail: String,listeners:ListenerContainer = ListenerContainer()){
         self.title = title
         self.detail = detail
         self.listeners = listeners

@@ -11,7 +11,7 @@ import UIKit
 public class SwitchCellPack:MakeCellProtocol{
 
     var title:String = " "
-    public var listeners:listenerContainer
+    public var listeners:ListenerContainer
 
     public var cellSet:(UITableViewCell) -> UITableViewCell = {return $0}
 
@@ -21,7 +21,7 @@ public class SwitchCellPack:MakeCellProtocol{
         return cell
     }
 
-    public init(title: String, listeners:listenerContainer = listenerContainer()){
+    public init(title: String, listeners:ListenerContainer = ListenerContainer()){
         self.title = title
         if title == "" {self.title = " "}
         self.listeners = listeners

@@ -12,7 +12,7 @@ public class ButtonCellPack:MakeCellProtocol{
 
     var title:String = " "
     var color:UIColor
-    public var listeners:listenerContainer
+    public var listeners:ListenerContainer
 
     public var cellSet:(UITableViewCell) -> UITableViewCell = {return $0}
 
@@ -23,7 +23,7 @@ public class ButtonCellPack:MakeCellProtocol{
     }
 
     public init(title: String,color: UIColor = UIColor(red: 0.8, green: 0.5, blue: 0.5, alpha: 1),
-                listeners:listenerContainer = listenerContainer()){
+                listeners:ListenerContainer = ListenerContainer()){
         self.title = title
         self.color = color
         self.listeners = listeners
