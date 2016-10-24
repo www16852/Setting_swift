@@ -11,6 +11,7 @@ import  UIKit
 public class PushController:CellTapListener{
 
     unowned let controller:UIViewController
+    public var saveC:SectionManager!
 
     public init(controller: UIViewController){
         self.controller = controller
@@ -18,6 +19,11 @@ public class PushController:CellTapListener{
 
     public func tapAction(cell:UITableViewCell){
         print("T:\(cell.textLabel?.text) PushController.tapAction ")
+        if let cell = cell as? LoadPlist{
+            let (key,value) = cell.toPlist()
+            saveC.dictionary.updateValue(value, forKey: key)
+        }
+        saveC.savePlist()
     }
 
 }

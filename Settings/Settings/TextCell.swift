@@ -8,7 +8,7 @@
 
 import UIKit
 
-public class TextCell:UITableViewCell,EventCell{
+public class TextCell:UITableViewCell,EventCell,LoadPlist{
 
     public var listeners:ListenerContainer!
 
@@ -16,6 +16,10 @@ public class TextCell:UITableViewCell,EventCell{
         super.init(style: UITableViewCellStyle.value1,reuseIdentifier: nil)
         self.textLabel?.text = text
         self.detailTextLabel?.text = detail
+    }
+
+    public func toPlist() -> (String,Any){
+        return (textLabel!.text!,detailTextLabel!.text!)
     }
 
     public func addGesture(){

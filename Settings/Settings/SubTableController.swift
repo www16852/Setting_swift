@@ -31,7 +31,7 @@ class SubTableController: UIViewController {
         self.detailTable = SettingTableView(content: tableContent,sectionManager: sectionManager)
         self.view.addSubview(detailTable)
         self.setupViews()
-        settingController = PushController(controller:self)
+//        settingController = PushController(controller:self)
         // Do any additional setup after loading the view, typically from a nib.
     }
 

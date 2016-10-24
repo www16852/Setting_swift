@@ -11,10 +11,10 @@ import Foundation
 public class SectionManager{
 
     let sections:[Section]
+    var dictionary:[String:Any] = [:]
 
     public init(sections:[Section]){
         self.sections = sections
-        savePlist()
     }
 
     func savePlist(){
@@ -26,15 +26,14 @@ public class SectionManager{
 
         plistPathInDocument = rootPath + "/Settings.plist"
 
-        var dictionary:[String:Any] = [:]
-        for section in sections{
-            for pack in section.CellPacks{
-                if let loadPack = pack as? LoadPlist{
-                    let (key,value) = loadPack.toPlist()
-                    dictionary.updateValue(value, forKey: key)
-                }
-            }
-        }
+//        for section in sections{
+//            for pack in section.CellPacks{
+//                if let loadPack = pack as? LoadPlist{
+//                    let (key,value) = loadPack.toPlist()
+//                    dictionary.updateValue(value, forKey: key)
+//                }
+//            }
+//        }
 
 //        if FileManager.default.fileExists(atPath: plistPathInDocument) == false{
         let nsDictionary = dictionary as NSDictionary

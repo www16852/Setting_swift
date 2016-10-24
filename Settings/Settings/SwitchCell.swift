@@ -8,7 +8,7 @@
 
 import UIKit
 
-public class SwitchCell:UITableViewCell,EventCell{
+public class SwitchCell:UITableViewCell,EventCell,LoadPlist{
 
     public var listeners:ListenerContainer!
     private let boolSwitch = UISwitch()
@@ -17,6 +17,10 @@ public class SwitchCell:UITableViewCell,EventCell{
         self.init(style: UITableViewCellStyle.value1,reuseIdentifier: nil)
         self.textLabel?.text = text
         setupViews()
+    }
+
+    public func toPlist() -> (String,Any){
+        return (textLabel!.text!,boolSwitch.isOn)
     }
 
     func setupViews(){

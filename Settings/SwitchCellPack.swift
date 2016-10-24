@@ -8,10 +8,10 @@
 
 import UIKit
 
-public class SwitchCellPack:MakeCellProtocol,LoadPlist{
+public class SwitchCellPack:MakeCellProtocol{
 
     var title:String = " "
-    var onOff:Bool = false
+
     public var listeners:ListenerContainer
 
     public var cellSet:(UITableViewCell) -> UITableViewCell = {return $0}
@@ -20,10 +20,6 @@ public class SwitchCellPack:MakeCellProtocol,LoadPlist{
         let cell = cellSet(SwitchCell(text: title)) as! SwitchCell
         cell.listeners = listeners
         return cell
-    }
-
-    public func toPlist() -> (String,Any){
-        return (title,onOff)
     }
 
     public init(title: String, listeners:ListenerContainer = ListenerContainer()){

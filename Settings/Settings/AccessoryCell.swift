@@ -8,7 +8,7 @@
 
 import UIKit
 
-public class AccessoryCell:UITableViewCell,EventCell{
+public class AccessoryCell:UITableViewCell,EventCell,LoadPlist{
 
     public var listeners:ListenerContainer!
     var detailSections = [Section]()
@@ -21,6 +21,10 @@ public class AccessoryCell:UITableViewCell,EventCell{
         self.textLabel?.text = text
         self.detailTextLabel?.text = detail
         self.accessoryType = .disclosureIndicator
+    }
+
+    public func toPlist() -> (String,Any){
+        return (textLabel!.text!,detailTextLabel!.text!)
     }
 
     public func addGesture(){

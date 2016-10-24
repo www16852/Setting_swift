@@ -33,7 +33,7 @@ public class SettingTableView: UITableView {
     private var delegatePtr:UITableViewDelegate?
 
     public init(content: TableContent, sectionManager:SectionManager){
-        self.dataSourcePtr = SettingDataSource(sections:sectionManager.sections)
+        self.dataSourcePtr = SettingDataSource(sectionManager:sectionManager)
         super.init(frame: content.frame, style: .plain)
         self.setDelegate(delegate: content.delegate)
         self.allowsSelection = content.allowsSelection

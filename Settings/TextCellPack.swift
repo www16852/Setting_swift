@@ -8,7 +8,7 @@
 
 import UIKit
 
-public class TextCellPack:MakeCellProtocol,LoadPlist{
+public class TextCellPack:MakeCellProtocol{
 
     var title:String = " "
     var detail:String = " "
@@ -20,10 +20,6 @@ public class TextCellPack:MakeCellProtocol,LoadPlist{
         let cell = cellSet(TextCell(text: title,detail: detail)) as! TextCell
         cell.listeners = listeners
         return cell
-    }
-
-    public func toPlist() -> (String,Any){
-        return (title,detail)
     }
 
     public init(title: String,detail: String,listeners:ListenerContainer = ListenerContainer()){
