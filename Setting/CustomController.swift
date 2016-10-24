@@ -18,7 +18,7 @@ var shareOption:[String] = ["t1@walton.com.tw","t2@walton.com.tw","t3@walton.com
 
 
 class CustomController: UIViewController {
-    var tableSections = [Section]()
+    var sectionManager:SectionManager!
     var controllers:ListenerContainer!
     var p:PushController!
 
@@ -27,23 +27,22 @@ class CustomController: UIViewController {
         p = PushController(controller:self)
         controllers = ListenerContainer(listeners:[p])
 
-        setTableSections()
-        SectionManager(sections:tableSections)
+        sectionManager = SectionManager(sections:setTableSections())
 
         let content = TableContent(frame: view.bounds)
-        let tableview = SettingTableView(content: content,tableSections: tableSections)
+        let tableview = SettingTableView(content: content, sectionManager:sectionManager)
         view.addSubview(tableview)
         // Do any additional setup after loading the view, typically from a nib.
     }
 
-    func setTableSections(){
+    func setTableSections() -> [Section]{
 
-        self.tableSections = [
+        let sections = [
             Section(
                 header: "ACCOUNT",
                 footer: "",
                 CellPacks: [
-                    TextCellPack(title: "Email",detail: userEmail, listeners:controllers),
+                    TextCellPack(title: "Email",detail: userEmail),
                     TextCellPack(title: "Device",detail: userDevice),
                     TextCellPack(title: "Version",detail: version)
                 ],
@@ -53,7 +52,7 @@ class CustomController: UIViewController {
                 header: "SETTING",
                 footer: "",
                 CellPacks: [
-                    SwitchCellPack(title: "Carmera Uploads")
+                    SwitchCellPack(title: "Carmera Uploads", listeners:controllers)
                 ],
                 heightForFooter: 10.0
             ),
@@ -78,6 +77,7 @@ class CustomController: UIViewController {
                 heightForFooter: 10.0
             )
         ]
+        return sections
     }
 
     func shareTable() -> TableContent{

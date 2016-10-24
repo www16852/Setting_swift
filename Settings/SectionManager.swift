@@ -14,10 +14,10 @@ public class SectionManager{
 
     public init(sections:[Section]){
         self.sections = sections
-        creatPlist()
+        savePlist()
     }
 
-    func creatPlist(){
+    func savePlist(){
         var plistPathInDocument:String = ""
         let rootPath = NSSearchPathForDirectoriesInDomains(
             .documentDirectory,
@@ -37,11 +37,10 @@ public class SectionManager{
         }
 
 //        if FileManager.default.fileExists(atPath: plistPathInDocument) == false{
-            let nsDictionary = dictionary as NSDictionary
-            if nsDictionary.write(toFile:plistPathInDocument, atomically:true) == false{
-                print("Plist creat fail")
-            }
-//        }
+        let nsDictionary = dictionary as NSDictionary
+        if nsDictionary.write(toFile:plistPathInDocument, atomically:true) == false{
+            print("Plist creat fail")
+        }
     }
 
 }

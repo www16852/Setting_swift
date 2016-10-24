@@ -17,8 +17,7 @@ public class PushController:CellTapListener{
     }
 
     public func tapAction(cell:UITableViewCell){
-        print("T:PushController tapAction")
-//        print("T:\(cell.textLabel?.text) PushController.tapAction ")
+        print("T:\(cell.textLabel?.text) PushController.tapAction ")
     }
 
 }
