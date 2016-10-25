@@ -8,10 +8,10 @@
 
 import UIKit
 
-public class SwitchCell:UITableViewCell,EventCell,LoadPlist{
+public class SwitchCell:UITableViewCell,EventCell,SavePlist{
 
     public var listeners:ListenerContainer!
-    private let boolSwitch = UISwitch()
+    let boolSwitch = UISwitch()
 
     public convenience init(text: String){
         self.init(style: UITableViewCellStyle.value1,reuseIdentifier: nil)

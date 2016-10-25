@@ -19,7 +19,7 @@ public class PushController:CellTapListener{
 
     public func tapAction(cell:UITableViewCell){
         print("T:\(cell.textLabel?.text) PushController.tapAction ")
-        if let cell = cell as? LoadPlist{
+        if let cell = cell as? SavePlist{
             let (key,value) = cell.toPlist()
             saveC.dictionary.updateValue(value, forKey: key)
         }

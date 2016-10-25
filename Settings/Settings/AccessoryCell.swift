@@ -8,7 +8,7 @@
 
 import UIKit
 
-public class AccessoryCell:UITableViewCell,EventCell,LoadPlist{
+public class AccessoryCell:UITableViewCell,EventCell,SavePlist{
 
     public var listeners:ListenerContainer!
     var detailSections = [Section]()

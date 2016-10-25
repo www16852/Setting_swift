@@ -2,13 +2,12 @@
 //  LoadPlist.swift
 //  Settings
 //
-//  Created by waltoncob on 2016/10/25.
+//  Created by waltoncob on 2016/10/21.
 //  Copyright © 2016年 waltoncob. All rights reserved.
 //
 
 import Foundation
 
-public protocol LoadPlist{
-    var key:String {get}
-    var value:Any {get set}
+public protocol SavePlist{
+    func toPlist() -> (String,Any)
 }

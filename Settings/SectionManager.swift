@@ -10,32 +10,46 @@ import Foundation
 
 public class SectionManager{
 
-    let sections:[Section]
+    var sections:[Section]
     var dictionary:[String:Any] = [:]
 
+    let rootPath = NSSearchPathForDirectoriesInDomains(
+        .documentDirectory,
+        .userDomainMask,
+        true)[0]
+
+    var plistPathInDocument:String{
+        get{
+            return rootPath + "/Settings.plist"
+        }
+    }
+
     public init(sections:[Section]){
+        self.sections = sections
+        openPlist()
+
+    }
+
+    func openPlist(){
+        if FileManager.default.fileExists(atPath: plistPathInDocument){
+            dictionary = NSDictionary(contentsOfFile: plistPathInDocument) as! [String : Any]
+            adjust(sections:self.sections)
+        }
+    }
+
+    func adjust(sections:[Section]){
+        for section in sections{
+            for var pack in section.CellPacks{
+                if var newPack = pack as? LoadPlist , dictionary[newPack.key] != nil{
+                    newPack.value = dictionary[newPack.key]
+                    pack = newPack as! MakeCellProtocol
+                }
+            }
+        }
         self.sections = sections
     }
 
     func savePlist(){
-        var plistPathInDocument:String = ""
-        let rootPath = NSSearchPathForDirectoriesInDomains(
-            .documentDirectory,
-            .userDomainMask,
-            true)[0]
-
-        plistPathInDocument = rootPath + "/Settings.plist"
-
-//        for section in sections{
-//            for pack in section.CellPacks{
-//                if let loadPack = pack as? LoadPlist{
-//                    let (key,value) = loadPack.toPlist()
-//                    dictionary.updateValue(value, forKey: key)
-//                }
-//            }
-//        }
-
-//        if FileManager.default.fileExists(atPath: plistPathInDocument) == false{
         let nsDictionary = dictionary as NSDictionary
         if nsDictionary.write(toFile:plistPathInDocument, atomically:true) == false{
             print("Plist creat fail")
