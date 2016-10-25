@@ -19,13 +19,17 @@ var shareOption:[String] = ["t1@walton.com.tw","t2@walton.com.tw","t3@walton.com
 
 class CustomController: UIViewController {
     var controllers:ListenerContainer!
+    var pControll:ListenerContainer!
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        let s = SwitchController()
         let p = PushController(controller:self)
-        controllers = ListenerContainer(listeners:[p])
+        controllers = ListenerContainer(listeners:[s])
+        pControll = ListenerContainer(listeners:[p])
 
         let sectionManager = SectionManager(sections:setTableSections())
+        s.saveC = sectionManager
         p.saveC = sectionManager
 
         let content = TableContent(frame: view.bounds)
@@ -61,9 +65,9 @@ class CustomController: UIViewController {
                 CellPacks: [
                     TextCellPack(title: "Space Used",detail: ""),
                     AccessoryCellPack(title: "Legal and Privacy", detail: "", tableContent:shareTable(), sections: [Section]()),
-                    AccessoryCellPack(title: "Keep Days",detail: "5 days", tableContent:tickTable(), sections: CellMaker.makeTickSections(header:"choose Keep Days", options:dayOption)),
+                    AccessoryCellPack(title: "Keep Days",detail: "5 days", tableContent:tickTable(), sections: CellMaker.makeTickSections(header:"choose Keep Days", options:dayOption), listeners:pControll),
                     TextCellPack(title: "Connected",detail: "UPnP"  ),
-                    AccessoryCellPack(title: "Share Management",detail: "", tableContent:shareTable(), sections: CellMaker.makeSections(header:"Share Management", options:shareOption))
+                    AccessoryCellPack(title: "Share Management",detail: "", tableContent:shareTable(), sections: CellMaker.makeSections(header:"Share Management", options:shareOption), listeners:pControll)
                 ],
                 heightForFooter: 10.0
             ),

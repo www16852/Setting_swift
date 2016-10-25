@@ -30,7 +30,7 @@ public struct TableContent {
 public class SettingTableView: UITableView {
 
     private var dataSourcePtr:UITableViewDataSource?
-    private var delegatePtr:UITableViewDelegate?
+    var delegatePtr:UITableViewDelegate?
 
     public init(content: TableContent, sectionManager:SectionManager){
         self.dataSourcePtr = SettingDataSource(sectionManager:sectionManager)

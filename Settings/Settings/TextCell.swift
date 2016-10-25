@@ -8,9 +8,7 @@
 
 import UIKit
 
-public class TextCell:UITableViewCell,EventCell,SavePlist{
-
-    public var listeners:ListenerContainer!
+public class TextCell:UITableViewCell,SavePlist{
 
     public init(text: String, detail:String){
         super.init(style: UITableViewCellStyle.value1,reuseIdentifier: nil)
@@ -20,18 +18,6 @@ public class TextCell:UITableViewCell,EventCell,SavePlist{
 
     public func toPlist() -> (String,Any){
         return (textLabel!.text!,detailTextLabel!.text!)
-    }
-
-    public func addGesture(){
-        let gesture = UITapGestureRecognizer(target: self, action: #selector(self.tapAction(obj:)))
-        self.addGestureRecognizer(gesture)
-    }
-
-    public func tapAction(obj:AnyObject){
-        print("T: TextCell.tapAction")
-        for tapL in listeners.tapListener{
-            tapL.tapAction(cell: self)
-        }
     }
 
     required public init?(coder aDecoder: NSCoder) {
