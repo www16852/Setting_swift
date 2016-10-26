@@ -8,19 +8,30 @@
 
 import UIKit
 
-public class AccessoryCell:UITableViewCell,EventCell{
+public class AccessoryCell:UITableViewCell,EventCell,SavePlist,PushCell{
 
     public var listeners:ListenerContainer!
-    var detailSections = [Section]()
+    var detailSection:SectionManager
     var tableContent:TableContent
 
     public init(text: String, detail: String, tableContent:TableContent, sections: [Section]){
-        self.detailSections = sections
+        self.detailSection = SectionManager(sections:sections)
         self.tableContent = tableContent
         super.init(style: .value1,reuseIdentifier: nil)
         self.textLabel?.text = text
         self.detailTextLabel?.text = detail
         self.accessoryType = .disclosureIndicator
+    }
+
+    public func getController() -> UIViewController{
+        let controller = UIViewController()
+        let stView = SettingTableView(content: tableContent, sectionManager:detailSection)
+        controller.view = stView
+        return controller
+    }
+
+    public func toPlist() -> (String,Any){
+        return (textLabel!.text!,detailTextLabel!.text!)
     }
 
     public func addGesture(){

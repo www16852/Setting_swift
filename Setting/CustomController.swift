@@ -18,30 +18,34 @@ var shareOption:[String] = ["t1@walton.com.tw","t2@walton.com.tw","t3@walton.com
 
 
 class CustomController: UIViewController {
-    var tableSections = [Section]()
     var controllers:ListenerContainer!
-    var p:PushController!
+    var pControll:ListenerContainer!
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        p = PushController(controller:self)
-        controllers = ListenerContainer(listeners:[p])
-        setTableSections()
+        let s = SwitchController()
+        let p = PushController(controller:self)
+        controllers = ListenerContainer(listeners:[s])
+        pControll = ListenerContainer(listeners:[p])
+
+        let sectionManager = SectionManager(sections:setTableSections())
+        s.saveC = sectionManager
+        p.saveC = sectionManager
+
         let content = TableContent(frame: view.bounds)
-        let tableview = SettingTableView(content: content,tableSections: tableSections)
+        let tableview = SettingTableView(content: content, sectionManager:sectionManager)
         view.addSubview(tableview)
-        SettingPlist().temp()
         // Do any additional setup after loading the view, typically from a nib.
     }
 
-    func setTableSections(){
+    func setTableSections() -> [Section]{
 
-        self.tableSections = [
+        let sections = [
             Section(
                 header: "ACCOUNT",
                 footer: "",
                 CellPacks: [
-                    TextCellPack(title: "Email",detail: userEmail, listeners:controllers),
+                    TextCellPack(title: "Email",detail: userEmail),
                     TextCellPack(title: "Device",detail: userDevice),
                     TextCellPack(title: "Version",detail: version)
                 ],
@@ -51,7 +55,7 @@ class CustomController: UIViewController {
                 header: "SETTING",
                 footer: "",
                 CellPacks: [
-                    SwitchCellPack(title: "Carmera Uploads")
+                    SwitchCellPack(title: "Carmera Uploads", listeners:controllers)
                 ],
                 heightForFooter: 10.0
             ),
@@ -61,9 +65,9 @@ class CustomController: UIViewController {
                 CellPacks: [
                     TextCellPack(title: "Space Used",detail: ""),
                     AccessoryCellPack(title: "Legal and Privacy", detail: "", tableContent:shareTable(), sections: [Section]()),
-                    AccessoryCellPack(title: "Keep Days",detail: "5 days", tableContent:tickTable(), sections: CellMaker.makeTickSections(header:"choose Keep Days", options:dayOption)),
+                    AccessoryCellPack(title: "Keep Days",detail: "5 days", tableContent:tickTable(), sections: CellMaker.makeTickSections(header:"choose Keep Days", options:dayOption), listeners:pControll),
                     TextCellPack(title: "Connected",detail: "UPnP"  ),
-                    AccessoryCellPack(title: "Share Management",detail: "", tableContent:shareTable(), sections: CellMaker.makeSections(header:"Share Management", options:shareOption))
+                    AccessoryCellPack(title: "Share Management",detail: "", tableContent:shareTable(), sections: CellMaker.makeSections(header:"Share Management", options:shareOption), listeners:pControll)
                 ],
                 heightForFooter: 10.0
             ),
@@ -76,6 +80,7 @@ class CustomController: UIViewController {
                 heightForFooter: 10.0
             )
         ]
+        return sections
     }
 
     func shareTable() -> TableContent{

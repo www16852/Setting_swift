@@ -18,7 +18,6 @@ public class TextCellPack:MakeCellProtocol{
 
     public func packToCell() -> UITableViewCell{
         let cell = cellSet(TextCell(text: title,detail: detail)) as! TextCell
-        cell.listeners = listeners
         return cell
     }
 

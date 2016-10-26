@@ -30,10 +30,10 @@ public struct TableContent {
 public class SettingTableView: UITableView {
 
     private var dataSourcePtr:UITableViewDataSource?
-    private var delegatePtr:UITableViewDelegate?
+    var delegatePtr:UITableViewDelegate?
 
-    public init(content: TableContent, tableSections: [Section]){
-        self.dataSourcePtr = SettingDataSource(sections:tableSections)
+    public init(content: TableContent, sectionManager:SectionManager){
+        self.dataSourcePtr = SettingDataSource(sectionManager:sectionManager)
         super.init(frame: content.frame, style: .plain)
         self.setDelegate(delegate: content.delegate)
         self.allowsSelection = content.allowsSelection
