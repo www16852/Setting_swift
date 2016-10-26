@@ -10,9 +10,9 @@ import UIKit
 
 public class TextCellPack:MakeCellProtocol{
 
-    var title:String = " "
-    var detail:String = " "
-    public var listeners:ListenerContainer
+    private var title:String = " "
+    private var detail:String = " "
+    private var listeners:ListenerContainer
 
     public var cellSet:(UITableViewCell) -> UITableViewCell = {return $0}
 

@@ -10,12 +10,12 @@ import UIKit
 
 public class AccessoryCellPack:MakeCellProtocol{
 
-    var title:String = " "
-    var detail:String = " "
-    public var listeners:[CellListener]
+    private var title:String = " "
+    private var detail:String = " "
+    private var listeners:[CellListener]
 
-    var tableContent:TableContent = TableContent(delegate: nil, allowsSelection: true)
-    var sections = [Section]()
+    private var tableContent:TableContent = TableContent(delegate: nil, allowsSelection: true)
+    private var sections = [Section]()
 
     public var cellSet:(UITableViewCell) -> UITableViewCell = {return $0}
 

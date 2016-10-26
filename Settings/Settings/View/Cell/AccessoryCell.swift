@@ -11,8 +11,8 @@ import UIKit
 public class AccessoryCell:UITableViewCell,EventCell,SavePlist,PushCell{
 
     private var listeners:[CellListener] = []
-    var detailSection:SectionManager
-    var tableContent:TableContent
+    private var detailSection:SectionManager
+    private var tableContent:TableContent
 
     public init(text: String, detail: String, tableContent:TableContent, sections: [Section]){
         self.detailSection = SectionManager(sections:sections)

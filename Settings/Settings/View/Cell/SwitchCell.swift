@@ -11,7 +11,7 @@ import UIKit
 public class SwitchCell:UITableViewCell,SavePlist,EventCell{
 
     private var listeners:[CellListener] = []
-    let boolSwitch = UISwitch()
+    private let boolSwitch = UISwitch()
 
     public convenience init(text: String){
         self.init(style: UITableViewCellStyle.value1,reuseIdentifier: nil)
@@ -26,6 +26,10 @@ public class SwitchCell:UITableViewCell,SavePlist,EventCell{
     func setupViews(){
         contentView.addSubview(boolSwitch)
         boolSwitch.translatesAutoresizingMaskIntoConstraints = false
+    }
+
+    func set(on:Bool){
+        boolSwitch.isOn = on
     }
 
 //MARK:EvenCell
