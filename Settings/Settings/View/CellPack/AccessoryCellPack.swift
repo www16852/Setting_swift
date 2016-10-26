@@ -12,7 +12,7 @@ public class AccessoryCellPack:MakeCellProtocol{
 
     var title:String = " "
     var detail:String = " "
-    public var listeners:ListenerContainer
+    public var listeners:[CellListener]
 
     var tableContent:TableContent = TableContent(delegate: nil, allowsSelection: true)
     var sections = [Section]()
@@ -21,11 +21,13 @@ public class AccessoryCellPack:MakeCellProtocol{
 
     public func packToCell() -> UITableViewCell{
         let cell = cellSet(AccessoryCell(text: title, detail: detail, tableContent:tableContent, sections: sections)) as! AccessoryCell
-        cell.listeners = listeners
+        for listener in listeners{
+            cell.add(listener: listener)
+        }
         return cell
     }
 
-    public init(title: String, detail: String, tableContent:TableContent, sections: [Section], listeners:ListenerContainer = ListenerContainer()){
+    public init(title: String, detail: String, tableContent:TableContent, sections: [Section], listeners:[CellListener] = []){
         self.title = title
         self.detail = detail
         self.tableContent = tableContent

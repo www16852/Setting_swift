@@ -12,12 +12,6 @@ public class ListenerContainer{
 
     public var listeners:[CellListener]
 
-    var tapListener:[CellTapListener]{
-        get{
-            return listeners.filter{return $0 is CellTapListener} as! [CellTapListener]
-        }
-    }
-
     public init(listeners:[CellListener]){
         self.listeners = listeners
     }

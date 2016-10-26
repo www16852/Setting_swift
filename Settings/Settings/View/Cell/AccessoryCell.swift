@@ -10,7 +10,7 @@ import UIKit
 
 public class AccessoryCell:UITableViewCell,EventCell,SavePlist,PushCell{
 
-    public var listeners:ListenerContainer!
+    private var listeners:[CellListener] = []
     var detailSection:SectionManager
     var tableContent:TableContent
 
@@ -21,6 +21,10 @@ public class AccessoryCell:UITableViewCell,EventCell,SavePlist,PushCell{
         self.textLabel?.text = text
         self.detailTextLabel?.text = detail
         self.accessoryType = .disclosureIndicator
+    }
+
+    required public init?(coder aDecoder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
     }
 
     public func getController() -> UIViewController{
@@ -34,20 +38,25 @@ public class AccessoryCell:UITableViewCell,EventCell,SavePlist,PushCell{
         return (textLabel!.text!,detailTextLabel!.text!)
     }
 
-    public func addGesture(){
-        let gesture = UITapGestureRecognizer(target: self, action: #selector(self.tapAction(obj:)))
+//MARK:EvenCell
+    public func add(listener:CellListener){
+        self.listeners.append(listener)
+    }
+
+    public func remove(listener:CellListener){
+
+    }
+
+    public func setTrigger(){
+        let gesture = UITapGestureRecognizer(target: self, action: #selector(self.tapAction))
         self.addGestureRecognizer(gesture)
     }
 
-    public func tapAction(obj:AnyObject){
+    public func tapAction(){
         print("T:AccesoryCell tapAction")
-        for tapL in listeners.tapListener{
+        for tapL in listeners{
             tapL.tapAction(cell: self)
         }
-    }
-
-    required public init?(coder aDecoder: NSCoder) {
-        fatalError("init(coder:) has not been implemented")
     }
     
 }

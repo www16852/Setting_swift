@@ -10,7 +10,7 @@ import UIKit
 
 public class ButtonCell:UITableViewCell,EventCell{
 
-    public var listeners:ListenerContainer!
+    private var listeners:[CellListener] = []
     private let button = UIButton()
 
     public convenience init(text: String,color: UIColor){
@@ -27,14 +27,22 @@ public class ButtonCell:UITableViewCell,EventCell{
         button.translatesAutoresizingMaskIntoConstraints = false
     }
 
-    public func addGesture(){
-        button.addTarget(self, action: #selector(self.tapAction(obj:)), for: .touchUpInside)
+//MARK:EvenCell
+    public func add(listener:CellListener){
+        self.listeners.append(listener)
     }
 
-    public func tapAction(obj:AnyObject){
+    public func remove(listener:CellListener){
+
+    }
+
+    public func setTrigger(){
+         button.addTarget(self, action: #selector(self.tapAction), for: .touchUpInside)
+    }
+
+    public func tapAction(){
         print("T:Button tapAction")
-        for tapL in listeners.tapListener{
-            print("T:",tapL)
+        for tapL in listeners{
             tapL.tapAction(cell: self)
         }
     }

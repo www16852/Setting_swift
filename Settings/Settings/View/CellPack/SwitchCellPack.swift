@@ -13,7 +13,7 @@ public class SwitchCellPack:MakeCellProtocol,LoadPlist{
     var title:String = " "
     var isOn:Bool = false
 
-    public var listeners:ListenerContainer
+    public var listeners:[CellListener] = []
 
     public var cellSet:(UITableViewCell) -> UITableViewCell = {return $0}
 
@@ -33,12 +33,14 @@ public class SwitchCellPack:MakeCellProtocol,LoadPlist{
 
     public func packToCell() -> UITableViewCell{
         let cell = cellSet(SwitchCell(text: title)) as! SwitchCell
-        cell.listeners = listeners
         cell.boolSwitch.isOn = self.isOn
+        for listener in listeners{
+            cell.add(listener: listener)
+        }
         return cell
     }
 
-    public init(title: String, listeners:ListenerContainer = ListenerContainer()){
+    public init(title: String, listeners:[CellListener] = []){
         self.title = title
         if title == "" {self.title = " "}
         self.listeners = listeners

@@ -8,7 +8,7 @@
 
 import  UIKit
 
-public class PushController:CellTapListener{
+public class PushController:CellListener{
 
     unowned let controller:UIViewController
     public var saveC:SectionManager!

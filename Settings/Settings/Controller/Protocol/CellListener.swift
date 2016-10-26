@@ -9,9 +9,5 @@
 import UIKit
 
 public protocol CellListener{
-
-}
-
-public protocol CellTapListener:CellListener{
     func tapAction(cell:UITableViewCell)
 }

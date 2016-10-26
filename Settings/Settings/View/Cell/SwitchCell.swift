@@ -8,9 +8,9 @@
 
 import UIKit
 
-public class SwitchCell:UITableViewCell,EventCell,SavePlist{
+public class SwitchCell:UITableViewCell,SavePlist,EventCell{
 
-    public var listeners:ListenerContainer!
+    private var listeners:[CellListener] = []
     let boolSwitch = UISwitch()
 
     public convenience init(text: String){
@@ -28,13 +28,22 @@ public class SwitchCell:UITableViewCell,EventCell,SavePlist{
         boolSwitch.translatesAutoresizingMaskIntoConstraints = false
     }
 
-    public func addGesture(){
-        boolSwitch.addTarget(self, action: #selector(self.tapAction(obj:)), for: .valueChanged)
+//MARK:EvenCell
+    public func add(listener:CellListener){
+        self.listeners.append(listener)
     }
 
-    public func tapAction(obj:AnyObject){
+    public func remove(listener:CellListener){
+
+    }
+
+    public func setTrigger(){
+        boolSwitch.addTarget(self, action: #selector(self.tapAction), for: .valueChanged)
+    }
+
+    public func tapAction(){
         print("T:Switch tapAction")
-        for tapL in listeners.tapListener{
+        for tapL in listeners{
             tapL.tapAction(cell: self)
         }
     }

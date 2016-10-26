@@ -9,7 +9,8 @@
 import UIKit
 
 public protocol EventCell{
-    var listeners:ListenerContainer!{get set}
-    func tapAction(obj:AnyObject)
-    func addGesture()
+    func add(listener:CellListener)
+    func remove(listener:CellListener)
+    func tapAction()
+    func setTrigger()
 }

@@ -8,7 +8,7 @@
 
 import  UIKit
 
-public class SwitchController:CellTapListener{
+public class SwitchController:CellListener{
 
     public var saveC:SectionManager!
 

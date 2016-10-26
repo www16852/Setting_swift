@@ -10,6 +10,6 @@ import UIKit
 
 public protocol MakeCellProtocol{
     func packToCell() -> UITableViewCell
-    var listeners:ListenerContainer {get set}
+//    var listeners:ListenerContainer {get set}
     var cellSet:(UITableViewCell) -> UITableViewCell {get set}
 }

@@ -145,9 +145,9 @@
 		B833FB151DC042BB003D2DDC /* View */ = {
 			isa = PBXGroup;
 			children = (
-				B833FB161DC042BB003D2DDC /* Cell */,
-				B833FB1B1DC042BB003D2DDC /* CellPack */,
 				B833FB201DC042BB003D2DDC /* Protocol */,
+				B833FB1B1DC042BB003D2DDC /* CellPack */,
+				B833FB161DC042BB003D2DDC /* Cell */,
 				B833FB261DC042BB003D2DDC /* SettingTableView.swift */,
 			);
 			name = View;
