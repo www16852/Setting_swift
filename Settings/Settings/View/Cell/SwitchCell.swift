@@ -8,7 +8,7 @@
 
 import UIKit
 
-public class SwitchCell:UITableViewCell,SavePlist,EventCell{
+public class SwitchCell:UITableViewCell,EventCell{
 
     private var listeners:[CellListener] = []
     private let boolSwitch = UISwitch()
@@ -50,6 +50,10 @@ public class SwitchCell:UITableViewCell,SavePlist,EventCell{
         for tapL in listeners{
             tapL.tapAction(cell: self)
         }
+    }
+
+    public func getContent() -> (String,Any){
+        return (textLabel!.text!,boolSwitch.isOn)
     }
 
 //MARK:AutoLayout

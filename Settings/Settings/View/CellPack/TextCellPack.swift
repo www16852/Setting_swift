@@ -16,15 +16,26 @@ public class TextCellPack:MakeCellProtocol{
 
     public var cellSet:(UITableViewCell) -> UITableViewCell = {return $0}
 
+    public init(title: String,detail: String,listeners:ListenerContainer = ListenerContainer()){
+        self.title = title
+        self.detail = detail
+        self.listeners = listeners
+    }
+
+//MARK: MakeCellProtocol
+    
     public func packToCell() -> UITableViewCell{
         let cell = cellSet(TextCell(text: title,detail: detail)) as! TextCell
         return cell
     }
 
-    public init(title: String,detail: String,listeners:ListenerContainer = ListenerContainer()){
-        self.title = title
-        self.detail = detail
-        self.listeners = listeners
+    public func getKey() -> String {
+        return title
+    }
+
+    public func set(key:String, value:Any){
+        self.title = key
+        self.detail = value as! String
     }
     
 }

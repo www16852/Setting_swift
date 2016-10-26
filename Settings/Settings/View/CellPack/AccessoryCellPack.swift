@@ -19,6 +19,16 @@ public class AccessoryCellPack:MakeCellProtocol{
 
     public var cellSet:(UITableViewCell) -> UITableViewCell = {return $0}
 
+    public init(title: String, detail: String, tableContent:TableContent, sections: [Section], listeners:[CellListener] = []){
+        self.title = title
+        self.detail = detail
+        self.tableContent = tableContent
+        self.sections = sections
+        self.listeners = listeners
+    }
+
+//MARK: MakeCellProtocol
+
     public func packToCell() -> UITableViewCell{
         let cell = cellSet(AccessoryCell(text: title, detail: detail, tableContent:tableContent, sections: sections)) as! AccessoryCell
         for listener in listeners{
@@ -27,12 +37,13 @@ public class AccessoryCellPack:MakeCellProtocol{
         return cell
     }
 
-    public init(title: String, detail: String, tableContent:TableContent, sections: [Section], listeners:[CellListener] = []){
-        self.title = title
-        self.detail = detail
-        self.tableContent = tableContent
-        self.sections = sections
-        self.listeners = listeners
+    public func getKey() -> String {
+        return title
     }
-    
+
+    public func set(key:String, value:Any){
+        self.title = key
+        self.detail = value as! String
+    }
+
 }

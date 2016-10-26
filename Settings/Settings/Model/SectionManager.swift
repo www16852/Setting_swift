@@ -13,12 +13,12 @@ public class SectionManager{
     var sections:[Section]
     var dictionary:[String:Any] = [:]
 
-    let rootPath = NSSearchPathForDirectoriesInDomains(
+    private let rootPath = NSSearchPathForDirectoriesInDomains(
         .documentDirectory,
         .userDomainMask,
         true)[0]
 
-    var plistPathInDocument:String{
+    public var plistPathInDocument:String{
         get{
             return rootPath + "/Settings.plist"
         }
@@ -27,26 +27,28 @@ public class SectionManager{
     public init(sections:[Section]){
         self.sections = sections
         openPlist()
-
+        adjust(sections:self.sections)
     }
 
     func openPlist(){
         if FileManager.default.fileExists(atPath: plistPathInDocument){
             dictionary = NSDictionary(contentsOfFile: plistPathInDocument) as! [String : Any]
-            adjust(sections:self.sections)
         }
     }
 
     func adjust(sections:[Section]){
         for section in sections{
-            for var pack in section.CellPacks{
-                if var newPack = pack as? LoadPlist , dictionary[newPack.key] != nil{
-                    newPack.value = dictionary[newPack.key]
-                    pack = newPack as! MakeCellProtocol
+            for pack in section.CellPacks{
+                let key = pack.getKey()
+                if dictionary[key] != nil{
+                    pack.set(key: key, value: dictionary[key])
                 }
             }
         }
-        self.sections = sections
+    }
+
+    func update(forKey key:String, value:Any){
+        self.dictionary.updateValue(value, forKey: key)
     }
 
     func savePlist(){

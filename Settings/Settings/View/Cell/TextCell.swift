@@ -8,7 +8,7 @@
 
 import UIKit
 
-public class TextCell:UITableViewCell,SavePlist,EventCell{
+public class TextCell:UITableViewCell,EventCell{
 
     public init(text: String, detail:String){
         super.init(style: UITableViewCellStyle.value1,reuseIdentifier: nil)
@@ -39,6 +39,10 @@ public class TextCell:UITableViewCell,SavePlist,EventCell{
 
     public func tapAction(){
         
+    }
+
+    public func getContent() -> (String,Any){
+        return (textLabel!.text!,detailTextLabel!.text!)
     }
 
 }

@@ -30,7 +30,7 @@ class CustomController: UIViewController {
         let sectionManager = SectionManager(sections:setTableSections())
         s.saveC = sectionManager
         p.saveC = sectionManager
-
+        print("Plist path : \(sectionManager.plistPathInDocument)")
         let content = TableContent(frame: view.bounds)
         let tableview = SettingTableView(content: content, sectionManager:sectionManager)
         view.addSubview(tableview)

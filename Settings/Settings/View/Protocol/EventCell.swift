@@ -6,11 +6,10 @@
 //  Copyright © 2016年 waltoncob. All rights reserved.
 //
 
-import UIKit
-
 public protocol EventCell{
     func add(listener:CellListener)
     func remove(listener:CellListener)
-    func tapAction()
     func setTrigger()
+    func tapAction()
+    func getContent() -> (String,Any)
 }

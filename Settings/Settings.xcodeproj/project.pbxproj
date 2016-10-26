@@ -24,10 +24,7 @@
 		B833FB351DC042BB003D2DDC /* SwitchCellPack.swift in Sources */ = {isa = PBXBuildFile; fileRef = B833FB1E1DC042BB003D2DDC /* SwitchCellPack.swift */; };
 		B833FB361DC042BB003D2DDC /* TextCellPack.swift in Sources */ = {isa = PBXBuildFile; fileRef = B833FB1F1DC042BB003D2DDC /* TextCellPack.swift */; };
 		B833FB371DC042BB003D2DDC /* EventCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B833FB211DC042BB003D2DDC /* EventCell.swift */; };
-		B833FB381DC042BB003D2DDC /* LoadPlist.swift in Sources */ = {isa = PBXBuildFile; fileRef = B833FB221DC042BB003D2DDC /* LoadPlist.swift */; };
 		B833FB391DC042BB003D2DDC /* MakeCellProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = B833FB231DC042BB003D2DDC /* MakeCellProtocol.swift */; };
-		B833FB3A1DC042BB003D2DDC /* PushCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B833FB241DC042BB003D2DDC /* PushCell.swift */; };
-		B833FB3B1DC042BB003D2DDC /* SavePlist.swift in Sources */ = {isa = PBXBuildFile; fileRef = B833FB251DC042BB003D2DDC /* SavePlist.swift */; };
 		B833FB3C1DC042BB003D2DDC /* SettingTableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B833FB261DC042BB003D2DDC /* SettingTableView.swift */; };
 		B8DF3C331DB079C700F31F46 /* Settings.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B8DF3C291DB079C700F31F46 /* Settings.framework */; };
 		B8DF3C381DB079C700F31F46 /* SettingsTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8DF3C371DB079C700F31F46 /* SettingsTests.swift */; };
@@ -62,10 +59,7 @@
 		B833FB1E1DC042BB003D2DDC /* SwitchCellPack.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SwitchCellPack.swift; sourceTree = "<group>"; };
 		B833FB1F1DC042BB003D2DDC /* TextCellPack.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TextCellPack.swift; sourceTree = "<group>"; };
 		B833FB211DC042BB003D2DDC /* EventCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EventCell.swift; sourceTree = "<group>"; };
-		B833FB221DC042BB003D2DDC /* LoadPlist.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoadPlist.swift; sourceTree = "<group>"; };
 		B833FB231DC042BB003D2DDC /* MakeCellProtocol.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MakeCellProtocol.swift; sourceTree = "<group>"; };
-		B833FB241DC042BB003D2DDC /* PushCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PushCell.swift; sourceTree = "<group>"; };
-		B833FB251DC042BB003D2DDC /* SavePlist.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SavePlist.swift; sourceTree = "<group>"; };
 		B833FB261DC042BB003D2DDC /* SettingTableView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingTableView.swift; sourceTree = "<group>"; };
 		B8DF3C291DB079C700F31F46 /* Settings.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Settings.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		B8DF3C2C1DB079C700F31F46 /* Settings.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Settings.h; sourceTree = "<group>"; };
@@ -180,10 +174,7 @@
 			isa = PBXGroup;
 			children = (
 				B833FB211DC042BB003D2DDC /* EventCell.swift */,
-				B833FB221DC042BB003D2DDC /* LoadPlist.swift */,
 				B833FB231DC042BB003D2DDC /* MakeCellProtocol.swift */,
-				B833FB241DC042BB003D2DDC /* PushCell.swift */,
-				B833FB251DC042BB003D2DDC /* SavePlist.swift */,
 			);
 			path = Protocol;
 			sourceTree = "<group>";
@@ -340,7 +331,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				B833FB381DC042BB003D2DDC /* LoadPlist.swift in Sources */,
 				B833FB2C1DC042BB003D2DDC /* TickTableDelegate.swift in Sources */,
 				B833FB361DC042BB003D2DDC /* TextCellPack.swift in Sources */,
 				B833FB2F1DC042BB003D2DDC /* AccessoryCell.swift in Sources */,
@@ -353,11 +343,9 @@
 				B833FB281DC042BB003D2DDC /* SwitchController.swift in Sources */,
 				B833FB2D1DC042BB003D2DDC /* CellMaker.swift in Sources */,
 				B833FB351DC042BB003D2DDC /* SwitchCellPack.swift in Sources */,
-				B833FB3A1DC042BB003D2DDC /* PushCell.swift in Sources */,
 				B833FB2B1DC042BB003D2DDC /* SettingDataSource.swift in Sources */,
 				B833FB2A1DC042BB003D2DDC /* CellListener.swift in Sources */,
 				B833FB311DC042BB003D2DDC /* SwitchCell.swift in Sources */,
-				B833FB3B1DC042BB003D2DDC /* SavePlist.swift in Sources */,
 				B833FB321DC042BB003D2DDC /* TextCell.swift in Sources */,
 				B833FB341DC042BB003D2DDC /* ButtonCellPack.swift in Sources */,
 				B833FB3C1DC042BB003D2DDC /* SettingTableView.swift in Sources */,

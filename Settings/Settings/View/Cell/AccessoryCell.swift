@@ -8,7 +8,7 @@
 
 import UIKit
 
-public class AccessoryCell:UITableViewCell,EventCell,SavePlist,PushCell{
+public class AccessoryCell:UITableViewCell,EventCell{
 
     private var listeners:[CellListener] = []
     private var detailSection:SectionManager
@@ -34,10 +34,6 @@ public class AccessoryCell:UITableViewCell,EventCell,SavePlist,PushCell{
         return controller
     }
 
-    public func toPlist() -> (String,Any){
-        return (textLabel!.text!,detailTextLabel!.text!)
-    }
-
 //MARK:EvenCell
     public func add(listener:CellListener){
         self.listeners.append(listener)
@@ -57,6 +53,10 @@ public class AccessoryCell:UITableViewCell,EventCell,SavePlist,PushCell{
         for tapL in listeners{
             tapL.tapAction(cell: self)
         }
+    }
+
+    public func getContent() -> (String,Any){
+        return (textLabel!.text!,detailTextLabel!.text!)
     }
     
 }

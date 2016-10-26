@@ -47,6 +47,10 @@ public class ButtonCell:UITableViewCell,EventCell{
         }
     }
 
+    public func getContent() -> (String,Any){
+        return (textLabel!.text!,"")
+    }
+
 //MARK: AutoLayout
     override public func layoutSubviews() {
         updateConstraints()

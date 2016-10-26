@@ -19,15 +19,15 @@ public class PushController:CellListener{
 
     public func tapAction(cell:UITableViewCell){
         print("T:\(cell.textLabel?.text) PushController.tapAction ")
-        save(cell)
-        let pushCell = cell as! PushCell
+        let pushCell = cell as! AccessoryCell
         controller.navigationController?.pushViewController(pushCell.getController(), animated: true)
+        save(cell)
     }
 
     func save(_ cell:UITableViewCell){
-        if let cell = cell as? SavePlist{
-            let (key,value) = cell.toPlist()
-            saveC.dictionary.updateValue(value, forKey: key)
+        if let eventCell = cell as? EventCell{
+            let (key,value) = eventCell.getContent()
+            saveC.update(forKey: key, value: value)
         }
         saveC.savePlist()
     }

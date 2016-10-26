@@ -8,7 +8,7 @@
 
 import UIKit
 
-public class SwitchCellPack:MakeCellProtocol,LoadPlist{
+public class SwitchCellPack:MakeCellProtocol{
 
     private var title:String = " "
     private var isOn:Bool = false
@@ -16,20 +16,14 @@ public class SwitchCellPack:MakeCellProtocol,LoadPlist{
 
     public var cellSet:(UITableViewCell) -> UITableViewCell = {return $0}
 
-    public var key:String{
-        get{
-            return title
-        }
-    }
-    public var value:Any{
-        get{
-            return isOn
-        }
-        set{
-            isOn = newValue as! Bool
-        }
+    public init(title: String, listeners:[CellListener] = []){
+        self.title = title
+        if title == "" {self.title = " "}
+        self.listeners = listeners
     }
 
+//MARK: MakeCellProtocol
+    
     public func packToCell() -> UITableViewCell{
         let cell = cellSet(SwitchCell(text: title)) as! SwitchCell
         cell.set(on: isOn)
@@ -39,10 +33,13 @@ public class SwitchCellPack:MakeCellProtocol,LoadPlist{
         return cell
     }
 
-    public init(title: String, listeners:[CellListener] = []){
-        self.title = title
-        if title == "" {self.title = " "}
-        self.listeners = listeners
+    public func getKey() -> String {
+        return title
+    }
+
+    public func set(key:String, value:Any){
+        self.title = key
+        self.isOn = value as! Bool
     }
     
 }
