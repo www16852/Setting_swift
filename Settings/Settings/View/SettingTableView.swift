@@ -38,7 +38,7 @@ public class SettingTableView: UITableView {
         self.setDelegate(delegate: content.delegate)
         self.allowsSelection = content.allowsSelection
         self.dataSource = dataSourcePtr
-        self.translatesAutoresizingMaskIntoConstraints = false
+//        self.translatesAutoresizingMaskIntoConstraints = false
     }
 
     func setDelegate(delegate: UITableViewDelegate?){
@@ -51,19 +51,19 @@ public class SettingTableView: UITableView {
     }
 
     //MARK: AutoLayout
-    override public func layoutSubviews() {
-        updateConstraints()
-        super.layoutSubviews()
-    }
-
-    override public func updateConstraints() {
-        superview?.addConstraint(NSLayoutConstraint(item: self, attribute: .trailing, relatedBy: .equal, toItem: superview , attribute: .trailing, multiplier: 1, constant: 0))
-        superview?.addConstraint(NSLayoutConstraint(item: self, attribute: .leading, relatedBy: .equal, toItem: superview , attribute: .leading, multiplier: 1, constant: 0))
-        superview?.addConstraint(NSLayoutConstraint(item: self, attribute: .height, relatedBy: .equal, toItem: superview , attribute: .height, multiplier: 1, constant: 0))
-        superview?.addConstraint(NSLayoutConstraint(item: self, attribute: .centerY, relatedBy: .equal, toItem: superview , attribute: .centerY, multiplier: 1, constant: 0))
-
-        super.updateConstraints()
-    }
+//    override public func layoutSubviews() {
+//        updateConstraints()
+//        super.layoutSubviews()
+//    }
+//
+//    override public func updateConstraints() {
+//        superview?.addConstraint(NSLayoutConstraint(item: self, attribute: .trailing, relatedBy: .equal, toItem: superview , attribute: .trailing, multiplier: 1, constant: 0))
+//        superview?.addConstraint(NSLayoutConstraint(item: self, attribute: .leading, relatedBy: .equal, toItem: superview , attribute: .leading, multiplier: 1, constant: 0))
+//        superview?.addConstraint(NSLayoutConstraint(item: self, attribute: .height, relatedBy: .equal, toItem: superview , attribute: .height, multiplier: 1, constant: 0))
+//        superview?.addConstraint(NSLayoutConstraint(item: self, attribute: .centerY, relatedBy: .equal, toItem: superview , attribute: .centerY, multiplier: 1, constant: 0))
+//
+//        super.updateConstraints()
+//    }
 
 }
 
