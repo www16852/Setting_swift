@@ -6,9 +6,6 @@
 //  Copyright © 2016年 waltoncob. All rights reserved.
 //
 
-import UIKit
-
-public protocol CellListener{
-    func tapAction(cell:UITableViewCell)
-    func set(manager:SectionManager)
+public protocol ReturnedVCDelegate:class{
+    func backFromVC()
 }

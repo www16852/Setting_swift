@@ -10,10 +10,14 @@ import  UIKit
 
 public class SwitchController:CellListener{
 
-    public var saveC:SectionManager!
+    private var dataManager:SectionManager!
 
     public init(){
 
+    }
+
+    public func set(manager:SectionManager){
+        self.dataManager = manager
     }
 
     public func tapAction(cell:UITableViewCell){
@@ -24,9 +28,8 @@ public class SwitchController:CellListener{
     public func save(_ cell:UITableViewCell){
         if let eventCell = cell as? EventCell{
             let (key,value) = eventCell.getContent()
-            saveC.update(forKey: key, value: value)
+            dataManager.update(forKey: key, value: value)
         }
-        saveC.savePlist()
     }
 
 }

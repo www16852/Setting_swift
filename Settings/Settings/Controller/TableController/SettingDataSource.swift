@@ -28,40 +28,42 @@ public struct Section {
 
 class SettingDataSource:NSObject,UITableViewDataSource{
 
-    var sectionManager:SectionManager
+    private var sectionManager:SectionManager
+    private var sections:[Section]
 
     init(sectionManager: SectionManager){
         self.sectionManager = sectionManager
+        self.sections = sectionManager.getSections()
     }
 
     open func numberOfSections(in tableView: UITableView) -> Int {
-        return sectionManager.sections.count
+        return sections.count
     }
 
     open func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return sectionManager.sections[section].CellPacks.count
+        return sections[section].CellPacks.count
     }
 
     open func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
-        return sectionManager.sections[section].header
+        return sections[section].header
     }
 
     open func tableView(_ tableView: UITableView, titleForFooterInSection section: Int) -> String? {
-        return sectionManager.sections[section].footer
+        return sections[section].footer
     }
 
     open func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
-        if sectionManager.sections[section].heightForHeader == 0 { return 0.00001 }
-        return sectionManager.sections[section].heightForHeader
+        if sections[section].heightForHeader == 0 { return 0.00001 }
+        return sections[section].heightForHeader
     }
 
     open func tableView(_ tableView: UITableView, heightForFooterInSection section: Int) -> CGFloat {
-        if sectionManager.sections[section].heightForFooter == 0 { return 0.00001 }
-        return sectionManager.sections[section].heightForFooter
+        if sections[section].heightForFooter == 0 { return 0.00001 }
+        return sections[section].heightForFooter
     }
 
     open func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell{
-        let cell = sectionManager.sections[indexPath.section].CellPacks[indexPath.row].packToCell()
+        let cell = sections[indexPath.section].CellPacks[indexPath.row].packToCell()
         if let eventCell = cell as? EventCell{
             eventCell.setTrigger()
         }

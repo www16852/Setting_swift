@@ -28,8 +28,8 @@ class CustomController: UIViewController {
         controllers = [s]
         pControll = [p]
         let sectionManager = SectionManager(sections:setTableSections())
-        s.saveC = sectionManager
-        p.saveC = sectionManager
+        s.set(manager:sectionManager)
+        p.set(manager:sectionManager)
         print("Plist path : \(sectionManager.plistPathInDocument)")
         let content = TableContent(frame: view.bounds)
         let tableview = SettingTableView(content: content, sectionManager:sectionManager)

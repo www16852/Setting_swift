@@ -8,28 +8,42 @@
 
 import  UIKit
 
-public class PushController:CellListener{
+public class PushController:CellListener,ReturnedVCDelegate{
 
     unowned let controller:UIViewController
-    public var saveC:SectionManager!
+    private var dataManager:SectionManager!
 
     public init(controller: UIViewController){
         self.controller = controller
     }
 
+    public func set(manager:SectionManager){
+        self.dataManager = manager
+    }
+
     public func tapAction(cell:UITableViewCell){
         print("T:\(cell.textLabel?.text) PushController.tapAction ")
-        let pushCell = cell as! AccessoryCell
-        controller.navigationController?.pushViewController(pushCell.getController(), animated: true)
+        pushVC(cell)
         save(cell)
     }
 
     func save(_ cell:UITableViewCell){
         if let eventCell = cell as? EventCell{
             let (key,value) = eventCell.getContent()
-            saveC.update(forKey: key, value: value)
+            dataManager.update(forKey: key, value: value)
         }
-        saveC.savePlist()
+    }
+
+    func pushVC(_ cell:UITableViewCell){
+        let sender = cell as! AccessoryCell
+        let VC = ReturnVC(table:sender.getTableView(), delegate:self)
+        controller.navigationController?.pushViewController(VC, animated: true)
+    }
+
+//MARK:ReturnedVCDelegate
+
+    public func backFromVC(){
+        print("T: backFromVC")
     }
 
 }
