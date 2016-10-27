@@ -27,7 +27,7 @@ public class SectionManager{
     public init(sections:[Section]){
         self.sections = sections
         openPlist()
-        adjust(sections:self.sections)
+        adjustSections()
     }
 
     public func getSections() -> [Section]{
@@ -36,7 +36,7 @@ public class SectionManager{
 
 //MARK:Dictionary_Section
 
-    func adjust(sections:[Section]){
+    func adjustSections(){
         for section in sections{
             for pack in section.CellPacks{
                 let key = pack.getKey()

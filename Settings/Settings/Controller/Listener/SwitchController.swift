@@ -20,9 +20,9 @@ public class SwitchController:CellListener{
         self.dataManager = manager
     }
 
-    public func tapAction(cell:UITableViewCell){
-        print("T:\(cell.textLabel?.text) PushController.tapAction ")
-        save(cell)
+    public func tapAction(sender:UITableViewCell){
+        print("T:\(sender.textLabel?.text) PushController.tapAction ")
+        save(sender)
     }
 
     public func save(_ cell:UITableViewCell){

@@ -10,10 +10,12 @@ import UIKit
 
 public class ReturnVC: UIViewController {
 
-    private var tableView:UITableView
+    private let tableView:UITableView
+    private let source:AccessoryCell
     private unowned var delegate:ReturnedVCDelegate
 
-    public init(table:UITableView,delegate:ReturnedVCDelegate){
+    public init(sender:AccessoryCell, table:UITableView, delegate:ReturnedVCDelegate){
+        self.source = sender
         self.delegate = delegate
         self.tableView = table
         super.init(nibName: nil, bundle: nil)
@@ -27,12 +29,18 @@ public class ReturnVC: UIViewController {
         super.viewDidLoad()
         self.view = tableView
         self.navigationItem.hidesBackButton = true
-        let newBackButton = UIBarButtonItem(title: "＜Back", style: UIBarButtonItemStyle.plain, target: self, action: #selector(back(sender:)))
+        let newBackButton = UIBarButtonItem(title: "＜Back", style: UIBarButtonItemStyle.plain, target: self, action: #selector(back))
         self.navigationItem.leftBarButtonItem = newBackButton;
     }
 
-    func back(sender: UIBarButtonItem) {
-        delegate.backFromVC()
+    func back() {
+        var sourceValue:String?
+        if let indexPath = tableView.indexPathForSelectedRow{
+            let cell = tableView.cellForRow(at: indexPath) as! EventCell
+            let (key,_) = cell.getContent()
+            sourceValue = key
+        }
+        delegate.backFromVC(sender:source, result:sourceValue)
         let _ = self.navigationController?.popViewController(animated: true)
     }
 

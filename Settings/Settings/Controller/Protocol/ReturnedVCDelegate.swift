@@ -7,5 +7,5 @@
 //
 
 public protocol ReturnedVCDelegate:class{
-    func backFromVC()
+    func backFromVC(sender:AccessoryCell, result:String?)
 }

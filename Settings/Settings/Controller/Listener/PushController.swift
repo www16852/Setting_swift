@@ -21,10 +21,9 @@ public class PushController:CellListener,ReturnedVCDelegate{
         self.dataManager = manager
     }
 
-    public func tapAction(cell:UITableViewCell){
-        print("T:\(cell.textLabel?.text) PushController.tapAction ")
-        pushVC(cell)
-        save(cell)
+    public func tapAction(sender:UITableViewCell){
+        print("T:\(sender.textLabel?.text) PushController.tapAction ")
+        pushVC(sender)
     }
 
     func save(_ cell:UITableViewCell){
@@ -36,14 +35,18 @@ public class PushController:CellListener,ReturnedVCDelegate{
 
     func pushVC(_ cell:UITableViewCell){
         let sender = cell as! AccessoryCell
-        let VC = ReturnVC(table:sender.getTableView(), delegate:self)
+        let VC = ReturnVC(sender:sender, table:sender.getTableView(), delegate:self)
         controller.navigationController?.pushViewController(VC, animated: true)
     }
 
 //MARK:ReturnedVCDelegate
 
-    public func backFromVC(){
-        print("T: backFromVC")
+    public func backFromVC(sender:AccessoryCell, result:String?){
+        print("T: backFromVC return result = \(result)")
+        if let bindingString = result {
+            dataManager.update(forKey: sender.getContent().0, value: bindingString)
+            sender.detailTextLabel?.text = bindingString
+        }
     }
 
 }

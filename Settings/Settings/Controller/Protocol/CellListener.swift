@@ -9,6 +9,6 @@
 import UIKit
 
 public protocol CellListener{
-    func tapAction(cell:UITableViewCell)
+    func tapAction(sender:UITableViewCell)
     func set(manager:SectionManager)
 }

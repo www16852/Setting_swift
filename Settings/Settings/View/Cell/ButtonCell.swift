@@ -43,7 +43,7 @@ public class ButtonCell:UITableViewCell,EventCell{
     public func tapAction(){
         print("T:Button tapAction")
         for tapL in listeners{
-            tapL.tapAction(cell: self)
+            tapL.tapAction(sender: self)
         }
     }
 

@@ -33,6 +33,7 @@ public class AccessoryCell:UITableViewCell,EventCell{
     }
 
 //MARK:EvenCell
+
     public func add(listener:CellListener){
         self.listeners.append(listener)
     }
@@ -49,7 +50,7 @@ public class AccessoryCell:UITableViewCell,EventCell{
     public func tapAction(){
         print("T:AccesoryCell tapAction")
         for tapL in listeners{
-            tapL.tapAction(cell: self)
+            tapL.tapAction(sender: self)
         }
     }
 

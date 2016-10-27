@@ -48,7 +48,7 @@ public class SwitchCell:UITableViewCell,EventCell{
     public func tapAction(){
         print("T:Switch tapAction")
         for tapL in listeners{
-            tapL.tapAction(cell: self)
+            tapL.tapAction(sender: self)
         }
     }
 
