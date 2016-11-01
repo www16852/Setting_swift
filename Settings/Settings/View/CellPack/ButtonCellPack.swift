@@ -10,9 +10,9 @@ import UIKit
 
 public class ButtonCellPack:MakeCellProtocol{
 
-    private var title:String = " "
+    private var title:String
     private var color:UIColor
-    private var listeners:[CellListener] = []
+    private var listeners:[CellListener]
 
     public var cellSet:(UITableViewCell) -> UITableViewCell = {return $0}
 

@@ -10,13 +10,13 @@ import UIKit
 
 public class TextCellPack:MakeCellProtocol{
 
-    private var title:String = " "
-    private var detail:String = " "
-    private var listeners:ListenerContainer
+    private var title:String
+    private var detail:String
+    private var listeners:[CellListener]
 
     public var cellSet:(UITableViewCell) -> UITableViewCell = {return $0}
 
-    public init(title: String,detail: String,listeners:ListenerContainer = ListenerContainer()){
+    public init(title: String,detail: String,listeners:[CellListener] = []){
         self.title = title
         self.detail = detail
         self.listeners = listeners

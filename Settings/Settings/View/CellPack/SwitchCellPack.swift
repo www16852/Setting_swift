@@ -10,9 +10,9 @@ import UIKit
 
 public class SwitchCellPack:MakeCellProtocol{
 
-    private var title:String = " "
+    private var title:String
     private var isOn:Bool = false
-    private var listeners:[CellListener] = []
+    private var listeners:[CellListener]
 
     public var cellSet:(UITableViewCell) -> UITableViewCell = {return $0}
 

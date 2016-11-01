@@ -18,15 +18,15 @@ var shareOption:[String] = ["t1@walton.com.tw","t2@walton.com.tw","t3@walton.com
 
 
 class CustomController: UIViewController {
-    var controllers:[CellListener] = []
-    var pControll:[CellListener] = []
+    var switchControll:[CellListener] = []
+    var pushControll:[CellListener] = []
 
     override func viewDidLoad() {
         super.viewDidLoad()
         let s = SwitchController()
         let p = PushController(controller:self)
-        controllers = [s]
-        pControll = [p]
+        switchControll = [s]
+        pushControll = [p]
         let sectionManager = SectionManager(sections:setTableSections())
         s.set(manager:sectionManager)
         p.set(manager:sectionManager)
@@ -54,7 +54,7 @@ class CustomController: UIViewController {
                 header: "SETTING",
                 footer: "",
                 CellPacks: [
-                    SwitchCellPack(title: "Carmera Uploads", listeners:controllers)
+                    SwitchCellPack(title: "Carmera Uploads", listeners:switchControll)
                 ],
                 heightForFooter: 10.0
             ),
@@ -64,9 +64,9 @@ class CustomController: UIViewController {
                 CellPacks: [
                     TextCellPack(title: "Space Used",detail: ""),
                     AccessoryCellPack(title: "Legal and Privacy", detail: "", tableContent:shareTable(), sections: [Section]()),
-                    AccessoryCellPack(title: "Keep Days",detail: "5 days", tableContent:tickTable(), sections: CellMaker.makeTickSections(header:"choose Keep Days", options:dayOption), listeners:pControll),
+                    AccessoryCellPack(title: "Keep Days",detail: "5 days", tableContent:tickTable(), sections: CellMaker.makeTickSections(header:"choose Keep Days", options:dayOption), listeners:pushControll),
                     TextCellPack(title: "Connected",detail: "UPnP"  ),
-                    AccessoryCellPack(title: "Share Management",detail: "", tableContent:shareTable(), sections: CellMaker.makeSections(header:"Share Management", options:shareOption), listeners:pControll)
+                    AccessoryCellPack(title: "Share Management",detail: "", tableContent:shareTable(), sections: CellMaker.makeSections(header:"Share Management", options:shareOption))
                 ],
                 heightForFooter: 10.0
             ),

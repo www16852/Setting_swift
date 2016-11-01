@@ -40,7 +40,7 @@ public class ReturnVC: UIViewController {
             let (key,_) = cell.getContent()
             sourceValue = key
         }
-        delegate.backFromVC(sender:source, result:sourceValue)
+        delegate.backFromVC(accessoryCell:source, result:sourceValue)
         let _ = self.navigationController?.popViewController(animated: true)
     }
 

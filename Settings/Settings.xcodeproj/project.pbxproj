@@ -11,7 +11,6 @@
 		B819C2151DC1CB2F00A9F7D9 /* ReturnedVCDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B819C2141DC1CB2F00A9F7D9 /* ReturnedVCDelegate.swift */; };
 		B833FB271DC042BB003D2DDC /* PushController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B833FB0A1DC042BB003D2DDC /* PushController.swift */; };
 		B833FB281DC042BB003D2DDC /* SwitchController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B833FB0B1DC042BB003D2DDC /* SwitchController.swift */; };
-		B833FB291DC042BB003D2DDC /* ListenerContainer.swift in Sources */ = {isa = PBXBuildFile; fileRef = B833FB0C1DC042BB003D2DDC /* ListenerContainer.swift */; };
 		B833FB2A1DC042BB003D2DDC /* CellListener.swift in Sources */ = {isa = PBXBuildFile; fileRef = B833FB0E1DC042BB003D2DDC /* CellListener.swift */; };
 		B833FB2B1DC042BB003D2DDC /* SettingDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = B833FB101DC042BB003D2DDC /* SettingDataSource.swift */; };
 		B833FB2C1DC042BB003D2DDC /* TickTableDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B833FB111DC042BB003D2DDC /* TickTableDelegate.swift */; };
@@ -48,7 +47,6 @@
 		B819C2141DC1CB2F00A9F7D9 /* ReturnedVCDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ReturnedVCDelegate.swift; sourceTree = "<group>"; };
 		B833FB0A1DC042BB003D2DDC /* PushController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PushController.swift; sourceTree = "<group>"; };
 		B833FB0B1DC042BB003D2DDC /* SwitchController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SwitchController.swift; sourceTree = "<group>"; };
-		B833FB0C1DC042BB003D2DDC /* ListenerContainer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ListenerContainer.swift; sourceTree = "<group>"; };
 		B833FB0E1DC042BB003D2DDC /* CellListener.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CellListener.swift; sourceTree = "<group>"; };
 		B833FB101DC042BB003D2DDC /* SettingDataSource.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingDataSource.swift; sourceTree = "<group>"; };
 		B833FB111DC042BB003D2DDC /* TickTableDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TickTableDelegate.swift; sourceTree = "<group>"; };
@@ -104,7 +102,6 @@
 			isa = PBXGroup;
 			children = (
 				B833FB091DC042BB003D2DDC /* Listener */,
-				B833FB0C1DC042BB003D2DDC /* ListenerContainer.swift */,
 				B833FB0D1DC042BB003D2DDC /* Protocol */,
 				B833FB0F1DC042BB003D2DDC /* TableController */,
 			);
@@ -349,7 +346,6 @@
 				B833FB361DC042BB003D2DDC /* TextCellPack.swift in Sources */,
 				B833FB2F1DC042BB003D2DDC /* AccessoryCell.swift in Sources */,
 				B833FB331DC042BB003D2DDC /* AccessoryCellPack.swift in Sources */,
-				B833FB291DC042BB003D2DDC /* ListenerContainer.swift in Sources */,
 				B833FB371DC042BB003D2DDC /* EventCell.swift in Sources */,
 				B811A0E31DC1ABF700851F26 /* ReturnVC.swift in Sources */,
 				B833FB301DC042BB003D2DDC /* ButtonCell.swift in Sources */,

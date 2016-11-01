@@ -10,8 +10,8 @@ import UIKit
 
 public class AccessoryCellPack:MakeCellProtocol{
 
-    private var title:String = " "
-    private var detail:String = " "
+    private var title:String
+    private var detail:String
     private var listeners:[CellListener]
 
     private var tableContent:TableContent = TableContent(delegate: nil, allowsSelection: true)

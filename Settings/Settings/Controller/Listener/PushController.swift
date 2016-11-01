@@ -41,11 +41,11 @@ public class PushController:CellListener,ReturnedVCDelegate{
 
 //MARK:ReturnedVCDelegate
 
-    public func backFromVC(sender:AccessoryCell, result:String?){
+    public func backFromVC(accessoryCell:AccessoryCell, result:String?){
         print("T: backFromVC return result = \(result)")
         if let bindingString = result {
-            dataManager.update(forKey: sender.getContent().0, value: bindingString)
-            sender.detailTextLabel?.text = bindingString
+            dataManager.update(forKey: accessoryCell.getContent().0, value: bindingString)
+            accessoryCell.detailTextLabel?.text = bindingString
         }
     }
 
