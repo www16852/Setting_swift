@@ -2,6 +2,6 @@
 <Workspace
    version = "1.0">
    <FileRef
-      location = "self:Setting.xcodeproj">
+      location = "self:/Users/waltoncob/Documents/setting/Setting_swift/Example.xcodeproj">
    </FileRef>
 </Workspace>
