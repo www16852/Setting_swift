@@ -10,32 +10,30 @@ import UIKit
 
 public class TextCellPack:MakeCellProtocol{
 
-    private var title:String
-    private var detail:String
-    private var listeners:[CellListener]
+    private var cellContent:TextCellContent
 
-    public var cellSet:(UITableViewCell) -> UITableViewCell = {return $0}
-
-    public init(title: String,detail: String,listeners:[CellListener] = []){
-        self.title = title
-        self.detail = detail
-        self.listeners = listeners
+    public init(_ cellContent:TextCellContent){
+        self.cellContent = cellContent
     }
 
 //MARK: MakeCellProtocol
-    
+
     public func packToCell() -> UITableViewCell{
-        let cell = cellSet(TextCell(text: title,detail: detail)) as! TextCell
+        let cell:UITableViewCell!
+        switch cellContent.getAccessoryType() {
+        case .none:
+            cell = TextCell(cellContent:cellContent)
+        case .disclosureIndicator:
+            cell = AccessoryCell(cellContent:cellContent)
+        default:
+            print("Not defined AccessoryType")
+            cell = UITableViewCell()
+        }
         return cell
     }
 
-    public func getKey() -> String {
-        return title
+    public func getCellContent() -> CellContent{
+        return cellContent
     }
 
-    public func set(key:String, value:Any){
-        self.title = key
-        self.detail = value as! String
-    }
-    
 }

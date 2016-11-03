@@ -9,7 +9,7 @@
 public protocol EventCell{
     func add(listener:CellListener)
     func remove(listener:CellListener)
-    func setTrigger()
-    func tapAction()
-    func getContent() -> (String,Any)
+//    func setTrigger()                 cell內執行
+//    func tapAction()                  cell內執行
+//    func getContent() -> (String,Any)  綁物件後不用透過cell傳key出去
 }

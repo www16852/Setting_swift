@@ -8,33 +8,14 @@
 
 import UIKit
 
-public struct TableContent {
-
-    fileprivate var frame: CGRect
-    fileprivate let delegate: UITableViewDelegate?
-    fileprivate let allowsSelection: Bool
-
-    public init(frame: CGRect, delegate: UITableViewDelegate? = nil,allowsSelection: Bool = false){
-        self.frame = frame
-        self.delegate = delegate
-        self.allowsSelection = allowsSelection
-    }
-
-    public init(delegate: UITableViewDelegate? = nil,allowsSelection: Bool = false){
-        self.init(frame: CGRect.zero, delegate: delegate, allowsSelection:allowsSelection)
-    }
-
-
-}
-
 public class SettingTableView: UITableView {
 
     private var dataSourcePtr:UITableViewDataSource?
     private var delegatePtr:UITableViewDelegate?
 
-    public init(content: TableContent, sectionManager:SectionManager){
-        self.dataSourcePtr = SettingDataSource(sectionManager:sectionManager)
-        super.init(frame: content.frame, style: .plain)
+    public init(content:TableContent){
+        self.dataSourcePtr = SettingDataSource(sections:content.getSections())
+        super.init(frame: CGRect.zero, style: .plain)
         self.setDelegate(delegate: content.delegate)
         self.allowsSelection = content.allowsSelection
         self.dataSource = dataSourcePtr

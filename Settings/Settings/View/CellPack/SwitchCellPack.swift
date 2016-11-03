@@ -8,7 +8,7 @@
 
 import UIKit
 
-public class SwitchCellPack:MakeCellProtocol{
+public class SwitchCellPack{
 
     private var title:String
     private var isOn:Bool = false

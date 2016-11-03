@@ -11,38 +11,26 @@ import UIKit
 public class AccessoryCell:UITableViewCell,EventCell{
 
     private var listeners:[CellListener] = []
-    private var detailSection:SectionManager
     private var tableContent:TableContent
 
-    public init(text: String, detail: String, tableContent:TableContent, sections: [Section]){
-        self.detailSection = SectionManager(sections:sections)
-        self.tableContent = tableContent
+    public init(cellContent:TextCellContent){
+        self.tableContent = cellContent.getTableContent()!
         super.init(style: .value1,reuseIdentifier: nil)
-        self.textLabel?.text = text
-        self.detailTextLabel?.text = detail
+        self.textLabel?.text = cellContent.getTitle()
+        self.detailTextLabel?.text = cellContent.getDetail()
         self.accessoryType = .disclosureIndicator
     }
 
     required public init?(coder aDecoder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
-//protocol
+
     public func getTableView() -> SettingTableView{
-        let stView = SettingTableView(content: tableContent, sectionManager:detailSection)
+        let stView = SettingTableView(content:tableContent)
         return stView
     }
 
-//MARK:EvenCell
-
-    public func add(listener:CellListener){
-        self.listeners.append(listener)
-    }
-
-    public func remove(listener:CellListener){
-
-    }
-
-    public func setTrigger(){
+    public func setupTrigger(){
         let gesture = UITapGestureRecognizer(target: self, action: #selector(self.tapAction))
         self.addGestureRecognizer(gesture)
     }
@@ -54,8 +42,14 @@ public class AccessoryCell:UITableViewCell,EventCell{
         }
     }
 
-    public func getContent() -> (String,Any){
-        return (textLabel!.text!,detailTextLabel!.text!)
+//MARK:EvenCell
+
+    public func add(listener:CellListener){
+        self.listeners.append(listener)
+    }
+
+    public func remove(listener:CellListener){
+
     }
     
 }

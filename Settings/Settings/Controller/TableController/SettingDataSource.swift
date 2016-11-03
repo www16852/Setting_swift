@@ -12,7 +12,7 @@ public struct Section {
 
     fileprivate let header: String
     fileprivate let footer: String
-    let CellPacks: [MakeCellProtocol]
+    public let CellPacks: [MakeCellProtocol]
     fileprivate var heightForHeader: CGFloat
     fileprivate var heightForFooter: CGFloat
 
@@ -28,12 +28,10 @@ public struct Section {
 
 class SettingDataSource:NSObject,UITableViewDataSource{
 
-    private var sectionManager:SectionManager
     private var sections:[Section]
 
-    init(sectionManager: SectionManager){
-        self.sectionManager = sectionManager
-        self.sections = sectionManager.getSections()
+    init(sections: [Section]){
+        self.sections = sections
     }
 
     open func numberOfSections(in tableView: UITableView) -> Int {
@@ -64,9 +62,6 @@ class SettingDataSource:NSObject,UITableViewDataSource{
 
     open func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell{
         let cell = sections[indexPath.section].CellPacks[indexPath.row].packToCell()
-        if let eventCell = cell as? EventCell{
-            eventCell.setTrigger()
-        }
         return cell
     }
 

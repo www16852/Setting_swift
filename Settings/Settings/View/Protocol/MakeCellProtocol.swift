@@ -8,8 +8,5 @@
 
 public protocol MakeCellProtocol{
     func packToCell() -> UITableViewCell
-    func getKey() -> String
-    func set(key:String, value:Any)
-//    var listeners:ListenerContainer {get set}
-//    var cellSet:(UITableViewCell) -> UITableViewCell {get set}
+    func getCellContent() -> CellContent
 }

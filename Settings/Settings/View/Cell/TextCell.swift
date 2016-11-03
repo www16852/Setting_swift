@@ -10,10 +10,10 @@ import UIKit
 
 public class TextCell:UITableViewCell,EventCell{
 
-    public init(text: String, detail:String){
+    public init(cellContent:TextCellContent){
         super.init(style: UITableViewCellStyle.value1,reuseIdentifier: nil)
-        self.textLabel?.text = text
-        self.detailTextLabel?.text = detail
+        self.textLabel?.text = cellContent.getTitle()
+        self.detailTextLabel?.text = cellContent.getDetail()
     }
 
     required public init?(coder aDecoder: NSCoder) {

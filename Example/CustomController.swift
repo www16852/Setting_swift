@@ -21,74 +21,93 @@ class CustomController: UIViewController {
     var switchControll:[CellListener] = []
     var pushControll:[CellListener] = []
 
+    var LegalContent = TextCellContent(title: "Legal and Privacy", detail: "")
+    var keepDaysContnet = TextCellContent(title: "Keep Days",detail: "5 days")
+    var shareContent = TextCellContent(title: "Share Management",detail: "")
+
     override func viewDidLoad() {
         super.viewDidLoad()
-        let s = SwitchController()
-        let p = PushController(controller:self)
-        switchControll = [s]
-        pushControll = [p]
-        let sectionManager = SectionManager(sections:setTableSections())
-        s.set(manager:sectionManager)
-        p.set(manager:sectionManager)
-        print("Plist path : \(sectionManager.plistPathInDocument)")
-        let content = TableContent(frame: view.bounds)
-        let tableview = SettingTableView(content: content, sectionManager:sectionManager)
-        view.addSubview(tableview)
-        // Do any additional setup after loading the view, typically from a nib.
+
+        let sections = firstTableSections()
+        let cellContents = firstCellContents(sections)
+        let plistManager = PlistManager(cellContents:cellContents)
+        print("Plist path : \(plistManager.plistPathInDocument)")
+        plistManager.adjustCellContents()
+
+        let tableContent = TableContent(sections:sections)
+
+        let tableview = SettingTableView(content:tableContent)
+        view = tableview
+
+        setupLegalContent()
     }
 
-    func setTableSections() -> [Section]{
+    func setupLegalContent(){
+//        LegalContent
+    }
 
-        let sections = [
+    func firstCellContents(_ sections:[Section]) -> [CellContent]{
+        var cellContents:[CellContent] = []
+        for section in sections{
+            for pack in section.CellPacks{
+                cellContents.append(pack.getCellContent())
+            }
+        }
+        return cellContents
+    }
+
+    func firstTableSections() -> [Section]{
+
+        let sections:[Section] = [
             Section(
                 header: "ACCOUNT",
                 footer: "",
                 CellPacks: [
-                    TextCellPack(title: "Email",detail: userEmail),
-                    TextCellPack(title: "Device",detail: userDevice),
-                    TextCellPack(title: "Version",detail: version)
+                    TextCellPack(TextCellContent(title: "Email",detail: userEmail)),
+                    TextCellPack(TextCellContent(title: "Device",detail: userDevice)),
+                    TextCellPack(TextCellContent(title: "Version",detail: version))
                 ],
                 heightForFooter: 10.0
             ),
-            Section(
-                header: "SETTING",
-                footer: "",
-                CellPacks: [
-                    SwitchCellPack(title: "Carmera Uploads", listeners:switchControll)
-                ],
-                heightForFooter: 10.0
-            ),
+//            Section(
+//                header: "SETTING",
+//                footer: "",
+//                CellPacks: [
+//                    SwitchCellPack(title: "Carmera Uploads", listeners:switchControll)
+//                ],
+//                heightForFooter: 10.0
+//            ),
             Section(
                 header: "MANAGEMENT",
                 footer: "",
                 CellPacks: [
-                    TextCellPack(title: "Space Used",detail: ""),
-                    AccessoryCellPack(title: "Legal and Privacy", detail: "", tableContent:shareTable(), sections: [Section]()),
-                    AccessoryCellPack(title: "Keep Days",detail: "5 days", tableContent:tickTable(), sections: CellMaker.makeTickSections(header:"choose Keep Days", options:dayOption), listeners:pushControll),
-                    TextCellPack(title: "Connected",detail: "UPnP"  ),
-                    AccessoryCellPack(title: "Share Management",detail: "", tableContent:shareTable(), sections: CellMaker.makeSections(header:"Share Management", options:shareOption))
-                ],
-                heightForFooter: 10.0
-            ),
-            Section(
-                header: "",
-                footer: "",
-                CellPacks: [
-                    ButtonCellPack(title: "Sign out",color: UIColor(red: 0.8, green: 0.5, blue: 0.5, alpha: 1))
+                    TextCellPack(TextCellContent(title: "Space Used",detail: "")),
+                    TextCellPack(LegalContent),
+                    TextCellPack(keepDaysContnet),
+                    TextCellPack(TextCellContent(title: "Connected",detail: "UPnP")),
+                    TextCellPack(shareContent),
                 ],
                 heightForFooter: 10.0
             )
+//            Section(
+//                header: "",
+//                footer: "",
+//                CellPacks: [
+//                    ButtonCellPack(title: "Sign out",color: UIColor(red: 0.8, green: 0.5, blue: 0.5, alpha: 1))
+//                ],
+//                heightForFooter: 10.0
+//            )
         ]
         return sections
     }
 
-    func shareTable() -> TableContent{
-        return TableContent(allowsSelection: true)
-    }
-
-    func tickTable() -> TableContent{
-        return TableContent(delegate: TickTableDelegate(), allowsSelection: true)
-    }
+//    func shareTable() -> TableContent{
+//        return TableContent(allowsSelection: true)
+//    }
+//
+//    func tickTable() -> TableContent{
+//        return TableContent(delegate: TickTableDelegate(), allowsSelection: true)
+//    }
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()

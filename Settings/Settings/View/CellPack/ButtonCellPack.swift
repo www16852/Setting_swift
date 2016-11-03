@@ -8,7 +8,7 @@
 
 import UIKit
 
-public class ButtonCellPack:MakeCellProtocol{
+public class ButtonCellPack{
 
     private var title:String
     private var color:UIColor

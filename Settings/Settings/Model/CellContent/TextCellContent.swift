@@ -22,7 +22,20 @@ public class TextCellContent{
         self.title = title
         self.detail = detail
         self.listeners = listeners
-        self.accessoryType = .disclosureIndicator
+        self.accessoryType = accessory
+    }
+
+    public func set(title:String,detail:String){
+        self.title = title
+        self.detail = detail
+    }
+
+    public func getTitle() ->String{
+        return title
+    }
+
+    public func getDetail() ->String{
+        return detail
     }
     
 }

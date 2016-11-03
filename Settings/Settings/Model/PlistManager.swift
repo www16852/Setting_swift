@@ -8,9 +8,9 @@
 
 import Foundation
 
-public class SectionManager{
+public class PlistManager{
 
-    private var sections:[Section]
+    private var cellContents:[CellContent]
     private var dictionary:[String:Any] = [:]
 
     private let rootPath = NSSearchPathForDirectoriesInDomains(
@@ -24,32 +24,38 @@ public class SectionManager{
         }
     }
 
-    public init(sections:[Section]){
-        self.sections = sections
-        openPlist()
-        adjustSections()
+    public init(cellContents:[CellContent]){
+        self.cellContents = cellContents
+        if openPlist() == false{
+            buildDictionary()
+            savePlist()
+        }
     }
 
-    public func getSections() -> [Section]{
-        return sections
+    //MARK:get set
+
+    //MARK:Dictionary
+
+    func buildDictionary(){
+        for content in cellContents{
+            let key = content.getKey()
+            let value = content.getValue()
+            self.dictionary[key] = value
+        }
     }
 
-//MARK:Dictionary_Section
-
-    func adjustSections(){
-        for section in sections{
-            for pack in section.CellPacks{
-                let key = pack.getKey()
-                if dictionary[key] != nil{
-                    pack.set(key: key, value: dictionary[key])
-                }
+    public func adjustCellContents(){
+        for content in cellContents{
+            let key = content.getKey()
+            if let plistValue = dictionary[key]{
+                content.set(value:plistValue)
             }
         }
     }
 
     func update(cell:EventCell){
-        let (key,value) = cell.getContent()
-        update(forKey: key, value: value)
+//        let (key,value) = cell.getContent()
+//        update(forKey: key, value: value)
     }
 
     func update(forKey key:String, value:Any){
@@ -57,11 +63,14 @@ public class SectionManager{
         savePlist()
     }
 
-//MARK:Plist_Section
+    //MARK:Plist
 
-    func openPlist(){
+    func openPlist() -> Bool{
         if FileManager.default.fileExists(atPath: plistPathInDocument){
             dictionary = NSDictionary(contentsOfFile: plistPathInDocument) as! [String : Any]
+            return true
+        }else{
+            return false
         }
     }
 
@@ -71,5 +80,5 @@ public class SectionManager{
             print("Plist creat fail")
         }
     }
-
+    
 }
