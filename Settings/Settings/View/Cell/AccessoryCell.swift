@@ -14,7 +14,7 @@ public class AccessoryCell:UITableViewCell,EventCell{
     private var tableContent:TableContent
 
     public init(cellContent:TextCellContent){
-        self.tableContent = cellContent.getTableContent()!
+        self.tableContent = cellContent.getPushTableContent()!
         super.init(style: .value1,reuseIdentifier: nil)
         self.textLabel?.text = cellContent.getTitle()
         self.detailTextLabel?.text = cellContent.getDetail()

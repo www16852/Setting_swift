@@ -12,17 +12,15 @@ public class TextCellContent:CellContent{
 
     private var title:String
     private var detail:String
-    private var accessoryType:UITableViewCellAccessoryType
     private var listeners:[CellListener]
 
-    private var tableContent:TableContent?
-    private var sections = [Section]()
+    private var pushTableContent:TableContent?
 
-    public init(title: String,detail: String,listeners:[CellListener] = []){
+    public init(title: String,detail: String,listeners:[CellListener] = [], push:TableContent? = nil){
         self.title = title
         self.detail = detail
         self.listeners = listeners
-        self.accessoryType = .none
+        self.pushTableContent = push
     }
 
 //MARK:get set
@@ -30,6 +28,10 @@ public class TextCellContent:CellContent{
     public func set(title:String,detail:String){
         self.title = title
         self.detail = detail
+    }
+
+    public func set(pushTableContent:TableContent){
+        self.pushTableContent = pushTableContent
     }
 
     public func getTitle() ->String{
@@ -40,16 +42,8 @@ public class TextCellContent:CellContent{
         return detail
     }
 
-    public func getAccessoryType() -> UITableViewCellAccessoryType{
-        return accessoryType
-    }
-
-    public func getSections() -> [Section]{
-        return sections
-    }
-
-    public func getTableContent() -> TableContent?{
-        return tableContent
+    public func getPushTableContent() -> TableContent?{
+        return pushTableContent
     }
 
 //MARK:CellContent_protocol

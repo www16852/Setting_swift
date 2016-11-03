@@ -21,14 +21,45 @@ class CustomController: UIViewController {
     var switchControll:[CellListener] = []
     var pushControll:[CellListener] = []
 
-    var LegalContent = TextCellContent(title: "Legal and Privacy", detail: "")
-    var keepDaysContnet = TextCellContent(title: "Keep Days",detail: "5 days")
-    var shareContent = TextCellContent(title: "Share Management",detail: "")
+//    var keepDaysContnet = TextCellContent(title: "Keep Days",detail: "5 days", push:TableContent(sections:CellMaker.makeTickSections(header:"choose Keep Days", options:dayOption)))
+//    var shareContent = TextCellContent(title: "Share Management",detail: "")
 
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        let sections = firstTableSections()
+        var sections = [Section]()
+        let section1 = Section(header: "ACCOUNT",CellPacks: [])
+        section1.add(cellPack:TextCellPack(TextCellContent(title: "Email",detail: userEmail)))
+        section1.add(cellPack:TextCellPack(TextCellContent(title: "Device",detail: userDevice)))
+        section1.add(cellPack:TextCellPack(TextCellContent(title: "Version",detail: version)))
+        sections.append(section1)
+
+        let section2 = Section(header: "MANAGEMENT",CellPacks: [])
+        section2.add(cellPack:TextCellPack(TextCellContent(title: "Space Used",detail: "")))
+
+        let LegalCellContent = TextCellContent(title: "Legal and Privacy", detail: "")
+        let LegalPsuhTable = TableContent(sections:makeSections(header:"", options:[]))
+        LegalCellContent.set(pushTableContent: LegalPsuhTable)
+        section2.add(cellPack: TextCellPack(LegalCellContent))
+
+        let keepDaysCellContnet = TextCellContent(title: "Keep Days", detail: "5 days")
+        let keepDaysPushTable = TableContent(sections:makeSections(header:"choose Keep Days", options:dayOption))
+        keepDaysCellContnet.set(pushTableContent:keepDaysPushTable)
+        section2.add(cellPack:TextCellPack(keepDaysCellContnet))
+
+        section2.add(cellPack:TextCellPack(TextCellContent(title: "Connected",detail: "UPnP")))
+
+        let shareCellContent = TextCellContent(title: "Share Management", detail: "")
+        let sharePushTable = TableContent(sections:makeSections(header:"choose Keep Days", options:dayOption))
+        shareCellContent.set(pushTableContent:sharePushTable)
+        section2.add(cellPack:TextCellPack(shareCellContent))
+
+        sections.append(section2)
+
+
+
+
+
         let cellContents = firstCellContents(sections)
         let plistManager = PlistManager(cellContents:cellContents)
         print("Plist path : \(plistManager.plistPathInDocument)")
@@ -49,11 +80,26 @@ class CustomController: UIViewController {
     func firstCellContents(_ sections:[Section]) -> [CellContent]{
         var cellContents:[CellContent] = []
         for section in sections{
-            for pack in section.CellPacks{
+            for pack in section.getCellPacks(){
                 cellContents.append(pack.getCellContent())
             }
         }
         return cellContents
+    }
+
+    func makeSections(header:String, options:[String]) -> [Section]{
+        var optionCellPacks = [MakeCellProtocol]()
+        for str in options {
+            let content = TextCellContent(title: str,detail: "")
+            optionCellPacks.append(TextCellPack(content))
+        }
+        let tableSection = [
+            Section(
+                header: header,
+                CellPacks: optionCellPacks
+            )
+        ]
+        return tableSection
     }
 
     func firstTableSections() -> [Section]{
@@ -82,10 +128,10 @@ class CustomController: UIViewController {
                 footer: "",
                 CellPacks: [
                     TextCellPack(TextCellContent(title: "Space Used",detail: "")),
-                    TextCellPack(LegalContent),
-                    TextCellPack(keepDaysContnet),
+//                    TextCellPack(LegalContent),
+//                    TextCellPack(keepDaysContnet),
                     TextCellPack(TextCellContent(title: "Connected",detail: "UPnP")),
-                    TextCellPack(shareContent),
+//                    TextCellPack(shareContent),
                 ],
                 heightForFooter: 10.0
             )

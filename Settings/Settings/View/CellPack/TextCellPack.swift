@@ -20,14 +20,12 @@ public class TextCellPack:MakeCellProtocol{
 
     public func packToCell() -> UITableViewCell{
         let cell:UITableViewCell!
-        switch cellContent.getAccessoryType() {
-        case .none:
+        if cellContent.getPushTableContent() == nil {
             cell = TextCell(cellContent:cellContent)
-        case .disclosureIndicator:
+            print("T: \(cellContent.getTitle())  getPushTableContent() == nil")
+        }else{
             cell = AccessoryCell(cellContent:cellContent)
-        default:
-            print("Not defined AccessoryType")
-            cell = UITableViewCell()
+            print("T: \(cellContent.getTitle())  getPushTableContent() != nil")
         }
         return cell
     }

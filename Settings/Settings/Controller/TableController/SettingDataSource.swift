@@ -8,20 +8,29 @@
 
 import UIKit
 
-public struct Section {
+public class Section {
 
     fileprivate let header: String
     fileprivate let footer: String
-    public let CellPacks: [MakeCellProtocol]
+    fileprivate var cellPacks: [MakeCellProtocol]
     fileprivate var heightForHeader: CGFloat
     fileprivate var heightForFooter: CGFloat
 
-    public init(header: String,footer: String,CellPacks: [MakeCellProtocol],heightForHeader: CGFloat = 40,heightForFooter: CGFloat = 40){
+    public init(header: String,footer: String = "",CellPacks:[MakeCellProtocol] = [],
+                heightForHeader: CGFloat = 40,heightForFooter: CGFloat = 10.0){
         self.header = header
         self.footer = footer
-        self.CellPacks = CellPacks
+        self.cellPacks = CellPacks
         self.heightForHeader = heightForHeader
         self.heightForFooter = heightForFooter
+    }
+
+    public func add(cellPack:MakeCellProtocol){
+        cellPacks.append(cellPack)
+    }
+
+    public func getCellPacks() -> [MakeCellProtocol]{
+        return cellPacks
     }
     
 }
@@ -39,7 +48,7 @@ class SettingDataSource:NSObject,UITableViewDataSource{
     }
 
     open func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return sections[section].CellPacks.count
+        return sections[section].cellPacks.count
     }
 
     open func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
@@ -61,7 +70,7 @@ class SettingDataSource:NSObject,UITableViewDataSource{
     }
 
     open func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell{
-        let cell = sections[indexPath.section].CellPacks[indexPath.row].packToCell()
+        let cell = sections[indexPath.section].cellPacks[indexPath.row].packToCell()
         return cell
     }
 
