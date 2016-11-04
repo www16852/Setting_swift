@@ -10,7 +10,7 @@ import Foundation
 
 public class PlistManager{
 
-    private var cellContents:[CellContent]
+    private var cellContents:[CellContent] = []
     private var dictionary:[String:Any] = [:]
 
     private let rootPath = NSSearchPathForDirectoriesInDomains(
@@ -24,7 +24,11 @@ public class PlistManager{
         }
     }
 
-    public init(cellContents:[CellContent]){
+    public init(){
+
+    }
+
+    public func setup(cellContents:[CellContent]){
         self.cellContents = cellContents
         if openPlist() == false{
             buildDictionary()
@@ -53,16 +57,6 @@ public class PlistManager{
         }
     }
 
-    func update(cell:EventCell){
-//        let (key,value) = cell.getContent()
-//        update(forKey: key, value: value)
-    }
-
-    func update(forKey key:String, value:Any){
-        self.dictionary.updateValue(value, forKey: key)
-        savePlist()
-    }
-
     //MARK:Plist
 
     func openPlist() -> Bool{
@@ -75,6 +69,7 @@ public class PlistManager{
     }
 
     func savePlist(){
+        buildDictionary()
         let nsDictionary = dictionary as NSDictionary
         if nsDictionary.write(toFile:plistPathInDocument, atomically:true) == false{
             print("Plist creat fail")

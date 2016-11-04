@@ -10,4 +10,7 @@ public protocol CellContent{
     func getKey() -> String
     func getValue() -> Any?
     func set(value:Any)
+    func add(listener:CellListener)
+    func remove(listener:CellListener)
+    func getListeners() -> [CellListener]
 }

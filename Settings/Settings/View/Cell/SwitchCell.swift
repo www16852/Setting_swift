@@ -8,7 +8,7 @@
 
 import UIKit
 
-public class SwitchCell:UITableViewCell,EventCell{
+public class SwitchCell:UITableViewCell{
 
     private var listeners:[CellListener] = []
     private let boolSwitch = UISwitch()

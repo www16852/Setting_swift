@@ -1,52 +1,40 @@
-////
-////  PushController.swift
-////  Setting
-////
-////  Created by waltoncob on 2016/10/6.
-////  Copyright © 2016年 waltoncob. All rights reserved.
-////
 //
-//import  UIKit
+//  PushController.swift
+//  Setting
 //
-//public class PushController:CellListener,ReturnedVCDelegate{
+//  Created by waltoncob on 2016/10/6.
+//  Copyright © 2016年 waltoncob. All rights reserved.
 //
-//    unowned let controller:UIViewController
-//    private var dataManager:SectionManager!
-//
-//    public init(controller: UIViewController){
-//        self.controller = controller
-//    }
-//
-//    public func set(manager:SectionManager){
-//        self.dataManager = manager
-//    }
-//
-//    public func tapAction(sender:UITableViewCell){
-//        print("T:\(sender.textLabel?.text) PushController.tapAction ")
-//        pushVC(sender)
-//    }
-//
-//    func save(_ cell:UITableViewCell){
-//        if let eventCell = cell as? EventCell{
-//            let (key,value) = eventCell.getContent()
-//            dataManager.update(forKey: key, value: value)
-//        }
-//    }
-//
-//    func pushVC(_ cell:UITableViewCell){
-//        let sender = cell as! AccessoryCell
-//        let VC = ReturnVC(sender:sender, table:sender.getTableView(), delegate:self)
-//        controller.navigationController?.pushViewController(VC, animated: true)
-//    }
-//
-////MARK:ReturnedVCDelegate
-//
-//    public func backFromVC(accessoryCell:AccessoryCell, result:String?){
-//        print("T: backFromVC return result = \(result)")
-//        if let bindingString = result {
-//            dataManager.update(forKey: accessoryCell.getContent().0, value: bindingString)
-//            accessoryCell.detailTextLabel?.text = bindingString
-//        }
-//    }
-//
-//}
+
+import  UIKit
+
+public class PushController:CellListener,ReturnedViewControllerDelegate{
+
+    unowned let controller:UIViewController
+    unowned let plistManager:PlistManager
+
+    public init(controller: UIViewController, plist:PlistManager){
+        self.controller = controller
+        self.plistManager = plist
+    }
+
+    public func tapAction(sender:UITableViewCell){
+        print("T:\(sender.textLabel?.text) PushController.tapAction ")
+        pushVC(sender)
+    }
+
+    func pushVC(_ cell:UITableViewCell){
+        let accessoryCell = cell as! AccessoryCell
+        let title = controller.navigationItem.title
+        let viewController = ReturnViewController(sender:accessoryCell, table:accessoryCell.makeTableView(), backTitle:title, delegate:self)
+        controller.navigationController?.pushViewController(viewController, animated: true)
+    }
+
+//MARK:ReturnedVCDelegate
+
+    public func backFromVC(accessoryCell:AccessoryCell, result:String?){
+        print("T: backFromVC return result = \(result)")
+        plistManager.savePlist()
+    }
+
+}

@@ -8,7 +8,7 @@
 
 import UIKit
 
-public class ButtonCell:UITableViewCell,EventCell{
+public class ButtonCell:UITableViewCell{
 
     private var listeners:[CellListener] = []
     private let button = UIButton()

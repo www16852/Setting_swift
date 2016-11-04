@@ -20,12 +20,12 @@ var shareOption:[String] = ["t1@walton.com.tw","t2@walton.com.tw","t3@walton.com
 class CustomController: UIViewController {
     var switchControll:[CellListener] = []
     var pushControll:[CellListener] = []
+    let plistManager = PlistManager()
 
-//    var keepDaysContnet = TextCellContent(title: "Keep Days",detail: "5 days", push:TableContent(sections:CellMaker.makeTickSections(header:"choose Keep Days", options:dayOption)))
-//    var shareContent = TextCellContent(title: "Share Management",detail: "")
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        self.title = "Setting"
 
         var sections = [Section]()
         let section1 = Section(header: "ACCOUNT",CellPacks: [])
@@ -43,14 +43,16 @@ class CustomController: UIViewController {
         section2.add(cellPack: TextCellPack(LegalCellContent))
 
         let keepDaysCellContnet = TextCellContent(title: "Keep Days", detail: "5 days")
-        let keepDaysPushTable = TableContent(sections:makeSections(header:"choose Keep Days", options:dayOption))
+        let keepDaysPushTable = TableContent(sections:makeSections(header:"choose Keep Days", options:dayOption), delegate: TickTableDelegate(), allowsSelection:true)
         keepDaysCellContnet.set(pushTableContent:keepDaysPushTable)
+        let pushListener = PushController(controller:self, plist:plistManager)
+        keepDaysCellContnet.add(listener:pushListener)
         section2.add(cellPack:TextCellPack(keepDaysCellContnet))
 
         section2.add(cellPack:TextCellPack(TextCellContent(title: "Connected",detail: "UPnP")))
 
         let shareCellContent = TextCellContent(title: "Share Management", detail: "")
-        let sharePushTable = TableContent(sections:makeSections(header:"choose Keep Days", options:dayOption))
+        let sharePushTable = TableContent(sections:makeSections(header:"Share Management", options:dayOption))
         shareCellContent.set(pushTableContent:sharePushTable)
         section2.add(cellPack:TextCellPack(shareCellContent))
 
@@ -58,10 +60,10 @@ class CustomController: UIViewController {
 
 
 
-
+        
 
         let cellContents = firstCellContents(sections)
-        let plistManager = PlistManager(cellContents:cellContents)
+        plistManager.setup(cellContents:cellContents)
         print("Plist path : \(plistManager.plistPathInDocument)")
         plistManager.adjustCellContents()
 
@@ -70,11 +72,7 @@ class CustomController: UIViewController {
         let tableview = SettingTableView(content:tableContent)
         view = tableview
 
-        setupLegalContent()
-    }
 
-    func setupLegalContent(){
-//        LegalContent
     }
 
     func firstCellContents(_ sections:[Section]) -> [CellContent]{

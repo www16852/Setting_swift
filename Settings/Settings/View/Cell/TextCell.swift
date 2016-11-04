@@ -8,7 +8,9 @@
 
 import UIKit
 
-public class TextCell:UITableViewCell,EventCell{
+public class TextCell:UITableViewCell{
+
+    private var listeners:[CellListener] = []
 
     public init(cellContent:TextCellContent){
         super.init(style: UITableViewCellStyle.value1,reuseIdentifier: nil)
@@ -24,25 +26,8 @@ public class TextCell:UITableViewCell,EventCell{
         return (textLabel!.text!,detailTextLabel!.text!)
     }
 
-//MARK:EvenCell
-    public func add(listener:CellListener){
-
+    public func set(listeners:[CellListener]){
+        self.listeners = listeners
     }
-
-    public func remove(listener:CellListener){
-
-    }
-
-    public func setTrigger(){
-
-    }
-
-    public func tapAction(){
-        
-    }
-
-    public func getContent() -> (String,Any){
-        return (textLabel!.text!,detailTextLabel!.text!)
-    }
-
+    
 }

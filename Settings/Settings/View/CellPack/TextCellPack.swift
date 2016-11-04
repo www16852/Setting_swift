@@ -19,15 +19,18 @@ public class TextCellPack:MakeCellProtocol{
 //MARK: MakeCellProtocol
 
     public func packToCell() -> UITableViewCell{
-        let cell:UITableViewCell!
+        let rCell:UITableViewCell!
         if cellContent.getPushTableContent() == nil {
-            cell = TextCell(cellContent:cellContent)
-            print("T: \(cellContent.getTitle())  getPushTableContent() == nil")
+            let cell = TextCell(cellContent:cellContent)
+            cell.set(listeners: cellContent.getListeners())
+            rCell = cell
         }else{
-            cell = AccessoryCell(cellContent:cellContent)
-            print("T: \(cellContent.getTitle())  getPushTableContent() != nil")
+            let cell = AccessoryCell(cellContent:cellContent)
+            cell.set(listeners: cellContent.getListeners()) 
+            rCell = cell
         }
-        return cell
+        
+        return rCell
     }
 
     public func getCellContent() -> CellContent{

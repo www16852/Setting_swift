@@ -25,8 +25,11 @@ public class TextCellContent:CellContent{
 
 //MARK:get set
 
-    public func set(title:String,detail:String){
+    public func set(title:String){
         self.title = title
+    }
+
+    public func set(detail:String){
         self.detail = detail
     }
 
@@ -46,6 +49,10 @@ public class TextCellContent:CellContent{
         return pushTableContent
     }
 
+    public func getListeners() -> [CellListener]{
+        return listeners
+    }
+
 //MARK:CellContent_protocol
 
     public func getKey() -> String{
@@ -58,6 +65,14 @@ public class TextCellContent:CellContent{
 
     public func set(value:Any){
         self.detail = value as! String
+    }
+
+    public func add(listener:CellListener){
+        listeners.append(listener)
+    }
+
+    public func remove(listener:CellListener){
+
     }
 
 }

@@ -7,8 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		B811A0E31DC1ABF700851F26 /* ReturnVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = B811A0E21DC1ABF700851F26 /* ReturnVC.swift */; };
-		B819C2151DC1CB2F00A9F7D9 /* ReturnedVCDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B819C2141DC1CB2F00A9F7D9 /* ReturnedVCDelegate.swift */; };
+		B811A0E31DC1ABF700851F26 /* ReturnViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B811A0E21DC1ABF700851F26 /* ReturnViewController.swift */; };
+		B819C2151DC1CB2F00A9F7D9 /* ReturnedViewControllerDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B819C2141DC1CB2F00A9F7D9 /* ReturnedViewControllerDelegate.swift */; };
 		B833FB271DC042BB003D2DDC /* PushController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B833FB0A1DC042BB003D2DDC /* PushController.swift */; };
 		B833FB281DC042BB003D2DDC /* SwitchController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B833FB0B1DC042BB003D2DDC /* SwitchController.swift */; };
 		B833FB2A1DC042BB003D2DDC /* CellListener.swift in Sources */ = {isa = PBXBuildFile; fileRef = B833FB0E1DC042BB003D2DDC /* CellListener.swift */; };
@@ -46,8 +46,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		B811A0E21DC1ABF700851F26 /* ReturnVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ReturnVC.swift; sourceTree = "<group>"; };
-		B819C2141DC1CB2F00A9F7D9 /* ReturnedVCDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ReturnedVCDelegate.swift; sourceTree = "<group>"; };
+		B811A0E21DC1ABF700851F26 /* ReturnViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ReturnViewController.swift; sourceTree = "<group>"; };
+		B819C2141DC1CB2F00A9F7D9 /* ReturnedViewControllerDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ReturnedViewControllerDelegate.swift; sourceTree = "<group>"; };
 		B833FB0A1DC042BB003D2DDC /* PushController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PushController.swift; sourceTree = "<group>"; };
 		B833FB0B1DC042BB003D2DDC /* SwitchController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SwitchController.swift; sourceTree = "<group>"; };
 		B833FB0E1DC042BB003D2DDC /* CellListener.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CellListener.swift; sourceTree = "<group>"; };
@@ -99,7 +99,7 @@
 		B811A0E11DC1ABF700851F26 /* ViewController */ = {
 			isa = PBXGroup;
 			children = (
-				B811A0E21DC1ABF700851F26 /* ReturnVC.swift */,
+				B811A0E21DC1ABF700851F26 /* ReturnViewController.swift */,
 			);
 			path = ViewController;
 			sourceTree = "<group>";
@@ -127,7 +127,7 @@
 		B833FB0D1DC042BB003D2DDC /* Protocol */ = {
 			isa = PBXGroup;
 			children = (
-				B819C2141DC1CB2F00A9F7D9 /* ReturnedVCDelegate.swift */,
+				B819C2141DC1CB2F00A9F7D9 /* ReturnedViewControllerDelegate.swift */,
 				B833FB0E1DC042BB003D2DDC /* CellListener.swift */,
 			);
 			path = Protocol;
@@ -368,7 +368,7 @@
 				B833FB371DC042BB003D2DDC /* EventCell.swift in Sources */,
 				B850E8AF1DCB0A1D00C72BCD /* TextCellContent.swift in Sources */,
 				B8341B551DCACF0000F2912C /* TableContent.swift in Sources */,
-				B811A0E31DC1ABF700851F26 /* ReturnVC.swift in Sources */,
+				B811A0E31DC1ABF700851F26 /* ReturnViewController.swift in Sources */,
 				B833FB301DC042BB003D2DDC /* ButtonCell.swift in Sources */,
 				B833FB271DC042BB003D2DDC /* PushController.swift in Sources */,
 				B833FB391DC042BB003D2DDC /* MakeCellProtocol.swift in Sources */,
@@ -379,7 +379,7 @@
 				B833FB2A1DC042BB003D2DDC /* CellListener.swift in Sources */,
 				B833FB311DC042BB003D2DDC /* SwitchCell.swift in Sources */,
 				B833FB321DC042BB003D2DDC /* TextCell.swift in Sources */,
-				B819C2151DC1CB2F00A9F7D9 /* ReturnedVCDelegate.swift in Sources */,
+				B819C2151DC1CB2F00A9F7D9 /* ReturnedViewControllerDelegate.swift in Sources */,
 				B8341B531DC9E7B200F2912C /* PlistManager.swift in Sources */,
 				B833FB341DC042BB003D2DDC /* ButtonCellPack.swift in Sources */,
 				B833FB3C1DC042BB003D2DDC /* SettingTableView.swift in Sources */,
