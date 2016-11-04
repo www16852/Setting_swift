@@ -1,45 +1,40 @@
-//
-//  ButtonCellPack.swift
-//  Settings
-//
-//  Created by waltoncob on 2016/10/19.
-//  Copyright © 2016年 waltoncob. All rights reserved.
-//
+////
+////  ButtonCellPack.swift
+////  Settings
+////
+////  Created by waltoncob on 2016/10/19.
+////  Copyright © 2016年 waltoncob. All rights reserved.
+////
 
 import UIKit
 
-public class ButtonCellPack{
+public class ButtonCellPack:MakeCellProtocol{
 
-    private var title:String
-    private var color:UIColor
-    private var listeners:[CellListener]
+    private var cellContent:ButtonCellContent
 
-    public var cellSet:(UITableViewCell) -> UITableViewCell = {return $0}
-
-    public init(title: String,color: UIColor = UIColor(red: 0.8, green: 0.5, blue: 0.5, alpha: 1),
-                listeners:[CellListener] = []){
-        self.title = title
-        self.color = color
-        self.listeners = listeners
-        if title == "" {self.title = " "}
+    public init(_ cellContent:ButtonCellContent){
+        self.cellContent = cellContent
     }
 
-//MARK: MakeCellProtocol
+    //MARK: MakeCellProtocol
 
     public func packToCell() -> UITableViewCell{
-        let cell = cellSet(ButtonCell(text: title,color: color)) as! ButtonCell
-        for listener in listeners{
-            cell.add(listener: listener)
+        let rCell:UITableViewCell!
+        if cellContent.getIsOn() == nil {
+            let cell = ButtonCell(cellContent:cellContent)
+            cell.set(listeners: cellContent.getListeners())
+            rCell = cell
+        }else{
+            let cell = SwitchCell(cellContent:cellContent)
+            cell.set(listeners: cellContent.getListeners())
+            rCell = cell
         }
-        return cell
+
+        return rCell
     }
 
-    public func getKey() -> String {
-        return title
+    public func getCellContent() -> CellContent{
+        return cellContent
     }
 
-    public func set(key:String, value:Any){
-        self.title = key
-    }
-    
 }

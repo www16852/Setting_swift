@@ -1,26 +1,23 @@
 //
-//  TextCellContent.swift
+//  File.swift
 //  Settings
 //
-//  Created by waltoncob on 2016/11/02.
+//  Created by waltoncob on 2016/11/4.
 //  Copyright © 2016年 waltoncob. All rights reserved.
 //
 
 import UIKit
 
-public class TextCellContent:CellContent{
+public class ButtonCellContent:CellContent{
 
     private var title:String
-    private var detail:String
+    private var isOn:Bool?
     private var listeners:[CellListener]
 
-    private var pushTableContent:TableContent?
-
-    public init(title: String,detail: String,listeners:[CellListener] = [], push:TableContent? = nil){
+    public init(title: String, isOn:Bool? = nil, listeners:[CellListener] = []){
         self.title = title
-        self.detail = detail
         self.listeners = listeners
-        self.pushTableContent = push
+        self.isOn = isOn
     }
 
     //MARK:get set
@@ -29,24 +26,16 @@ public class TextCellContent:CellContent{
         self.title = title
     }
 
-    public func set(detail:String){
-        self.detail = detail
-    }
-
-    public func set(pushTableContent:TableContent){
-        self.pushTableContent = pushTableContent
+    public func set(isOn:Bool){
+        self.isOn = isOn
     }
 
     public func getTitle() ->String{
         return title
     }
 
-    public func getDetail() ->String{
-        return detail
-    }
-
-    public func getPushTableContent() -> TableContent?{
-        return pushTableContent
+    public func getIsOn() -> Bool?{
+        return isOn
     }
 
     public func getListeners() -> [CellListener]{
@@ -60,19 +49,19 @@ public class TextCellContent:CellContent{
     }
 
     public func getValue() -> Any?{
-        return detail
+        return isOn
     }
 
     public func set(value:Any){
-        self.detail = value as! String
+        self.isOn = (value as! Bool)
     }
 
     public func add(listener:CellListener){
         listeners.append(listener)
     }
-    
+
     public func remove(listener:CellListener){
         
     }
-    
+
 }

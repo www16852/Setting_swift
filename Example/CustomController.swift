@@ -28,39 +28,45 @@ class CustomController: UIViewController {
         self.title = "Setting"
 
         var sections = [Section]()
-        let section1 = Section(header: "ACCOUNT",CellPacks: [])
+        let section1 = Section(header: "ACCOUNT")
         section1.add(cellPack:TextCellPack(TextCellContent(title: "Email",detail: userEmail)))
         section1.add(cellPack:TextCellPack(TextCellContent(title: "Device",detail: userDevice)))
         section1.add(cellPack:TextCellPack(TextCellContent(title: "Version",detail: version)))
         sections.append(section1)
 
-        let section2 = Section(header: "MANAGEMENT",CellPacks: [])
-        section2.add(cellPack:TextCellPack(TextCellContent(title: "Space Used",detail: "")))
+        let section2 = Section(header: "SETTING")
+        section2.add(cellPack:ButtonCellPack(ButtonCellContent(title:"Carmera Uploads", isOn:false)))
+        sections.append(section2)
+
+        let section3 = Section(header: "MANAGEMENT")
+        section3.add(cellPack:TextCellPack(TextCellContent(title: "Space Used",detail: "")))
 
         let LegalCellContent = TextCellContent(title: "Legal and Privacy", detail: "")
         let LegalPsuhTable = TableContent(sections:makeSections(header:"", options:[]))
         LegalCellContent.set(pushTableContent: LegalPsuhTable)
-        section2.add(cellPack: TextCellPack(LegalCellContent))
+        section3.add(cellPack: TextCellPack(LegalCellContent))
 
         let keepDaysCellContnet = TextCellContent(title: "Keep Days", detail: "5 days")
         let keepDaysPushTable = TableContent(sections:makeSections(header:"choose Keep Days", options:dayOption), delegate: TickTableDelegate(), allowsSelection:true)
         keepDaysCellContnet.set(pushTableContent:keepDaysPushTable)
         let pushListener = PushController(controller:self, plist:plistManager)
         keepDaysCellContnet.add(listener:pushListener)
-        section2.add(cellPack:TextCellPack(keepDaysCellContnet))
+        section3.add(cellPack:TextCellPack(keepDaysCellContnet))
 
-        section2.add(cellPack:TextCellPack(TextCellContent(title: "Connected",detail: "UPnP")))
+        section3.add(cellPack:TextCellPack(TextCellContent(title: "Connected",detail: "UPnP")))
 
         let shareCellContent = TextCellContent(title: "Share Management", detail: "")
-        let sharePushTable = TableContent(sections:makeSections(header:"Share Management", options:dayOption))
+        let sharePushTable = TableContent(sections:makeSections(header:"Share Management", options:shareOption), allowsSelection:true)
         shareCellContent.set(pushTableContent:sharePushTable)
-        section2.add(cellPack:TextCellPack(shareCellContent))
+        let pushShareListener = ShareController(controller:self)
+        shareCellContent.add(listener: pushShareListener)
+        section3.add(cellPack:TextCellPack(shareCellContent))
 
-        sections.append(section2)
+        section3.add(cellPack:ButtonCellPack(ButtonCellContent(title:"Sign out")))
 
 
+        sections.append(section3)
 
-        
 
         let cellContents = firstCellContents(sections)
         plistManager.setup(cellContents:cellContents)

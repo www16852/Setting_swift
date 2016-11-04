@@ -12,33 +12,23 @@ public class SwitchCell:UITableViewCell{
 
     private var listeners:[CellListener] = []
     private let boolSwitch = UISwitch()
+    private var cellContent:ButtonCellContent
 
-    public convenience init(text: String){
-        self.init(style: UITableViewCellStyle.value1,reuseIdentifier: nil)
-        self.textLabel?.text = text
+    public init(cellContent:ButtonCellContent){
+        self.cellContent = cellContent
+        super.init(style: UITableViewCellStyle.value1,reuseIdentifier: nil)
+        self.textLabel?.text = cellContent.getTitle()
         setupViews()
+        setTrigger()
     }
-
-    public func toPlist() -> (String,Any){
-        return (textLabel!.text!,boolSwitch.isOn)
+    
+    required public init?(coder aDecoder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
     }
 
     func setupViews(){
         contentView.addSubview(boolSwitch)
         boolSwitch.translatesAutoresizingMaskIntoConstraints = false
-    }
-
-    func set(on:Bool){
-        boolSwitch.isOn = on
-    }
-
-//MARK:EvenCell
-    public func add(listener:CellListener){
-        self.listeners.append(listener)
-    }
-
-    public func remove(listener:CellListener){
-
     }
 
     public func setTrigger(){
@@ -52,9 +42,12 @@ public class SwitchCell:UITableViewCell{
         }
     }
 
-    public func getContent() -> (String,Any){
-        return (textLabel!.text!,boolSwitch.isOn)
+//MARK:get set
+
+    public func set(listeners:[CellListener]){
+        self.listeners = listeners
     }
+
 
 //MARK:AutoLayout
     override public func layoutSubviews() {

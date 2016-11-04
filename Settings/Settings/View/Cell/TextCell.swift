@@ -11,8 +11,10 @@ import UIKit
 public class TextCell:UITableViewCell{
 
     private var listeners:[CellListener] = []
+    private var cellContent:TextCellContent
 
     public init(cellContent:TextCellContent){
+        self.cellContent = cellContent
         super.init(style: UITableViewCellStyle.value1,reuseIdentifier: nil)
         self.textLabel?.text = cellContent.getTitle()
         self.detailTextLabel?.text = cellContent.getDetail()
@@ -22,8 +24,9 @@ public class TextCell:UITableViewCell{
         fatalError("init(coder:) has not been implemented")
     }
 
-    public func toPlist() -> (String,Any){
-        return (textLabel!.text!,detailTextLabel!.text!)
+    public func update(){
+        self.textLabel?.text = cellContent.getTitle()
+        self.detailTextLabel?.text = cellContent.getDetail()
     }
 
     public func set(listeners:[CellListener]){

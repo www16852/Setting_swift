@@ -12,28 +12,26 @@ public class ButtonCell:UITableViewCell{
 
     private var listeners:[CellListener] = []
     private let button = UIButton()
+    private var cellContent:ButtonCellContent
 
-    public convenience init(text: String,color: UIColor){
-        self.init(style: UITableViewCellStyle.value1,reuseIdentifier: nil)
+    public init(cellContent:ButtonCellContent){
+        self.cellContent = cellContent
+        super.init(style: UITableViewCellStyle.value1,reuseIdentifier: nil)
         self.textLabel?.text = " "
         self.detailTextLabel?.text = " "
-        button.setTitle(text, for: .normal)
-        button.backgroundColor = color
+        button.setTitle(cellContent.getTitle(), for: .normal)
+        button.backgroundColor = UIColor(red: 0.8, green: 0.5, blue: 0.5, alpha: 1)
         setupViews()
+        setTrigger()
+    }
+    
+    required public init?(coder aDecoder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
     }
 
     func setupViews(){
         contentView.addSubview(button)
         button.translatesAutoresizingMaskIntoConstraints = false
-    }
-
-//MARK:EvenCell
-    public func add(listener:CellListener){
-        self.listeners.append(listener)
-    }
-
-    public func remove(listener:CellListener){
-
     }
 
     public func setTrigger(){
@@ -47,8 +45,10 @@ public class ButtonCell:UITableViewCell{
         }
     }
 
-    public func getContent() -> (String,Any){
-        return (textLabel!.text!,"")
+//MARK:get set
+
+    public func set(listeners:[CellListener]){
+        self.listeners = listeners
     }
 
 //MARK: AutoLayout

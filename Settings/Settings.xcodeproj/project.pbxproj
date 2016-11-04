@@ -14,22 +14,22 @@
 		B833FB2A1DC042BB003D2DDC /* CellListener.swift in Sources */ = {isa = PBXBuildFile; fileRef = B833FB0E1DC042BB003D2DDC /* CellListener.swift */; };
 		B833FB2B1DC042BB003D2DDC /* SettingDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = B833FB101DC042BB003D2DDC /* SettingDataSource.swift */; };
 		B833FB2C1DC042BB003D2DDC /* TickTableDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B833FB111DC042BB003D2DDC /* TickTableDelegate.swift */; };
-		B833FB2D1DC042BB003D2DDC /* CellMaker.swift in Sources */ = {isa = PBXBuildFile; fileRef = B833FB131DC042BB003D2DDC /* CellMaker.swift */; };
 		B833FB2F1DC042BB003D2DDC /* AccessoryCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B833FB171DC042BB003D2DDC /* AccessoryCell.swift */; };
 		B833FB301DC042BB003D2DDC /* ButtonCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B833FB181DC042BB003D2DDC /* ButtonCell.swift */; };
 		B833FB311DC042BB003D2DDC /* SwitchCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B833FB191DC042BB003D2DDC /* SwitchCell.swift */; };
 		B833FB321DC042BB003D2DDC /* TextCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B833FB1A1DC042BB003D2DDC /* TextCell.swift */; };
-		B833FB331DC042BB003D2DDC /* AccessoryCellPack.swift in Sources */ = {isa = PBXBuildFile; fileRef = B833FB1C1DC042BB003D2DDC /* AccessoryCellPack.swift */; };
-		B833FB341DC042BB003D2DDC /* ButtonCellPack.swift in Sources */ = {isa = PBXBuildFile; fileRef = B833FB1D1DC042BB003D2DDC /* ButtonCellPack.swift */; };
-		B833FB351DC042BB003D2DDC /* SwitchCellPack.swift in Sources */ = {isa = PBXBuildFile; fileRef = B833FB1E1DC042BB003D2DDC /* SwitchCellPack.swift */; };
+		B833FB351DC042BB003D2DDC /* ButtonCellPack.swift in Sources */ = {isa = PBXBuildFile; fileRef = B833FB1E1DC042BB003D2DDC /* ButtonCellPack.swift */; };
 		B833FB361DC042BB003D2DDC /* TextCellPack.swift in Sources */ = {isa = PBXBuildFile; fileRef = B833FB1F1DC042BB003D2DDC /* TextCellPack.swift */; };
-		B833FB371DC042BB003D2DDC /* EventCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B833FB211DC042BB003D2DDC /* EventCell.swift */; };
 		B833FB391DC042BB003D2DDC /* MakeCellProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = B833FB231DC042BB003D2DDC /* MakeCellProtocol.swift */; };
 		B833FB3C1DC042BB003D2DDC /* SettingTableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B833FB261DC042BB003D2DDC /* SettingTableView.swift */; };
-		B8341B4B1DC9E20E00F2912C /* CellContent.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8341B4A1DC9E20E00F2912C /* CellContent.swift */; };
 		B8341B531DC9E7B200F2912C /* PlistManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8341B521DC9E7B200F2912C /* PlistManager.swift */; };
 		B8341B551DCACF0000F2912C /* TableContent.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8341B541DCACF0000F2912C /* TableContent.swift */; };
-		B850E8AF1DCB0A1D00C72BCD /* TextCellContent.swift in Sources */ = {isa = PBXBuildFile; fileRef = B850E8AE1DCB0A1D00C72BCD /* TextCellContent.swift */; };
+		B873362D1DCC7B0100397ED8 /* Observable.swift in Sources */ = {isa = PBXBuildFile; fileRef = B873362C1DCC7B0100397ED8 /* Observable.swift */; };
+		B8DE6D8E1DCC69AB00CE27E5 /* ShareController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8DE6D8D1DCC69AB00CE27E5 /* ShareController.swift */; };
+		B8DE6D901DCC69F700CE27E5 /* ShareViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8DE6D8F1DCC69F700CE27E5 /* ShareViewController.swift */; };
+		B8DE6D981DCC74DF00CE27E5 /* TextCellContent.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8DE6D971DCC74DF00CE27E5 /* TextCellContent.swift */; };
+		B8DE6D9A1DCC756400CE27E5 /* ButtonCellContent.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8DE6D991DCC756400CE27E5 /* ButtonCellContent.swift */; };
+		B8DE6D9D1DCC75CD00CE27E5 /* CellContent.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8DE6D9C1DCC75CD00CE27E5 /* CellContent.swift */; };
 		B8DF3C331DB079C700F31F46 /* Settings.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B8DF3C291DB079C700F31F46 /* Settings.framework */; };
 		B8DF3C381DB079C700F31F46 /* SettingsTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8DF3C371DB079C700F31F46 /* SettingsTests.swift */; };
 		B8DF3C3A1DB079C700F31F46 /* Settings.h in Headers */ = {isa = PBXBuildFile; fileRef = B8DF3C2C1DB079C700F31F46 /* Settings.h */; settings = {ATTRIBUTES = (Public, ); }; };
@@ -53,22 +53,22 @@
 		B833FB0E1DC042BB003D2DDC /* CellListener.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CellListener.swift; sourceTree = "<group>"; };
 		B833FB101DC042BB003D2DDC /* SettingDataSource.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingDataSource.swift; sourceTree = "<group>"; };
 		B833FB111DC042BB003D2DDC /* TickTableDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TickTableDelegate.swift; sourceTree = "<group>"; };
-		B833FB131DC042BB003D2DDC /* CellMaker.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CellMaker.swift; sourceTree = "<group>"; };
 		B833FB171DC042BB003D2DDC /* AccessoryCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AccessoryCell.swift; sourceTree = "<group>"; };
 		B833FB181DC042BB003D2DDC /* ButtonCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ButtonCell.swift; sourceTree = "<group>"; };
 		B833FB191DC042BB003D2DDC /* SwitchCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SwitchCell.swift; sourceTree = "<group>"; };
 		B833FB1A1DC042BB003D2DDC /* TextCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TextCell.swift; sourceTree = "<group>"; };
-		B833FB1C1DC042BB003D2DDC /* AccessoryCellPack.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AccessoryCellPack.swift; sourceTree = "<group>"; };
-		B833FB1D1DC042BB003D2DDC /* ButtonCellPack.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ButtonCellPack.swift; sourceTree = "<group>"; };
-		B833FB1E1DC042BB003D2DDC /* SwitchCellPack.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SwitchCellPack.swift; sourceTree = "<group>"; };
+		B833FB1E1DC042BB003D2DDC /* ButtonCellPack.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ButtonCellPack.swift; sourceTree = "<group>"; };
 		B833FB1F1DC042BB003D2DDC /* TextCellPack.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TextCellPack.swift; sourceTree = "<group>"; };
-		B833FB211DC042BB003D2DDC /* EventCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EventCell.swift; sourceTree = "<group>"; };
 		B833FB231DC042BB003D2DDC /* MakeCellProtocol.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MakeCellProtocol.swift; sourceTree = "<group>"; };
 		B833FB261DC042BB003D2DDC /* SettingTableView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingTableView.swift; sourceTree = "<group>"; };
-		B8341B4A1DC9E20E00F2912C /* CellContent.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CellContent.swift; sourceTree = "<group>"; };
 		B8341B521DC9E7B200F2912C /* PlistManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PlistManager.swift; sourceTree = "<group>"; };
 		B8341B541DCACF0000F2912C /* TableContent.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TableContent.swift; sourceTree = "<group>"; };
-		B850E8AE1DCB0A1D00C72BCD /* TextCellContent.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = TextCellContent.swift; path = Settings/View/TextCellContent.swift; sourceTree = SOURCE_ROOT; };
+		B873362C1DCC7B0100397ED8 /* Observable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Observable.swift; sourceTree = "<group>"; };
+		B8DE6D8D1DCC69AB00CE27E5 /* ShareController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ShareController.swift; sourceTree = "<group>"; };
+		B8DE6D8F1DCC69F700CE27E5 /* ShareViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ShareViewController.swift; sourceTree = "<group>"; };
+		B8DE6D971DCC74DF00CE27E5 /* TextCellContent.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = TextCellContent.swift; path = Settings/Model/CellContent/TextCellContent.swift; sourceTree = SOURCE_ROOT; };
+		B8DE6D991DCC756400CE27E5 /* ButtonCellContent.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ButtonCellContent.swift; path = Settings/Model/CellContent/ButtonCellContent.swift; sourceTree = SOURCE_ROOT; };
+		B8DE6D9C1DCC75CD00CE27E5 /* CellContent.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CellContent.swift; sourceTree = "<group>"; };
 		B8DF3C291DB079C700F31F46 /* Settings.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Settings.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		B8DF3C2C1DB079C700F31F46 /* Settings.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Settings.h; sourceTree = "<group>"; };
 		B8DF3C2D1DB079C700F31F46 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -100,6 +100,7 @@
 			isa = PBXGroup;
 			children = (
 				B811A0E21DC1ABF700851F26 /* ReturnViewController.swift */,
+				B8DE6D8F1DCC69F700CE27E5 /* ShareViewController.swift */,
 			);
 			path = ViewController;
 			sourceTree = "<group>";
@@ -120,6 +121,7 @@
 			children = (
 				B833FB0A1DC042BB003D2DDC /* PushController.swift */,
 				B833FB0B1DC042BB003D2DDC /* SwitchController.swift */,
+				B8DE6D8D1DCC69AB00CE27E5 /* ShareController.swift */,
 			);
 			path = Listener;
 			sourceTree = "<group>";
@@ -145,8 +147,8 @@
 		B833FB121DC042BB003D2DDC /* Model */ = {
 			isa = PBXGroup;
 			children = (
-				B833FB131DC042BB003D2DDC /* CellMaker.swift */,
 				B8341B521DC9E7B200F2912C /* PlistManager.swift */,
+				B8DE6D9B1DCC758E00CE27E5 /* Protocol */,
 				B8341B4D1DC9E61100F2912C /* CellContent */,
 			);
 			name = Model;
@@ -181,9 +183,7 @@
 		B833FB1B1DC042BB003D2DDC /* CellPack */ = {
 			isa = PBXGroup;
 			children = (
-				B833FB1C1DC042BB003D2DDC /* AccessoryCellPack.swift */,
-				B833FB1D1DC042BB003D2DDC /* ButtonCellPack.swift */,
-				B833FB1E1DC042BB003D2DDC /* SwitchCellPack.swift */,
+				B833FB1E1DC042BB003D2DDC /* ButtonCellPack.swift */,
 				B833FB1F1DC042BB003D2DDC /* TextCellPack.swift */,
 			);
 			path = CellPack;
@@ -192,9 +192,7 @@
 		B833FB201DC042BB003D2DDC /* Protocol */ = {
 			isa = PBXGroup;
 			children = (
-				B833FB211DC042BB003D2DDC /* EventCell.swift */,
 				B833FB231DC042BB003D2DDC /* MakeCellProtocol.swift */,
-				B8341B4A1DC9E20E00F2912C /* CellContent.swift */,
 			);
 			path = Protocol;
 			sourceTree = "<group>";
@@ -202,10 +200,20 @@
 		B8341B4D1DC9E61100F2912C /* CellContent */ = {
 			isa = PBXGroup;
 			children = (
-				B850E8AE1DCB0A1D00C72BCD /* TextCellContent.swift */,
+				B8DE6D971DCC74DF00CE27E5 /* TextCellContent.swift */,
+				B8DE6D991DCC756400CE27E5 /* ButtonCellContent.swift */,
 			);
 			name = CellContent;
 			path = new;
+			sourceTree = "<group>";
+		};
+		B8DE6D9B1DCC758E00CE27E5 /* Protocol */ = {
+			isa = PBXGroup;
+			children = (
+				B8DE6D9C1DCC75CD00CE27E5 /* CellContent.swift */,
+				B873362C1DCC7B0100397ED8 /* Observable.swift */,
+			);
+			path = Protocol;
 			sourceTree = "<group>";
 		};
 		B8DF3C1F1DB079C700F31F46 = {
@@ -363,25 +371,25 @@
 				B833FB2C1DC042BB003D2DDC /* TickTableDelegate.swift in Sources */,
 				B833FB361DC042BB003D2DDC /* TextCellPack.swift in Sources */,
 				B833FB2F1DC042BB003D2DDC /* AccessoryCell.swift in Sources */,
-				B8341B4B1DC9E20E00F2912C /* CellContent.swift in Sources */,
-				B833FB331DC042BB003D2DDC /* AccessoryCellPack.swift in Sources */,
-				B833FB371DC042BB003D2DDC /* EventCell.swift in Sources */,
-				B850E8AF1DCB0A1D00C72BCD /* TextCellContent.swift in Sources */,
 				B8341B551DCACF0000F2912C /* TableContent.swift in Sources */,
 				B811A0E31DC1ABF700851F26 /* ReturnViewController.swift in Sources */,
+				B8DE6D9A1DCC756400CE27E5 /* ButtonCellContent.swift in Sources */,
 				B833FB301DC042BB003D2DDC /* ButtonCell.swift in Sources */,
 				B833FB271DC042BB003D2DDC /* PushController.swift in Sources */,
 				B833FB391DC042BB003D2DDC /* MakeCellProtocol.swift in Sources */,
+				B8DE6D981DCC74DF00CE27E5 /* TextCellContent.swift in Sources */,
 				B833FB281DC042BB003D2DDC /* SwitchController.swift in Sources */,
-				B833FB2D1DC042BB003D2DDC /* CellMaker.swift in Sources */,
-				B833FB351DC042BB003D2DDC /* SwitchCellPack.swift in Sources */,
+				B833FB351DC042BB003D2DDC /* ButtonCellPack.swift in Sources */,
+				B8DE6D8E1DCC69AB00CE27E5 /* ShareController.swift in Sources */,
+				B873362D1DCC7B0100397ED8 /* Observable.swift in Sources */,
 				B833FB2B1DC042BB003D2DDC /* SettingDataSource.swift in Sources */,
 				B833FB2A1DC042BB003D2DDC /* CellListener.swift in Sources */,
+				B8DE6D9D1DCC75CD00CE27E5 /* CellContent.swift in Sources */,
 				B833FB311DC042BB003D2DDC /* SwitchCell.swift in Sources */,
 				B833FB321DC042BB003D2DDC /* TextCell.swift in Sources */,
 				B819C2151DC1CB2F00A9F7D9 /* ReturnedViewControllerDelegate.swift in Sources */,
 				B8341B531DC9E7B200F2912C /* PlistManager.swift in Sources */,
-				B833FB341DC042BB003D2DDC /* ButtonCellPack.swift in Sources */,
+				B8DE6D901DCC69F700CE27E5 /* ShareViewController.swift in Sources */,
 				B833FB3C1DC042BB003D2DDC /* SettingTableView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
