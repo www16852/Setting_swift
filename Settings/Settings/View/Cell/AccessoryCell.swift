@@ -39,7 +39,7 @@ public class AccessoryCell:UITableViewCell{
     }
 
     public func tapAction(){
-        print("T:AccesoryCell tapAction")
+        print("T:\(type(of:self)) tapAction")
         for tapL in listeners{
             tapL.tapAction(sender: self)
         }

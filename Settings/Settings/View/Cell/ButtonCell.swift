@@ -39,7 +39,7 @@ public class ButtonCell:UITableViewCell{
     }
 
     public func tapAction(){
-        print("T:Button tapAction")
+        print("T:\(type(of:self)) tapAction")
         for tapL in listeners{
             tapL.tapAction(sender: self)
         }

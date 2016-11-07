@@ -14,6 +14,9 @@ public class TextCellContent:CellContent{
     private var detail:String
     private var listeners:[CellListener]
 
+    //TextCell
+    private var allowAddTrigger:Bool = true
+    //AccessoryCell
     private var pushTableContent:TableContent?
 
     public init(title: String,detail: String,listeners:[CellListener] = [], push:TableContent? = nil){
@@ -21,6 +24,11 @@ public class TextCellContent:CellContent{
         self.detail = detail
         self.listeners = listeners
         self.pushTableContent = push
+    }
+
+    public convenience init(title: String,detail: String,listeners:[CellListener] = [], addTrigger:Bool){
+        self.init(title: title,detail: detail,listeners:listeners)
+        self.allowAddTrigger = addTrigger
     }
 
     //MARK:get set
@@ -37,12 +45,16 @@ public class TextCellContent:CellContent{
         self.pushTableContent = pushTableContent
     }
 
-    public func getTitle() ->String{
+    public func getTitle() -> String{
         return title
     }
 
-    public func getDetail() ->String{
+    public func getDetail() -> String{
         return detail
+    }
+
+    public func getAllowAddTrigger() -> Bool{
+        return allowAddTrigger
     }
 
     public func getPushTableContent() -> TableContent?{

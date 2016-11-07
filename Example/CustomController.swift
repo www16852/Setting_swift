@@ -18,10 +18,7 @@ var shareOption:[String] = ["t1@walton.com.tw","t2@walton.com.tw","t3@walton.com
 
 
 class CustomController: UIViewController {
-    var switchControll:[CellListener] = []
-    var pushControll:[CellListener] = []
     let plistManager = PlistManager()
-
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -35,7 +32,11 @@ class CustomController: UIViewController {
         sections.append(section1)
 
         let section2 = Section(header: "SETTING")
-        section2.add(cellPack:ButtonCellPack(ButtonCellContent(title:"Carmera Uploads", isOn:false)))
+
+        let alertContent = ButtonCellContent(title:"Carmera Uploads", isOn:false)
+        let alertListener = AlertController(controller:self, plist:plistManager)
+        alertContent.add(listener: alertListener)
+        section2.add(cellPack:ButtonCellPack(alertContent))
         sections.append(section2)
 
         let section3 = Section(header: "MANAGEMENT")
@@ -48,8 +49,8 @@ class CustomController: UIViewController {
 
         let keepDaysCellContnet = TextCellContent(title: "Keep Days", detail: "5 days")
         let keepDaysPushTable = TableContent(sections:makeSections(header:"choose Keep Days", options:dayOption), delegate: TickTableDelegate(), allowsSelection:true)
-        keepDaysCellContnet.set(pushTableContent:keepDaysPushTable)
         let pushListener = PushController(controller:self, plist:plistManager)
+        keepDaysCellContnet.set(pushTableContent:keepDaysPushTable)
         keepDaysCellContnet.add(listener:pushListener)
         section3.add(cellPack:TextCellPack(keepDaysCellContnet))
 
@@ -57,8 +58,8 @@ class CustomController: UIViewController {
 
         let shareCellContent = TextCellContent(title: "Share Management", detail: "")
         let sharePushTable = TableContent(sections:makeSections(header:"Share Management", options:shareOption), allowsSelection:true)
-        shareCellContent.set(pushTableContent:sharePushTable)
         let pushShareListener = ShareController(controller:self)
+        shareCellContent.set(pushTableContent:sharePushTable)
         shareCellContent.add(listener: pushShareListener)
         section3.add(cellPack:TextCellPack(shareCellContent))
 
@@ -94,7 +95,7 @@ class CustomController: UIViewController {
     func makeSections(header:String, options:[String]) -> [Section]{
         var optionCellPacks = [MakeCellProtocol]()
         for str in options {
-            let content = TextCellContent(title: str,detail: "")
+            let content = TextCellContent(title: str,detail: "", addTrigger:false)
             optionCellPacks.append(TextCellPack(content))
         }
         let tableSection = [

@@ -36,9 +36,11 @@ public class SwitchCell:UITableViewCell{
     }
 
     public func tapAction(){
-        print("T:Switch tapAction")
-        for tapL in listeners{
-            tapL.tapAction(sender: self)
+        print("T:\(type(of:self)) tapAction")
+        if boolSwitch.isOn == true {
+            for tapL in listeners{
+                tapL.tapAction(sender: self)
+            }
         }
     }
 

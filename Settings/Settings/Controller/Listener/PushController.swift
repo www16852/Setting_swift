@@ -23,10 +23,19 @@ public class PushController:CellListener,ReturnedViewControllerDelegate{
         pushVC(sender)
     }
 
+//    func pushVC(_ cell:UITableViewCell){
+//        let accessoryCell = cell as! AccessoryCell
+//        let title = controller.navigationItem.title
+//        let viewController = ReturnViewController(sender:accessoryCell, table:accessoryCell.makeTableView(), backTitle:title, delegate:self)
+//        controller.navigationController?.pushViewController(viewController, animated: true)
+//    }
+
     func pushVC(_ cell:UITableViewCell){
         let accessoryCell = cell as! AccessoryCell
         let title = controller.navigationItem.title
-        let viewController = ReturnViewController(sender:accessoryCell, table:accessoryCell.makeTableView(), backTitle:title, delegate:self)
+        let viewController = ReturnViewController(sender:accessoryCell, table:accessoryCell.makeTableView(), backTitle:title){
+            self.plistManager.savePlist()
+        }
         controller.navigationController?.pushViewController(viewController, animated: true)
     }
 

@@ -29,8 +29,28 @@ public class ShareViewController: UIViewController {
         super.viewDidLoad()
         self.view = tableView
         self.navigationItem.hidesBackButton = true
+        setupTopBar()
+    }
+
+    func setupTopBar(){
         let newBackButton = UIBarButtonItem(title: "＜" + backTitle, style: UIBarButtonItemStyle.plain, target: self, action: #selector(back))
         self.navigationItem.leftBarButtonItem = newBackButton;
+        let shareButton = UIBarButtonItem(barButtonSystemItem: .action, target: self, action: #selector(shareAction(bar:)))
+        self.navigationItem.rightBarButtonItem = shareButton;
+    }
+
+    func shareAction(bar:UIBarButtonItem){
+        var shareMessage = ""
+        guard let indexPath = tableView.indexPathForSelectedRow else {
+            return
+        }
+        let cell = tableView.cellForRow(at: indexPath)
+        shareMessage = (cell!.textLabel?.text)!
+        let shareActivity = UIActivityViewController(activityItems: [shareMessage], applicationActivities: nil)
+        shareActivity.modalPresentationStyle = .popover
+        shareActivity.popoverPresentationController?.barButtonItem = bar
+        shareActivity.popoverPresentationController?.permittedArrowDirections = .up
+        self.present(shareActivity, animated: true)
     }
 
     func back(){

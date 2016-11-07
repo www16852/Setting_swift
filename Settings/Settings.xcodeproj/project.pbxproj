@@ -10,7 +10,7 @@
 		B811A0E31DC1ABF700851F26 /* ReturnViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B811A0E21DC1ABF700851F26 /* ReturnViewController.swift */; };
 		B819C2151DC1CB2F00A9F7D9 /* ReturnedViewControllerDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B819C2141DC1CB2F00A9F7D9 /* ReturnedViewControllerDelegate.swift */; };
 		B833FB271DC042BB003D2DDC /* PushController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B833FB0A1DC042BB003D2DDC /* PushController.swift */; };
-		B833FB281DC042BB003D2DDC /* SwitchController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B833FB0B1DC042BB003D2DDC /* SwitchController.swift */; };
+		B833FB281DC042BB003D2DDC /* AlertController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B833FB0B1DC042BB003D2DDC /* AlertController.swift */; };
 		B833FB2A1DC042BB003D2DDC /* CellListener.swift in Sources */ = {isa = PBXBuildFile; fileRef = B833FB0E1DC042BB003D2DDC /* CellListener.swift */; };
 		B833FB2B1DC042BB003D2DDC /* SettingDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = B833FB101DC042BB003D2DDC /* SettingDataSource.swift */; };
 		B833FB2C1DC042BB003D2DDC /* TickTableDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B833FB111DC042BB003D2DDC /* TickTableDelegate.swift */; };
@@ -49,7 +49,7 @@
 		B811A0E21DC1ABF700851F26 /* ReturnViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ReturnViewController.swift; sourceTree = "<group>"; };
 		B819C2141DC1CB2F00A9F7D9 /* ReturnedViewControllerDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ReturnedViewControllerDelegate.swift; sourceTree = "<group>"; };
 		B833FB0A1DC042BB003D2DDC /* PushController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PushController.swift; sourceTree = "<group>"; };
-		B833FB0B1DC042BB003D2DDC /* SwitchController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SwitchController.swift; sourceTree = "<group>"; };
+		B833FB0B1DC042BB003D2DDC /* AlertController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AlertController.swift; sourceTree = "<group>"; };
 		B833FB0E1DC042BB003D2DDC /* CellListener.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CellListener.swift; sourceTree = "<group>"; };
 		B833FB101DC042BB003D2DDC /* SettingDataSource.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingDataSource.swift; sourceTree = "<group>"; };
 		B833FB111DC042BB003D2DDC /* TickTableDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TickTableDelegate.swift; sourceTree = "<group>"; };
@@ -120,7 +120,7 @@
 			isa = PBXGroup;
 			children = (
 				B833FB0A1DC042BB003D2DDC /* PushController.swift */,
-				B833FB0B1DC042BB003D2DDC /* SwitchController.swift */,
+				B833FB0B1DC042BB003D2DDC /* AlertController.swift */,
 				B8DE6D8D1DCC69AB00CE27E5 /* ShareController.swift */,
 			);
 			path = Listener;
@@ -312,7 +312,7 @@
 			isa = PBXProject;
 			attributes = {
 				LastSwiftUpdateCheck = 0800;
-				LastUpgradeCheck = 0800;
+				LastUpgradeCheck = 0810;
 				ORGANIZATIONNAME = waltoncob;
 				TargetAttributes = {
 					B8DF3C281DB079C700F31F46 = {
@@ -378,7 +378,7 @@
 				B833FB271DC042BB003D2DDC /* PushController.swift in Sources */,
 				B833FB391DC042BB003D2DDC /* MakeCellProtocol.swift in Sources */,
 				B8DE6D981DCC74DF00CE27E5 /* TextCellContent.swift in Sources */,
-				B833FB281DC042BB003D2DDC /* SwitchController.swift in Sources */,
+				B833FB281DC042BB003D2DDC /* AlertController.swift in Sources */,
 				B833FB351DC042BB003D2DDC /* ButtonCellPack.swift in Sources */,
 				B8DE6D8E1DCC69AB00CE27E5 /* ShareController.swift in Sources */,
 				B873362D1DCC7B0100397ED8 /* Observable.swift in Sources */,
@@ -431,6 +431,7 @@
 				CLANG_WARN_INFINITE_RECURSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
 				CLANG_WARN_SUSPICIOUS_MOVES = YES;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
@@ -484,6 +485,7 @@
 				CLANG_WARN_INFINITE_RECURSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
 				CLANG_WARN_SUSPICIOUS_MOVES = YES;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
