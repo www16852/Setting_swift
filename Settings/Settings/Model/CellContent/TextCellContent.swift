@@ -12,22 +12,21 @@ public class TextCellContent:CellContent{
 
     private var title:String
     private var detail:String
-    private var listeners:[CellListener]
+    private var tapListeners:[CellTapListener] = []
 
     //TextCell
     private var allowAddTrigger:Bool = true
     //AccessoryCell
     private var pushTableContent:TableContent?
 
-    public init(title: String,detail: String,listeners:[CellListener] = [], push:TableContent? = nil){
+    public init(title: String,detail: String, push:TableContent? = nil){
         self.title = title
         self.detail = detail
-        self.listeners = listeners
         self.pushTableContent = push
     }
 
-    public convenience init(title: String,detail: String,listeners:[CellListener] = [], addTrigger:Bool){
-        self.init(title: title,detail: detail,listeners:listeners)
+    public convenience init(title: String,detail: String, addTrigger:Bool){
+        self.init(title: title,detail: detail)
         self.allowAddTrigger = addTrigger
     }
 
@@ -61,8 +60,8 @@ public class TextCellContent:CellContent{
         return pushTableContent
     }
 
-    public func getListeners() -> [CellListener]{
-        return listeners
+    public func getTapListeners() -> [CellTapListener]{
+        return tapListeners
     }
 
     //MARK:CellContent_protocol
@@ -79,11 +78,11 @@ public class TextCellContent:CellContent{
         self.detail = value as! String
     }
 
-    public func add(listener:CellListener){
-        listeners.append(listener)
+    public func add(tapListener:CellTapListener){
+        tapListeners.append(tapListener)
     }
     
-    public func remove(listener:CellListener){
+    public func remove(listener:CellTapListener){
         
     }
     

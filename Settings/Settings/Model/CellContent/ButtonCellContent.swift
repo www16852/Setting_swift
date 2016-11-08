@@ -11,12 +11,14 @@ import UIKit
 public class ButtonCellContent:CellContent{
 
     private var title:String
-    private var isOn:Bool?
-    private var listeners:[CellListener]
+    private var tapListeners:[CellTapListener] = []
 
-    public init(title: String, isOn:Bool? = nil, listeners:[CellListener] = []){
+    //switch
+    private var isOn:Bool?
+    private var turnOnListeners:[CellTapListener] = []
+
+    public init(title: String, isOn:Bool? = nil){
         self.title = title
-        self.listeners = listeners
         self.isOn = isOn
     }
 
@@ -38,8 +40,12 @@ public class ButtonCellContent:CellContent{
         return isOn
     }
 
-    public func getListeners() -> [CellListener]{
-        return listeners
+    public func getTapListeners() -> [CellTapListener]{
+        return tapListeners
+    }
+
+    public func getTurnOnListeners() -> [CellTapListener]{
+        return turnOnListeners
     }
 
     //MARK:CellContent_protocol
@@ -56,11 +62,15 @@ public class ButtonCellContent:CellContent{
         self.isOn = (value as! Bool)
     }
 
-    public func add(listener:CellListener){
-        listeners.append(listener)
+    public func add(tapListener:CellTapListener){
+        tapListeners.append(tapListener)
     }
 
-    public func remove(listener:CellListener){
+    public func add(turnOnListener:CellTapListener){
+        turnOnListeners.append(turnOnListener)
+    }
+
+    public func remove(listener:CellTapListener){
         
     }
 

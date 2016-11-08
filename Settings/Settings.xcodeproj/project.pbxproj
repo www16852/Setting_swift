@@ -8,7 +8,6 @@
 
 /* Begin PBXBuildFile section */
 		B811A0E31DC1ABF700851F26 /* ReturnViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B811A0E21DC1ABF700851F26 /* ReturnViewController.swift */; };
-		B819C2151DC1CB2F00A9F7D9 /* ReturnedViewControllerDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B819C2141DC1CB2F00A9F7D9 /* ReturnedViewControllerDelegate.swift */; };
 		B833FB271DC042BB003D2DDC /* PushController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B833FB0A1DC042BB003D2DDC /* PushController.swift */; };
 		B833FB281DC042BB003D2DDC /* AlertController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B833FB0B1DC042BB003D2DDC /* AlertController.swift */; };
 		B833FB2A1DC042BB003D2DDC /* CellListener.swift in Sources */ = {isa = PBXBuildFile; fileRef = B833FB0E1DC042BB003D2DDC /* CellListener.swift */; };
@@ -24,7 +23,7 @@
 		B833FB3C1DC042BB003D2DDC /* SettingTableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B833FB261DC042BB003D2DDC /* SettingTableView.swift */; };
 		B8341B531DC9E7B200F2912C /* PlistManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8341B521DC9E7B200F2912C /* PlistManager.swift */; };
 		B8341B551DCACF0000F2912C /* TableContent.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8341B541DCACF0000F2912C /* TableContent.swift */; };
-		B873362D1DCC7B0100397ED8 /* Observable.swift in Sources */ = {isa = PBXBuildFile; fileRef = B873362C1DCC7B0100397ED8 /* Observable.swift */; };
+		B87336321DD15D9F00397ED8 /* SaveController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B87336311DD15D9F00397ED8 /* SaveController.swift */; };
 		B8DE6D8E1DCC69AB00CE27E5 /* ShareController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8DE6D8D1DCC69AB00CE27E5 /* ShareController.swift */; };
 		B8DE6D901DCC69F700CE27E5 /* ShareViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8DE6D8F1DCC69F700CE27E5 /* ShareViewController.swift */; };
 		B8DE6D981DCC74DF00CE27E5 /* TextCellContent.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8DE6D971DCC74DF00CE27E5 /* TextCellContent.swift */; };
@@ -47,7 +46,6 @@
 
 /* Begin PBXFileReference section */
 		B811A0E21DC1ABF700851F26 /* ReturnViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ReturnViewController.swift; sourceTree = "<group>"; };
-		B819C2141DC1CB2F00A9F7D9 /* ReturnedViewControllerDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ReturnedViewControllerDelegate.swift; sourceTree = "<group>"; };
 		B833FB0A1DC042BB003D2DDC /* PushController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PushController.swift; sourceTree = "<group>"; };
 		B833FB0B1DC042BB003D2DDC /* AlertController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AlertController.swift; sourceTree = "<group>"; };
 		B833FB0E1DC042BB003D2DDC /* CellListener.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CellListener.swift; sourceTree = "<group>"; };
@@ -63,7 +61,7 @@
 		B833FB261DC042BB003D2DDC /* SettingTableView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingTableView.swift; sourceTree = "<group>"; };
 		B8341B521DC9E7B200F2912C /* PlistManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PlistManager.swift; sourceTree = "<group>"; };
 		B8341B541DCACF0000F2912C /* TableContent.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TableContent.swift; sourceTree = "<group>"; };
-		B873362C1DCC7B0100397ED8 /* Observable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Observable.swift; sourceTree = "<group>"; };
+		B87336311DD15D9F00397ED8 /* SaveController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SaveController.swift; sourceTree = "<group>"; };
 		B8DE6D8D1DCC69AB00CE27E5 /* ShareController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ShareController.swift; sourceTree = "<group>"; };
 		B8DE6D8F1DCC69F700CE27E5 /* ShareViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ShareViewController.swift; sourceTree = "<group>"; };
 		B8DE6D971DCC74DF00CE27E5 /* TextCellContent.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = TextCellContent.swift; path = Settings/Model/CellContent/TextCellContent.swift; sourceTree = SOURCE_ROOT; };
@@ -120,8 +118,9 @@
 			isa = PBXGroup;
 			children = (
 				B833FB0A1DC042BB003D2DDC /* PushController.swift */,
-				B833FB0B1DC042BB003D2DDC /* AlertController.swift */,
 				B8DE6D8D1DCC69AB00CE27E5 /* ShareController.swift */,
+				B833FB0B1DC042BB003D2DDC /* AlertController.swift */,
+				B87336311DD15D9F00397ED8 /* SaveController.swift */,
 			);
 			path = Listener;
 			sourceTree = "<group>";
@@ -129,7 +128,6 @@
 		B833FB0D1DC042BB003D2DDC /* Protocol */ = {
 			isa = PBXGroup;
 			children = (
-				B819C2141DC1CB2F00A9F7D9 /* ReturnedViewControllerDelegate.swift */,
 				B833FB0E1DC042BB003D2DDC /* CellListener.swift */,
 			);
 			path = Protocol;
@@ -211,7 +209,6 @@
 			isa = PBXGroup;
 			children = (
 				B8DE6D9C1DCC75CD00CE27E5 /* CellContent.swift */,
-				B873362C1DCC7B0100397ED8 /* Observable.swift */,
 			);
 			path = Protocol;
 			sourceTree = "<group>";
@@ -381,13 +378,12 @@
 				B833FB281DC042BB003D2DDC /* AlertController.swift in Sources */,
 				B833FB351DC042BB003D2DDC /* ButtonCellPack.swift in Sources */,
 				B8DE6D8E1DCC69AB00CE27E5 /* ShareController.swift in Sources */,
-				B873362D1DCC7B0100397ED8 /* Observable.swift in Sources */,
+				B87336321DD15D9F00397ED8 /* SaveController.swift in Sources */,
 				B833FB2B1DC042BB003D2DDC /* SettingDataSource.swift in Sources */,
 				B833FB2A1DC042BB003D2DDC /* CellListener.swift in Sources */,
 				B8DE6D9D1DCC75CD00CE27E5 /* CellContent.swift in Sources */,
 				B833FB311DC042BB003D2DDC /* SwitchCell.swift in Sources */,
 				B833FB321DC042BB003D2DDC /* TextCell.swift in Sources */,
-				B819C2151DC1CB2F00A9F7D9 /* ReturnedViewControllerDelegate.swift in Sources */,
 				B8341B531DC9E7B200F2912C /* PlistManager.swift in Sources */,
 				B8DE6D901DCC69F700CE27E5 /* ShareViewController.swift in Sources */,
 				B833FB3C1DC042BB003D2DDC /* SettingTableView.swift in Sources */,

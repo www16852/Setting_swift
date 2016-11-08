@@ -8,6 +8,6 @@
 
 import UIKit
 
-public protocol CellListener{
+public protocol CellTapListener{
     func tapAction(sender:UITableViewCell)
 }

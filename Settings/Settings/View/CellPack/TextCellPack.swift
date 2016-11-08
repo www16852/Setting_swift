@@ -22,11 +22,11 @@ public class TextCellPack:MakeCellProtocol{
         let rCell:UITableViewCell!
         if cellContent.getPushTableContent() == nil {
             let cell = TextCell(cellContent:cellContent)
-            cell.set(listeners: cellContent.getListeners())
+            cell.set(tapListeners: cellContent.getTapListeners())
             rCell = cell
         }else{
             let cell = AccessoryCell(cellContent:cellContent)
-            cell.set(listeners: cellContent.getListeners()) 
+            cell.set(tapListeners: cellContent.getTapListeners())
             rCell = cell
         }
         

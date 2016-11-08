@@ -22,11 +22,12 @@ public class ButtonCellPack:MakeCellProtocol{
         let rCell:UITableViewCell!
         if cellContent.getIsOn() == nil {
             let cell = ButtonCell(cellContent:cellContent)
-            cell.set(listeners: cellContent.getListeners())
+            cell.set(tapListeners: cellContent.getTapListeners())
             rCell = cell
         }else{
             let cell = SwitchCell(cellContent:cellContent)
-            cell.set(listeners: cellContent.getListeners())
+            cell.set(tapListeners: cellContent.getTapListeners())
+            cell.set(turnOnListeners: cellContent.getTurnOnListeners())
             rCell = cell
         }
 

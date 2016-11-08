@@ -10,14 +10,13 @@ import UIKit
 
 public class TextCell:UITableViewCell{
 
-    private var listeners:[CellListener] = []
+    private var tapListeners:[CellTapListener] = []
     private var cellContent:TextCellContent
 
     public init(cellContent:TextCellContent){
         self.cellContent = cellContent
         super.init(style: UITableViewCellStyle.value1,reuseIdentifier: nil)
-        self.textLabel?.text = cellContent.getTitle()
-        self.detailTextLabel?.text = cellContent.getDetail()
+        updateView()
         if cellContent.getAllowAddTrigger() == true {
             setupTrigger()
         }
@@ -35,18 +34,20 @@ public class TextCell:UITableViewCell{
 
     public func tapAction(){
         print("T:\(type(of:self)) tapAction")
-        for tapL in listeners{
+        for tapL in tapListeners{
             tapL.tapAction(sender: self)
         }
     }
 
-    public func update(){
+    public func updateView(){
         self.textLabel?.text = cellContent.getTitle()
         self.detailTextLabel?.text = cellContent.getDetail()
     }
 
-    public func set(listeners:[CellListener]){
-        self.listeners = listeners
+//MARK:get set
+
+    public func set(tapListeners:[CellTapListener]){
+        self.tapListeners = tapListeners
     }
 
 }

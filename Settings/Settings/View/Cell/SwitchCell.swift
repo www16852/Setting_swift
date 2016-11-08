@@ -10,15 +10,16 @@ import UIKit
 
 public class SwitchCell:UITableViewCell{
 
-    private var listeners:[CellListener] = []
+    private var tapListeners:[CellTapListener] = []
+    private var turnOnListeners:[CellTapListener] = []
     private let boolSwitch = UISwitch()
     private var cellContent:ButtonCellContent
 
     public init(cellContent:ButtonCellContent){
         self.cellContent = cellContent
         super.init(style: UITableViewCellStyle.value1,reuseIdentifier: nil)
-        self.textLabel?.text = cellContent.getTitle()
         setupViews()
+        updateView()
         setTrigger()
     }
     
@@ -37,17 +38,34 @@ public class SwitchCell:UITableViewCell{
 
     public func tapAction(){
         print("T:\(type(of:self)) tapAction")
+        cellContent.set(value: boolSwitch.isOn)
+        for tapL in tapListeners{
+            tapL.tapAction(sender: self)
+        }
         if boolSwitch.isOn == true {
-            for tapL in listeners{
-                tapL.tapAction(sender: self)
+            for turnOnL in turnOnListeners{
+                turnOnL.tapAction(sender: self)
             }
         }
     }
 
+    public func updateView(){
+        self.textLabel?.text = cellContent.getTitle()
+        self.boolSwitch.isOn = cellContent.getIsOn()!
+    }
+
 //MARK:get set
 
-    public func set(listeners:[CellListener]){
-        self.listeners = listeners
+    public func set(tapListeners:[CellTapListener]){
+        self.tapListeners = tapListeners
+    }
+
+    public func set(turnOnListeners:[CellTapListener]){
+        self.turnOnListeners = turnOnListeners
+    }
+
+    public func getCellContent() -> CellContent{
+        return cellContent
     }
 
 

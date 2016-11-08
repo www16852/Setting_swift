@@ -10,7 +10,7 @@ import UIKit
 
 public class AccessoryCell:UITableViewCell{
 
-    private var listeners:[CellListener] = []
+    private var tapListeners:[CellTapListener] = []
     private var tableContent:TableContent
     private var cellContent:TextCellContent
 
@@ -18,9 +18,8 @@ public class AccessoryCell:UITableViewCell{
         self.tableContent = cellContent.getPushTableContent()!
         self.cellContent = cellContent
         super.init(style: .value1,reuseIdentifier: nil)
-        self.textLabel?.text = cellContent.getTitle()
-        self.detailTextLabel?.text = cellContent.getDetail()
         self.accessoryType = .disclosureIndicator
+        updateView()
         setupTrigger()
     }
 
@@ -40,12 +39,12 @@ public class AccessoryCell:UITableViewCell{
 
     public func tapAction(){
         print("T:\(type(of:self)) tapAction")
-        for tapL in listeners{
+        for tapL in tapListeners{
             tapL.tapAction(sender: self)
         }
     }
 
-    public func update(){
+    public func updateView(){
         self.textLabel?.text = cellContent.getTitle()
         self.detailTextLabel?.text = cellContent.getDetail()
     }
@@ -56,8 +55,8 @@ public class AccessoryCell:UITableViewCell{
         return cellContent
     }
 
-    public func set(listeners:[CellListener]){
-        self.listeners = listeners
+    public func set(tapListeners:[CellTapListener]){
+        self.tapListeners = tapListeners
     }
     
 }

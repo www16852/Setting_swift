@@ -8,7 +8,7 @@
 
 import  UIKit
 
-public class PushController:CellListener,ReturnedViewControllerDelegate{
+public class PushController:CellTapListener{
 
     unowned let controller:UIViewController
     unowned let plistManager:PlistManager
@@ -19,16 +19,9 @@ public class PushController:CellListener,ReturnedViewControllerDelegate{
     }
 
     public func tapAction(sender:UITableViewCell){
-        print("T:\(sender.textLabel?.text) PushController.tapAction ")
+        print("T:\(sender.textLabel?.text) trigger PushController")
         pushVC(sender)
     }
-
-//    func pushVC(_ cell:UITableViewCell){
-//        let accessoryCell = cell as! AccessoryCell
-//        let title = controller.navigationItem.title
-//        let viewController = ReturnViewController(sender:accessoryCell, table:accessoryCell.makeTableView(), backTitle:title, delegate:self)
-//        controller.navigationController?.pushViewController(viewController, animated: true)
-//    }
 
     func pushVC(_ cell:UITableViewCell){
         let accessoryCell = cell as! AccessoryCell
@@ -37,13 +30,6 @@ public class PushController:CellListener,ReturnedViewControllerDelegate{
             self.plistManager.savePlist()
         }
         controller.navigationController?.pushViewController(viewController, animated: true)
-    }
-
-//MARK:ReturnedVCDelegate
-
-    public func backFromVC(accessoryCell:AccessoryCell, result:String?){
-        print("T: backFromVC return result = \(result)")
-        plistManager.savePlist()
     }
 
 }

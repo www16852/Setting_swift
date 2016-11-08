@@ -8,19 +8,16 @@
 
 import  UIKit
 
-public class AlertController:CellListener{
+public class AlertController:CellTapListener{
 
     unowned let controller:UIViewController
-    unowned let plistManager:PlistManager
-    let alert:UIAlertController? = nil
 
-    public init(controller: UIViewController, plist:PlistManager){
+    public init(controller: UIViewController){
         self.controller = controller
-        self.plistManager = plist
     }
 
     public func tapAction(sender:UITableViewCell){
-        print("T:\(sender.textLabel?.text) PushController.tapAction ")
+        print("T:\(sender.textLabel?.text) trigger AlertController")
         pushVC(sender)
     }
 

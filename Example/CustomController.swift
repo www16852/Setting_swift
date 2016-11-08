@@ -34,8 +34,10 @@ class CustomController: UIViewController {
         let section2 = Section(header: "SETTING")
 
         let alertContent = ButtonCellContent(title:"Carmera Uploads", isOn:false)
-        let alertListener = AlertController(controller:self, plist:plistManager)
-        alertContent.add(listener: alertListener)
+        let alertListener = AlertController(controller:self)
+        let saveListener = SaveController(plist:plistManager)
+        alertContent.add(turnOnListener: alertListener)
+        alertContent.add(tapListener: saveListener)
         section2.add(cellPack:ButtonCellPack(alertContent))
         sections.append(section2)
 
@@ -51,7 +53,7 @@ class CustomController: UIViewController {
         let keepDaysPushTable = TableContent(sections:makeSections(header:"choose Keep Days", options:dayOption), delegate: TickTableDelegate(), allowsSelection:true)
         let pushListener = PushController(controller:self, plist:plistManager)
         keepDaysCellContnet.set(pushTableContent:keepDaysPushTable)
-        keepDaysCellContnet.add(listener:pushListener)
+        keepDaysCellContnet.add(tapListener:pushListener)
         section3.add(cellPack:TextCellPack(keepDaysCellContnet))
 
         section3.add(cellPack:TextCellPack(TextCellContent(title: "Connected",detail: "UPnP")))
@@ -60,7 +62,7 @@ class CustomController: UIViewController {
         let sharePushTable = TableContent(sections:makeSections(header:"Share Management", options:shareOption), allowsSelection:true)
         let pushShareListener = ShareController(controller:self)
         shareCellContent.set(pushTableContent:sharePushTable)
-        shareCellContent.add(listener: pushShareListener)
+        shareCellContent.add(tapListener: pushShareListener)
         section3.add(cellPack:TextCellPack(shareCellContent))
 
         section3.add(cellPack:ButtonCellPack(ButtonCellContent(title:"Sign out")))
@@ -124,7 +126,7 @@ class CustomController: UIViewController {
 //                header: "SETTING",
 //                footer: "",
 //                CellPacks: [
-//                    SwitchCellPack(title: "Carmera Uploads", listeners:switchControll)
+//                    SwitchCellPack(title: "Carmera Uploads", tapListeners:switchControll)
 //                ],
 //                heightForFooter: 10.0
 //            ),

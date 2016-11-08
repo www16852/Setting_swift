@@ -8,7 +8,7 @@
 
 import  UIKit
 
-public class ShareController:CellListener{
+public class ShareController:CellTapListener{
 
     unowned let controller:UIViewController
 
@@ -17,7 +17,7 @@ public class ShareController:CellListener{
     }
 
     public func tapAction(sender:UITableViewCell){
-        print("T:\(sender.textLabel?.text) PushController.tapAction ")
+        print("T:\(sender.textLabel?.text) trigger ShareController")
         pushVC(sender)
     }
 

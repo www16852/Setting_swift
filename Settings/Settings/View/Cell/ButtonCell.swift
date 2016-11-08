@@ -10,7 +10,7 @@ import UIKit
 
 public class ButtonCell:UITableViewCell{
 
-    private var listeners:[CellListener] = []
+    private var tapListeners:[CellTapListener] = []
     private let button = UIButton()
     private var cellContent:ButtonCellContent
 
@@ -40,15 +40,15 @@ public class ButtonCell:UITableViewCell{
 
     public func tapAction(){
         print("T:\(type(of:self)) tapAction")
-        for tapL in listeners{
+        for tapL in tapListeners{
             tapL.tapAction(sender: self)
         }
     }
 
 //MARK:get set
 
-    public func set(listeners:[CellListener]){
-        self.listeners = listeners
+    public func set(tapListeners:[CellTapListener]){
+        self.tapListeners = tapListeners
     }
 
 //MARK: AutoLayout

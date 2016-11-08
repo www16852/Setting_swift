@@ -15,14 +15,6 @@ public class ReturnViewController: UIViewController {
     private let backFunc:()->()
     private var backTitle:String
 
-//    public init(sender:AccessoryCell, table:UITableView, backTitle:String?, delegate:ReturnedViewControllerDelegate){
-//        self.sourceCell = sender
-//        self.delegate = delegate
-//        self.tableView = table
-//        self.backTitle = backTitle ?? "back"
-//        super.init(nibName: nil, bundle: nil)
-//    }
-
     public init(sender:AccessoryCell, table:UITableView, backTitle:String?, back: @escaping ()->()){
         self.sourceCell = sender
         self.tableView = table
@@ -53,7 +45,7 @@ public class ReturnViewController: UIViewController {
             let cell = tableView.cellForRow(at: indexPath)
             result = cell?.textLabel?.text
             sourceCell.getCellContent().set(detail: result!)
-            sourceCell.update()
+            sourceCell.updateView()
         }
         self.backFunc()
         let _ = self.navigationController?.popViewController(animated: true)
