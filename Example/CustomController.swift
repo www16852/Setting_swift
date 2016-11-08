@@ -34,8 +34,8 @@ class CustomController: UIViewController {
         let section2 = Section(header: "SETTING")
 
         let alertContent = ButtonCellContent(title:"Carmera Uploads", isOn:false)
-        let alertListener = AlertController(controller:self)
-        let saveListener = SaveController(plist:plistManager)
+        let alertListener = AlertListener(controller:self)
+        let saveListener = SaveListener(plist:plistManager)
         alertContent.add(turnOnListener: alertListener)
         alertContent.add(tapListener: saveListener)
         section2.add(cellPack:ButtonCellPack(alertContent))
@@ -51,7 +51,7 @@ class CustomController: UIViewController {
 
         let keepDaysCellContnet = TextCellContent(title: "Keep Days", detail: "5 days")
         let keepDaysPushTable = TableContent(sections:makeSections(header:"choose Keep Days", options:dayOption), delegate: TickTableDelegate(), allowsSelection:true)
-        let pushListener = PushController(controller:self, plist:plistManager)
+        let pushListener = PushListener(controller:self, plist:plistManager)
         keepDaysCellContnet.set(pushTableContent:keepDaysPushTable)
         keepDaysCellContnet.add(tapListener:pushListener)
         section3.add(cellPack:TextCellPack(keepDaysCellContnet))
@@ -60,7 +60,7 @@ class CustomController: UIViewController {
 
         let shareCellContent = TextCellContent(title: "Share Management", detail: "")
         let sharePushTable = TableContent(sections:makeSections(header:"Share Management", options:shareOption), allowsSelection:true)
-        let pushShareListener = ShareController(controller:self)
+        let pushShareListener = ShareListener(controller:self)
         shareCellContent.set(pushTableContent:sharePushTable)
         shareCellContent.add(tapListener: pushShareListener)
         section3.add(cellPack:TextCellPack(shareCellContent))

@@ -1,5 +1,5 @@
 //
-//  PushController.swift
+//  PushListener.swift
 //  Setting
 //
 //  Created by waltoncob on 2016/10/6.
@@ -8,7 +8,7 @@
 
 import  UIKit
 
-public class PushController:CellTapListener{
+public class PushListener:CellTapListener{
 
     unowned let controller:UIViewController
     unowned let plistManager:PlistManager

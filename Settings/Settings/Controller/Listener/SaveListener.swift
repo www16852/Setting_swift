@@ -1,5 +1,5 @@
 //
-//  SaveController.swift
+//  SaveListener.swift
 //  Settings
 //
 //  Created by waltoncob on 2016/11/8.
@@ -8,7 +8,7 @@
 
 import  UIKit
 
-public class SaveController:CellTapListener{
+public class SaveListener:CellTapListener{
 
     unowned let plistManager:PlistManager
 

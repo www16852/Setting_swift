@@ -1,5 +1,5 @@
 //
-//  AlertController.swift
+//  AlertListener.swift
 //  Settings
 //
 //  Created by waltoncob on 2016/10/25.
@@ -8,7 +8,7 @@
 
 import  UIKit
 
-public class AlertController:CellTapListener{
+public class AlertListener:CellTapListener{
 
     unowned let controller:UIViewController
 

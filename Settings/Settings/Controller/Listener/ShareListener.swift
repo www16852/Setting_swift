@@ -1,5 +1,5 @@
 //
-//  ShareController.swift
+//  ShareListener.swift
 //  Settings
 //
 //  Created by waltoncob on 2016/11/4.
@@ -8,7 +8,7 @@
 
 import  UIKit
 
-public class ShareController:CellTapListener{
+public class ShareListener:CellTapListener{
 
     unowned let controller:UIViewController
 
