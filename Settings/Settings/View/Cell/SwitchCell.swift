@@ -8,14 +8,16 @@
 
 import UIKit
 
-public class SwitchCell:UITableViewCell{
+public class EventCell:UITableViewCell{
 
     private var tapListeners:[CellTapListener] = []
-    private var turnOnListeners:[CellTapListener] = []
-    private let boolSwitch = UISwitch()
-    private var cellContent:ButtonCellContent
+    private var cellContent:TextCellContent
 
-    public init(cellContent:ButtonCellContent){
+    private let boolSwitch = UISwitch()
+    private let button = UIButton()
+    private let coverButton = UIButton()
+
+    public init(cellContent:TextCellContent){
         self.cellContent = cellContent
         super.init(style: UITableViewCellStyle.value1,reuseIdentifier: nil)
         setupViews()
@@ -28,12 +30,34 @@ public class SwitchCell:UITableViewCell{
     }
 
     func setupViews(){
-        contentView.addSubview(boolSwitch)
+        coverButton.backgroundColor = UIColor.clear
+//        coverButton.backgroundColor = UIColor(red: 0.8, green: 0.5, blue: 0.8, alpha: 0.5)
+        button.backgroundColor = UIColor(red: 0.8, green: 0.5, blue: 0.5, alpha: 1)
+        button.setTitle(cellContent.getTitle(), for: .normal)
+        addSubview(coverButton)
+        addSubview(button)
+        addSubview(boolSwitch)
+
+        coverButton.isHidden = cellContent.getCoverHidden()
+        boolSwitch.isHidden = cellContent.getSwitchHidden()
+        button.isHidden = cellContent.getButtonHidden()
+
+        if button.isHidden == false {
+            self.textLabel?.isHidden = true
+        }
+        if cellContent.getPushTableContent() != nil {
+            self.accessoryType = .disclosureIndicator
+        }
+
         boolSwitch.translatesAutoresizingMaskIntoConstraints = false
+        coverButton.translatesAutoresizingMaskIntoConstraints = false
+        button.translatesAutoresizingMaskIntoConstraints = false
     }
 
     public func setTrigger(){
         boolSwitch.addTarget(self, action: #selector(self.tapAction), for: .valueChanged)
+        coverButton.addTarget(self, action: #selector(self.tapAction), for: .touchUpInside)
+        button.addTarget(self, action: #selector(self.tapAction), for: .touchUpInside)
     }
 
     public func tapAction(){
@@ -42,16 +66,17 @@ public class SwitchCell:UITableViewCell{
         for tapL in tapListeners{
             tapL.tapAction(sender: self)
         }
-        if boolSwitch.isOn == true {
-            for turnOnL in turnOnListeners{
-                turnOnL.tapAction(sender: self)
-            }
-        }
     }
 
     public func updateView(){
         self.textLabel?.text = cellContent.getTitle()
-        self.boolSwitch.isOn = cellContent.getIsOn()!
+        self.detailTextLabel?.text = cellContent.getDetail()
+        self.boolSwitch.isOn = cellContent.getIsOn()
+    }
+
+    public func makeTableView() -> SettingTableView{
+        let stView = SettingTableView(content:cellContent.getPushTableContent()!)
+        return stView
     }
 
 //MARK:get set
@@ -60,14 +85,9 @@ public class SwitchCell:UITableViewCell{
         self.tapListeners = tapListeners
     }
 
-    public func set(turnOnListeners:[CellTapListener]){
-        self.turnOnListeners = turnOnListeners
-    }
-
-    public func getCellContent() -> CellContent{
+    public func getCellContent() -> TextCellContent{
         return cellContent
     }
-
 
 //MARK:AutoLayout
     override public func layoutSubviews() {
@@ -76,14 +96,37 @@ public class SwitchCell:UITableViewCell{
     }
 
     override public func updateConstraints() {
-        let constraint = NSLayoutConstraint(item: boolSwitch, attribute: .trailing, relatedBy: .equal, toItem: contentView , attribute: .trailing, multiplier: 1, constant: -10)
+        //boolSwitch
+        let constraint = NSLayoutConstraint(item: boolSwitch, attribute: .trailing, relatedBy: .equal, toItem: self , attribute: .trailing, multiplier: 1, constant: -10)
         constraint.priority = 999
-        contentView.addConstraint(constraint)
-        contentView.addConstraint(NSLayoutConstraint(item: boolSwitch,attribute: .left,relatedBy: .lessThanOrEqual,toItem: textLabel!,attribute: .left,multiplier: 1.0,constant: 625))
-        contentView.addConstraint(NSLayoutConstraint(item: boolSwitch, attribute: .centerY, relatedBy: .equal, toItem: contentView , attribute: .centerY, multiplier: 1, constant: 0))
-// ios9
+        self.addConstraint(constraint)
+        self.addConstraint(NSLayoutConstraint(item: boolSwitch,attribute: .trailing,relatedBy: .lessThanOrEqual,toItem: self,attribute: .centerX,multiplier: 1.0,constant: 350))
+
+        self.addConstraint(NSLayoutConstraint(item: boolSwitch, attribute: .centerY, relatedBy: .equal, toItem: self , attribute: .centerY, multiplier: 1, constant: 0))
+//        ios9
 //        boolSwitch.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -10).isActive = true
 //        boolSwitch.centerYAnchor.constraint(equalTo: centerYAnchor, constant: 0).isActive = true
+
+        //button
+        let trailingC = NSLayoutConstraint(item: button, attribute: .trailing, relatedBy: .equal, toItem: self , attribute: .trailing, multiplier: 1, constant: -10)
+        trailingC.priority = 999
+        self.addConstraint(trailingC)
+        self.addConstraint(NSLayoutConstraint(item: button, attribute: .trailing, relatedBy: .lessThanOrEqual, toItem: self , attribute: .centerX, multiplier: 1, constant: 350))
+
+        let leadingC = NSLayoutConstraint(item: button, attribute: .leading, relatedBy: .equal, toItem: self , attribute: .leading, multiplier: 1, constant: 10)
+        leadingC.priority = 999
+        self.addConstraint(leadingC)
+        self.addConstraint(NSLayoutConstraint(item: button, attribute: .leading, relatedBy: .greaterThanOrEqual, toItem: self , attribute: .centerX, multiplier: 1, constant: -350))
+
+        self.addConstraint(NSLayoutConstraint(item: button, attribute: .height, relatedBy: .equal, toItem: self , attribute: .height, multiplier: 1, constant: 0))
+        self.addConstraint(NSLayoutConstraint(item: button, attribute: .centerY, relatedBy: .equal, toItem: self , attribute: .centerY, multiplier: 1, constant: 0))
+
+        //coverButton
+        self.addConstraint(NSLayoutConstraint(item: coverButton, attribute: .trailing, relatedBy: .equal, toItem: self , attribute: .trailing, multiplier: 1, constant: 0))
+        self.addConstraint(NSLayoutConstraint(item: coverButton, attribute: .leading, relatedBy: .equal, toItem: self , attribute: .leading, multiplier: 1, constant: 0))
+        self.addConstraint(NSLayoutConstraint(item: coverButton, attribute: .height, relatedBy: .equal, toItem: self , attribute: .height, multiplier: 1, constant: 0))
+        self.addConstraint(NSLayoutConstraint(item: coverButton, attribute: .centerY, relatedBy: .equal, toItem: self , attribute: .centerY, multiplier: 1, constant: 0))
+
         super.updateConstraints()
     }
     

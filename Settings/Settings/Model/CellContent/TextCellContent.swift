@@ -8,26 +8,47 @@
 
 import UIKit
 
-public class TextCellContent:CellContent{
+public class TextCellContent{
 
     private var title:String
-    private var detail:String
     private var tapListeners:[CellTapListener] = []
+    private var detail:String = " "
 
     //TextCell
-    private var allowAddTrigger:Bool = true
+    private var coverHidden:Bool = true
     //AccessoryCell
-    private var pushTableContent:TableContent?
+    private var pushTableContent:TableContent? = nil
+    //switch
+    private var switchHidden:Bool = true
+    private var isOn:Bool = false
+    //Button
+    private var buttonHidden:Bool = true
+    private var buttonColor:UIColor = UIColor(red: 0.8, green: 0.5, blue: 0.5, alpha: 1)
 
-    public init(title: String,detail: String, push:TableContent? = nil){
+
+    public init(title: String,detail: String, push:TableContent){
         self.title = title
         self.detail = detail
         self.pushTableContent = push
+        self.coverHidden = false
     }
 
-    public convenience init(title: String,detail: String, addTrigger:Bool){
-        self.init(title: title,detail: detail)
-        self.allowAddTrigger = addTrigger
+    public init(title: String,detail: String, addTrigger:Bool = true){
+        self.title = title
+        self.detail = detail
+        self.coverHidden = !addTrigger
+    }
+
+    public init(title: String, isOn:Bool){
+        self.title = title
+        self.isOn = isOn
+        self.switchHidden = false
+    }
+
+    public init(title: String, buttonColor:UIColor = UIColor(red: 0.8, green: 0.5, blue: 0.5, alpha: 1)){
+        self.title = title
+        self.buttonColor = buttonColor
+        self.buttonHidden = false
     }
 
     //MARK:get set
@@ -38,6 +59,10 @@ public class TextCellContent:CellContent{
 
     public func set(detail:String){
         self.detail = detail
+    }
+
+    public func set(isOn:Bool){
+        self.isOn = isOn
     }
 
     public func set(pushTableContent:TableContent){
@@ -52,8 +77,20 @@ public class TextCellContent:CellContent{
         return detail
     }
 
-    public func getAllowAddTrigger() -> Bool{
-        return allowAddTrigger
+    public func getIsOn() -> Bool{
+        return isOn
+    }
+
+    public func getSwitchHidden() -> Bool{
+        return switchHidden
+    }
+
+    public func getButtonHidden() -> Bool{
+        return buttonHidden
+    }
+
+    public func getCoverHidden() -> Bool{
+        return coverHidden
     }
 
     public func getPushTableContent() -> TableContent?{
@@ -70,12 +107,30 @@ public class TextCellContent:CellContent{
         return title
     }
 
-    public func getValue() -> Any?{
-        return detail
+    public func getValue() -> Any{
+        if switchHidden == false{
+            return isOn
+        }else{
+            return detail
+        }
     }
 
     public func set(value:Any){
-        self.detail = value as! String
+        if let str = value as? String{
+            set(value: str)
+        }else if let bool = value as? Bool{
+            set(value: bool)
+        }else{
+            print("Unknown Type")
+        }
+    }
+
+    private func set(value:String){
+        self.detail = value
+    }
+
+    private func set(value:Bool){
+        self.isOn = value
     }
 
     public func add(tapListener:CellTapListener){

@@ -11,11 +11,11 @@ import UIKit
 public class ReturnViewController: UIViewController {
 
     private let tableView:UITableView
-    private let sourceCell:AccessoryCell
+    private let sourceCell:EventCell
     private let backFunc:()->()
     private var backTitle:String
 
-    public init(sender:AccessoryCell, table:UITableView, backTitle:String?, back: @escaping ()->()){
+    public init(sender:EventCell, table:UITableView, backTitle:String?, back: @escaping ()->()){
         self.sourceCell = sender
         self.tableView = table
         self.backTitle = backTitle ?? "back"

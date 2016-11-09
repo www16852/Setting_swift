@@ -6,8 +6,6 @@
 //  Copyright © 2016年 waltoncob. All rights reserved.
 //
 
-import UIKit
-
 public protocol CellTapListener{
-    func tapAction(sender:UITableViewCell)
+    func tapAction(sender:EventCell)
 }

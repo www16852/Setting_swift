@@ -13,21 +13,15 @@
 		B833FB2A1DC042BB003D2DDC /* CellListener.swift in Sources */ = {isa = PBXBuildFile; fileRef = B833FB0E1DC042BB003D2DDC /* CellListener.swift */; };
 		B833FB2B1DC042BB003D2DDC /* SettingDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = B833FB101DC042BB003D2DDC /* SettingDataSource.swift */; };
 		B833FB2C1DC042BB003D2DDC /* TickTableDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B833FB111DC042BB003D2DDC /* TickTableDelegate.swift */; };
-		B833FB2F1DC042BB003D2DDC /* AccessoryCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B833FB171DC042BB003D2DDC /* AccessoryCell.swift */; };
-		B833FB301DC042BB003D2DDC /* ButtonCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B833FB181DC042BB003D2DDC /* ButtonCell.swift */; };
 		B833FB311DC042BB003D2DDC /* SwitchCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B833FB191DC042BB003D2DDC /* SwitchCell.swift */; };
-		B833FB321DC042BB003D2DDC /* TextCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B833FB1A1DC042BB003D2DDC /* TextCell.swift */; };
-		B833FB351DC042BB003D2DDC /* ButtonCellPack.swift in Sources */ = {isa = PBXBuildFile; fileRef = B833FB1E1DC042BB003D2DDC /* ButtonCellPack.swift */; };
 		B833FB361DC042BB003D2DDC /* TextCellPack.swift in Sources */ = {isa = PBXBuildFile; fileRef = B833FB1F1DC042BB003D2DDC /* TextCellPack.swift */; };
-		B833FB391DC042BB003D2DDC /* MakeCellProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = B833FB231DC042BB003D2DDC /* MakeCellProtocol.swift */; };
 		B833FB3C1DC042BB003D2DDC /* SettingTableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B833FB261DC042BB003D2DDC /* SettingTableView.swift */; };
 		B8341B531DC9E7B200F2912C /* PlistManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8341B521DC9E7B200F2912C /* PlistManager.swift */; };
 		B8341B551DCACF0000F2912C /* TableContent.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8341B541DCACF0000F2912C /* TableContent.swift */; };
-		B87336321DD15D9F00397ED8 /* SaveListener.swift in Sources */ = {isa = PBXBuildFile; fileRef = B87336311DD15D9F00397ED8 /* SaveListener.swift */; };
+		B87336341DD3121F00397ED8 /* MakeCellProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = B87336331DD3121F00397ED8 /* MakeCellProtocol.swift */; };
 		B8DE6D8E1DCC69AB00CE27E5 /* ShareListener.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8DE6D8D1DCC69AB00CE27E5 /* ShareListener.swift */; };
 		B8DE6D901DCC69F700CE27E5 /* ShareViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8DE6D8F1DCC69F700CE27E5 /* ShareViewController.swift */; };
 		B8DE6D981DCC74DF00CE27E5 /* TextCellContent.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8DE6D971DCC74DF00CE27E5 /* TextCellContent.swift */; };
-		B8DE6D9A1DCC756400CE27E5 /* ButtonCellContent.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8DE6D991DCC756400CE27E5 /* ButtonCellContent.swift */; };
 		B8DE6D9D1DCC75CD00CE27E5 /* CellContent.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8DE6D9C1DCC75CD00CE27E5 /* CellContent.swift */; };
 		B8DF3C331DB079C700F31F46 /* Settings.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B8DF3C291DB079C700F31F46 /* Settings.framework */; };
 		B8DF3C381DB079C700F31F46 /* SettingsTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8DF3C371DB079C700F31F46 /* SettingsTests.swift */; };
@@ -51,21 +45,15 @@
 		B833FB0E1DC042BB003D2DDC /* CellListener.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CellListener.swift; sourceTree = "<group>"; };
 		B833FB101DC042BB003D2DDC /* SettingDataSource.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingDataSource.swift; sourceTree = "<group>"; };
 		B833FB111DC042BB003D2DDC /* TickTableDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TickTableDelegate.swift; sourceTree = "<group>"; };
-		B833FB171DC042BB003D2DDC /* AccessoryCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AccessoryCell.swift; sourceTree = "<group>"; };
-		B833FB181DC042BB003D2DDC /* ButtonCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ButtonCell.swift; sourceTree = "<group>"; };
 		B833FB191DC042BB003D2DDC /* SwitchCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SwitchCell.swift; sourceTree = "<group>"; };
-		B833FB1A1DC042BB003D2DDC /* TextCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TextCell.swift; sourceTree = "<group>"; };
-		B833FB1E1DC042BB003D2DDC /* ButtonCellPack.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ButtonCellPack.swift; sourceTree = "<group>"; };
 		B833FB1F1DC042BB003D2DDC /* TextCellPack.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TextCellPack.swift; sourceTree = "<group>"; };
-		B833FB231DC042BB003D2DDC /* MakeCellProtocol.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MakeCellProtocol.swift; sourceTree = "<group>"; };
 		B833FB261DC042BB003D2DDC /* SettingTableView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingTableView.swift; sourceTree = "<group>"; };
 		B8341B521DC9E7B200F2912C /* PlistManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PlistManager.swift; sourceTree = "<group>"; };
 		B8341B541DCACF0000F2912C /* TableContent.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TableContent.swift; sourceTree = "<group>"; };
-		B87336311DD15D9F00397ED8 /* SaveListener.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SaveListener.swift; sourceTree = "<group>"; };
+		B87336331DD3121F00397ED8 /* MakeCellProtocol.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MakeCellProtocol.swift; sourceTree = "<group>"; };
 		B8DE6D8D1DCC69AB00CE27E5 /* ShareListener.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ShareListener.swift; sourceTree = "<group>"; };
 		B8DE6D8F1DCC69F700CE27E5 /* ShareViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ShareViewController.swift; sourceTree = "<group>"; };
 		B8DE6D971DCC74DF00CE27E5 /* TextCellContent.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = TextCellContent.swift; path = Settings/Model/CellContent/TextCellContent.swift; sourceTree = SOURCE_ROOT; };
-		B8DE6D991DCC756400CE27E5 /* ButtonCellContent.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ButtonCellContent.swift; path = Settings/Model/CellContent/ButtonCellContent.swift; sourceTree = SOURCE_ROOT; };
 		B8DE6D9C1DCC75CD00CE27E5 /* CellContent.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CellContent.swift; sourceTree = "<group>"; };
 		B8DF3C291DB079C700F31F46 /* Settings.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Settings.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		B8DF3C2C1DB079C700F31F46 /* Settings.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Settings.h; sourceTree = "<group>"; };
@@ -120,7 +108,6 @@
 				B833FB0A1DC042BB003D2DDC /* PushListener.swift */,
 				B8DE6D8D1DCC69AB00CE27E5 /* ShareListener.swift */,
 				B833FB0B1DC042BB003D2DDC /* AlertListener.swift */,
-				B87336311DD15D9F00397ED8 /* SaveListener.swift */,
 			);
 			path = Listener;
 			sourceTree = "<group>";
@@ -170,10 +157,7 @@
 		B833FB161DC042BB003D2DDC /* Cell */ = {
 			isa = PBXGroup;
 			children = (
-				B833FB181DC042BB003D2DDC /* ButtonCell.swift */,
 				B833FB191DC042BB003D2DDC /* SwitchCell.swift */,
-				B833FB171DC042BB003D2DDC /* AccessoryCell.swift */,
-				B833FB1A1DC042BB003D2DDC /* TextCell.swift */,
 			);
 			path = Cell;
 			sourceTree = "<group>";
@@ -181,7 +165,6 @@
 		B833FB1B1DC042BB003D2DDC /* CellPack */ = {
 			isa = PBXGroup;
 			children = (
-				B833FB1E1DC042BB003D2DDC /* ButtonCellPack.swift */,
 				B833FB1F1DC042BB003D2DDC /* TextCellPack.swift */,
 			);
 			path = CellPack;
@@ -190,7 +173,7 @@
 		B833FB201DC042BB003D2DDC /* Protocol */ = {
 			isa = PBXGroup;
 			children = (
-				B833FB231DC042BB003D2DDC /* MakeCellProtocol.swift */,
+				B87336331DD3121F00397ED8 /* MakeCellProtocol.swift */,
 			);
 			path = Protocol;
 			sourceTree = "<group>";
@@ -199,7 +182,6 @@
 			isa = PBXGroup;
 			children = (
 				B8DE6D971DCC74DF00CE27E5 /* TextCellContent.swift */,
-				B8DE6D991DCC756400CE27E5 /* ButtonCellContent.swift */,
 			);
 			name = CellContent;
 			path = new;
@@ -367,23 +349,17 @@
 			files = (
 				B833FB2C1DC042BB003D2DDC /* TickTableDelegate.swift in Sources */,
 				B833FB361DC042BB003D2DDC /* TextCellPack.swift in Sources */,
-				B833FB2F1DC042BB003D2DDC /* AccessoryCell.swift in Sources */,
 				B8341B551DCACF0000F2912C /* TableContent.swift in Sources */,
 				B811A0E31DC1ABF700851F26 /* ReturnViewController.swift in Sources */,
-				B8DE6D9A1DCC756400CE27E5 /* ButtonCellContent.swift in Sources */,
-				B833FB301DC042BB003D2DDC /* ButtonCell.swift in Sources */,
 				B833FB271DC042BB003D2DDC /* PushListener.swift in Sources */,
-				B833FB391DC042BB003D2DDC /* MakeCellProtocol.swift in Sources */,
 				B8DE6D981DCC74DF00CE27E5 /* TextCellContent.swift in Sources */,
 				B833FB281DC042BB003D2DDC /* AlertListener.swift in Sources */,
-				B833FB351DC042BB003D2DDC /* ButtonCellPack.swift in Sources */,
 				B8DE6D8E1DCC69AB00CE27E5 /* ShareListener.swift in Sources */,
-				B87336321DD15D9F00397ED8 /* SaveListener.swift in Sources */,
 				B833FB2B1DC042BB003D2DDC /* SettingDataSource.swift in Sources */,
 				B833FB2A1DC042BB003D2DDC /* CellListener.swift in Sources */,
+				B87336341DD3121F00397ED8 /* MakeCellProtocol.swift in Sources */,
 				B8DE6D9D1DCC75CD00CE27E5 /* CellContent.swift in Sources */,
 				B833FB311DC042BB003D2DDC /* SwitchCell.swift in Sources */,
-				B833FB321DC042BB003D2DDC /* TextCell.swift in Sources */,
 				B8341B531DC9E7B200F2912C /* PlistManager.swift in Sources */,
 				B8DE6D901DCC69F700CE27E5 /* ShareViewController.swift in Sources */,
 				B833FB3C1DC042BB003D2DDC /* SettingTableView.swift in Sources */,

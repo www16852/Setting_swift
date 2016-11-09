@@ -18,15 +18,14 @@ public class PushListener:CellTapListener{
         self.plistManager = plist
     }
 
-    public func tapAction(sender:UITableViewCell){
+    public func tapAction(sender:EventCell){
         print("T:\(sender.textLabel?.text) trigger PushController")
-        pushVC(sender)
+        pushViewController(sender)
     }
 
-    func pushVC(_ cell:UITableViewCell){
-        let accessoryCell = cell as! AccessoryCell
+    func pushViewController(_ cell:EventCell){
         let title = controller.navigationItem.title
-        let viewController = ReturnViewController(sender:accessoryCell, table:accessoryCell.makeTableView(), backTitle:title){
+        let viewController = ReturnViewController(sender:cell, table:cell.makeTableView(), backTitle:title){
             self.plistManager.savePlist()
         }
         controller.navigationController?.pushViewController(viewController, animated: true)

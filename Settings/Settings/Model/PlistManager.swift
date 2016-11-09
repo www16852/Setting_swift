@@ -10,7 +10,7 @@ import Foundation
 
 public class PlistManager{
 
-    private var cellContents:[CellContent] = []
+    private var cellContents:[TextCellContent] = []
     private var dictionary:[String:Any] = [:]
 
     private let rootPath = NSSearchPathForDirectoriesInDomains(
@@ -28,7 +28,7 @@ public class PlistManager{
 
     }
 
-    public func setup(cellContents:[CellContent]){
+    public func setup(cellContents:[TextCellContent]){
         self.cellContents = cellContents
         if openPlist() == false{
             buildDictionary()

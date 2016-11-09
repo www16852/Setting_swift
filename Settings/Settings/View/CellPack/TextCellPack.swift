@@ -8,7 +8,7 @@
 
 import UIKit
 
-public class TextCellPack:MakeCellProtocol{
+public class CellPack:MakeCellProtocol{
 
     private var cellContent:TextCellContent
 
@@ -19,21 +19,12 @@ public class TextCellPack:MakeCellProtocol{
 //MARK: MakeCellProtocol
 
     public func packToCell() -> UITableViewCell{
-        let rCell:UITableViewCell!
-        if cellContent.getPushTableContent() == nil {
-            let cell = TextCell(cellContent:cellContent)
-            cell.set(tapListeners: cellContent.getTapListeners())
-            rCell = cell
-        }else{
-            let cell = AccessoryCell(cellContent:cellContent)
-            cell.set(tapListeners: cellContent.getTapListeners())
-            rCell = cell
-        }
-        
-        return rCell
+        let cell = EventCell(cellContent:cellContent)
+        cell.set(tapListeners: cellContent.getTapListeners())
+        return cell
     }
 
-    public func getCellContent() -> CellContent{
+    public func getCellContent() -> TextCellContent{
         return cellContent
     }
 

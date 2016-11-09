@@ -11,10 +11,10 @@ import UIKit
 public class ShareViewController: UIViewController {
 
     private let tableView:UITableView
-    private let sourceCell:AccessoryCell
+    private let sourceCell:EventCell
     private var backTitle:String
 
-    public init(sender:AccessoryCell, table:UITableView, backTitle:String?){
+    public init(sender:EventCell, table:UITableView, backTitle:String?){
         self.sourceCell = sender
         self.tableView = table
         self.backTitle = backTitle ?? "back"

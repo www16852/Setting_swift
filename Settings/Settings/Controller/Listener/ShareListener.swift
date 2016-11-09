@@ -16,22 +16,15 @@ public class ShareListener:CellTapListener{
         self.controller = controller
     }
 
-    public func tapAction(sender:UITableViewCell){
+    public func tapAction(sender:EventCell){
         print("T:\(sender.textLabel?.text) trigger ShareController")
-        pushVC(sender)
+        pushViewController(sender)
     }
 
-    func pushVC(_ cell:UITableViewCell){
-        let accessoryCell = cell as! AccessoryCell
+    func pushViewController(_ cell:EventCell){
         let title = controller.navigationItem.title
-        let viewController = ShareViewController(sender:accessoryCell, table:accessoryCell.makeTableView(), backTitle:title)
+        let viewController = ShareViewController(sender:cell, table:cell.makeTableView(), backTitle:title)
         controller.navigationController?.pushViewController(viewController, animated: true)
-    }
-
-    //MARK:ReturnedVCDelegate
-
-    public func backFromVC(accessoryCell:AccessoryCell, result:String?){
-        print("T: backFromVC return result = \(result)")
     }
     
 }

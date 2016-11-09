@@ -6,8 +6,8 @@
 //  Copyright © 2016年 waltoncob. All rights reserved.
 //
 
-public protocol CellContent{
-    func getKey() -> String
-    func getValue() -> Any?
-    func set(value:Any)
-}
+//public protocol CellContent{
+//    func getKey() -> String
+//    func getValue() -> Any?
+//    func set(value:Any)
+//}
