@@ -13,7 +13,7 @@ public class TableContent{
     let delegate: UITableViewDelegate?
     let allowsSelection: Bool
     
-    public init(sections:[Section], delegate: UITableViewDelegate? = nil,allowsSelection: Bool = false){
+    public init(sections:[Section], delegate: UITableViewDelegate? = nil, allowsSelection: Bool = false){
         self.sections = sections
         self.delegate = delegate
         self.allowsSelection = allowsSelection

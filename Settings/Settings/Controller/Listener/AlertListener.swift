@@ -20,7 +20,9 @@ public class AlertListener:CellTapListener{
 
     public func tapAction(sender:EventCell){
         print("T:\(sender.textLabel?.text) trigger AlertController")
-        pushVC(sender)
+        if sender.getBoolSwitch().isOn == true {
+            pushVC(sender)
+        }
         plistManager.savePlist()
     }
 

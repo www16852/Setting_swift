@@ -26,44 +26,41 @@ class CustomController: UIViewController {
 
         var sections = [Section]()
         let section1 = Section(header: "ACCOUNT")
-        section1.add(cellPack:CellPack(TextCellContent(title: "Email",detail: userEmail)))
-        section1.add(cellPack:CellPack(TextCellContent(title: "Device",detail: userDevice)))
-        section1.add(cellPack:CellPack(TextCellContent(title: "Version",detail: version)))
+        section1.add(cellPack:CellPack(CellContent(title: "Email",detail: userEmail)))
+        section1.add(cellPack:CellPack(CellContent(title: "Device",detail: userDevice)))
+        section1.add(cellPack:CellPack(CellContent(title: "Version",detail: version)))
         sections.append(section1)
 
         let section2 = Section(header: "SETTING")
 
-        let alertContent = TextCellContent(title:"Carmera Uploads", isOn:false)
+        let alertContent = CellContent(title:"Carmera Uploads", isOn:false)
         let alertListener = AlertListener(controller:self,plist:plistManager)
         alertContent.add(tapListener: alertListener)
         section2.add(cellPack:CellPack(alertContent))
         sections.append(section2)
 
         let section3 = Section(header: "MANAGEMENT")
-        section3.add(cellPack:CellPack(TextCellContent(title: "Space Used",detail: "")))
+        section3.add(cellPack:CellPack(CellContent(title: "Space Used",detail: "")))
 
-        let LegalCellContent = TextCellContent(title: "Legal and Privacy", detail: "")
         let LegalPsuhTable = TableContent(sections:makeSections(header:"", options:[]))
-        LegalCellContent.set(pushTableContent: LegalPsuhTable)
+        let LegalCellContent = CellContent(title: "Legal and Privacy", detail: "", push:LegalPsuhTable)
         section3.add(cellPack: CellPack(LegalCellContent))
 
-        let keepDaysCellContent = TextCellContent(title: "Keep Days", detail: "5 days")
         let keepDaysPushTable = TableContent(sections:makeSections(header:"choose Keep Days", options:dayOption), delegate: TickTableDelegate(), allowsSelection:true)
+        let keepDaysCellContent = CellContent(title: "Keep Days", detail: "5 days", push:keepDaysPushTable)
         let pushListener = PushListener(controller:self, plist:plistManager)
-        keepDaysCellContent.set(pushTableContent:keepDaysPushTable)
         keepDaysCellContent.add(tapListener:pushListener)
         section3.add(cellPack:CellPack(keepDaysCellContent))
 
-        section3.add(cellPack:CellPack(TextCellContent(title: "Connected",detail: "UPnP")))
+        section3.add(cellPack:CellPack(CellContent(title: "Connected",detail: "UPnP")))
 
-        let shareCellContent = TextCellContent(title: "Share Management", detail: "")
         let sharePushTable = TableContent(sections:makeSections(header:"Share Management", options:shareOption), allowsSelection:true)
+        let shareCellContent = CellContent(title: "Share Management", detail: "", push:sharePushTable)
         let pushShareListener = ShareListener(controller:self)
-        shareCellContent.set(pushTableContent:sharePushTable)
         shareCellContent.add(tapListener: pushShareListener)
         section3.add(cellPack:CellPack(shareCellContent))
 
-        section3.add(cellPack:CellPack(TextCellContent(title:"Sign out")))
+        section3.add(cellPack:CellPack(CellContent(title:"Sign out")))
 
         sections.append(section3)
 
@@ -76,11 +73,10 @@ class CustomController: UIViewController {
         let tableview = SettingTableView(content:tableContent)
         view = tableview
 
-
     }
 
-    func firstCellContents(_ sections:[Section]) -> [TextCellContent]{
-        var cellContents:[TextCellContent] = []
+    func firstCellContents(_ sections:[Section]) -> [CellContent]{
+        var cellContents:[CellContent] = []
         for section in sections{
             for pack in section.getCellPacks(){
                 cellContents.append(pack.getCellContent())
@@ -92,7 +88,7 @@ class CustomController: UIViewController {
     func makeSections(header:String, options:[String]) -> [Section]{
         var optionCellPacks = [MakeCellProtocol]()
         for str in options {
-            let content = TextCellContent(title: str,detail: "", addTrigger:false)
+            let content = CellContent(title: str,detail: "", addTrigger:false)
             optionCellPacks.append(CellPack(content))
         }
         let tableSection = [

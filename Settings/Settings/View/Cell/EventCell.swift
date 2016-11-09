@@ -11,13 +11,13 @@ import UIKit
 public class EventCell:UITableViewCell{
 
     private var tapListeners:[CellTapListener] = []
-    private var cellContent:TextCellContent
+    private var cellContent:CellContent
 
     private let boolSwitch = UISwitch()
     private let button = UIButton()
     private let coverButton = UIButton()
 
-    public init(cellContent:TextCellContent){
+    public init(cellContent:CellContent){
         self.cellContent = cellContent
         super.init(style: UITableViewCellStyle.value1,reuseIdentifier: nil)
         setupViews()
@@ -85,8 +85,12 @@ public class EventCell:UITableViewCell{
         self.tapListeners = tapListeners
     }
 
-    public func getCellContent() -> TextCellContent{
+    public func getCellContent() -> CellContent{
         return cellContent
+    }
+
+    public func getBoolSwitch() -> UISwitch{
+        return boolSwitch
     }
 
 //MARK:AutoLayout
@@ -97,7 +101,7 @@ public class EventCell:UITableViewCell{
 
     override public func updateConstraints() {
         //boolSwitch
-        let constraint = NSLayoutConstraint(item: boolSwitch, attribute: .trailing, relatedBy: .equal, toItem: self , attribute: .trailing, multiplier: 1, constant: -10)
+        let constraint = NSLayoutConstraint(item: boolSwitch, attribute: .trailing, relatedBy: .equal, toItem: self , attribute: .trailing, multiplier: 1, constant: -15)
         constraint.priority = 999
         self.addConstraint(constraint)
         self.addConstraint(NSLayoutConstraint(item: boolSwitch,attribute: .trailing,relatedBy: .lessThanOrEqual,toItem: self,attribute: .centerX,multiplier: 1.0,constant: 350))
@@ -108,12 +112,12 @@ public class EventCell:UITableViewCell{
 //        boolSwitch.centerYAnchor.constraint(equalTo: centerYAnchor, constant: 0).isActive = true
 
         //button
-        let trailingC = NSLayoutConstraint(item: button, attribute: .trailing, relatedBy: .equal, toItem: self , attribute: .trailing, multiplier: 1, constant: -10)
+        let trailingC = NSLayoutConstraint(item: button, attribute: .trailing, relatedBy: .equal, toItem: self , attribute: .trailing, multiplier: 1, constant: -15)
         trailingC.priority = 999
         self.addConstraint(trailingC)
         self.addConstraint(NSLayoutConstraint(item: button, attribute: .trailing, relatedBy: .lessThanOrEqual, toItem: self , attribute: .centerX, multiplier: 1, constant: 350))
 
-        let leadingC = NSLayoutConstraint(item: button, attribute: .leading, relatedBy: .equal, toItem: self , attribute: .leading, multiplier: 1, constant: 10)
+        let leadingC = NSLayoutConstraint(item: button, attribute: .leading, relatedBy: .equal, toItem: self , attribute: .leading, multiplier: 1, constant: 15)
         leadingC.priority = 999
         self.addConstraint(leadingC)
         self.addConstraint(NSLayoutConstraint(item: button, attribute: .leading, relatedBy: .greaterThanOrEqual, toItem: self , attribute: .centerX, multiplier: 1, constant: -350))

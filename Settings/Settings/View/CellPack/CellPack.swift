@@ -10,21 +10,21 @@ import UIKit
 
 public class CellPack:MakeCellProtocol{
 
-    private var cellContent:TextCellContent
+    private var cellContent:CellContent
 
-    public init(_ cellContent:TextCellContent){
+    public init(_ cellContent:CellContent){
         self.cellContent = cellContent
     }
 
 //MARK: MakeCellProtocol
 
-    public func packToCell() -> UITableViewCell{
+    public func packToCell() -> EventCell{
         let cell = EventCell(cellContent:cellContent)
         cell.set(tapListeners: cellContent.getTapListeners())
         return cell
     }
 
-    public func getCellContent() -> TextCellContent{
+    public func getCellContent() -> CellContent{
         return cellContent
     }
 

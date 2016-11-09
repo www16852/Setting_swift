@@ -7,6 +7,6 @@
 //
 
 public protocol MakeCellProtocol{
-    func packToCell() -> UITableViewCell
-    func getCellContent() -> TextCellContent
+    func packToCell() -> EventCell
+    func getCellContent() -> CellContent
 }

@@ -8,7 +8,7 @@
 
 import UIKit
 
-public class TextCellContent{
+public class CellContent{
 
     private var title:String
     private var tapListeners:[CellTapListener] = []
@@ -63,10 +63,6 @@ public class TextCellContent{
 
     public func set(isOn:Bool){
         self.isOn = isOn
-    }
-
-    public func set(pushTableContent:TableContent){
-        self.pushTableContent = pushTableContent
     }
 
     public func getTitle() -> String{
