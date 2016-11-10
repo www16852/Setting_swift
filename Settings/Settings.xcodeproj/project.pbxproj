@@ -131,7 +131,6 @@
 			isa = PBXGroup;
 			children = (
 				B8341B521DC9E7B200F2912C /* PlistManager.swift */,
-				B8DE6D9B1DCC758E00CE27E5 /* Protocol */,
 				B8341B4D1DC9E61100F2912C /* CellContent */,
 			);
 			name = Model;
@@ -183,13 +182,6 @@
 			);
 			name = CellContent;
 			path = new;
-			sourceTree = "<group>";
-		};
-		B8DE6D9B1DCC758E00CE27E5 /* Protocol */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = Protocol;
 			sourceTree = "<group>";
 		};
 		B8DF3C1F1DB079C700F31F46 = {

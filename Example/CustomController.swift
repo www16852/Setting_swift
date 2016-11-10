@@ -42,20 +42,20 @@ class CustomController: UIViewController {
         let section3 = Section(header: "MANAGEMENT")
         section3.add(cellPack:CellPack(CellContent(title: "Space Used",detail: "")))
 
-        let LegalPsuhTable = TableContent(sections:makeSections(header:"", options:[]))
-        let LegalCellContent = CellContent(title: "Legal and Privacy", detail: "", push:LegalPsuhTable)
+        let LegalPsuhTable = TableContent(header:"", options:[])
+        let LegalCellContent = CellContent(title: "Legal and Privacy", push:LegalPsuhTable, detailIndex:nil)
         section3.add(cellPack: CellPack(LegalCellContent))
 
-        let keepDaysPushTable = TableContent(sections:makeSections(header:"choose Keep Days", options:dayOption), delegate: TickTableDelegate(), allowsSelection:true)
-        let keepDaysCellContent = CellContent(title: "Keep Days", detail: "5 days", push:keepDaysPushTable)
+        let keepDaysPushTable = TableContent(header:"choose Keep Days", options:dayOption, delegate: TickTableDelegate())
+        let keepDaysCellContent = CellContent(title: "Keep Days", push:keepDaysPushTable, detailIndex:0)
         let pushListener = PushListener(controller:self, plist:plistManager)
         keepDaysCellContent.add(tapListener:pushListener)
         section3.add(cellPack:CellPack(keepDaysCellContent))
 
         section3.add(cellPack:CellPack(CellContent(title: "Connected",detail: "UPnP")))
 
-        let sharePushTable = TableContent(sections:makeSections(header:"Share Management", options:shareOption), allowsSelection:true)
-        let shareCellContent = CellContent(title: "Share Management", detail: "", push:sharePushTable)
+        let sharePushTable = TableContent(header:"Share Management", options:shareOption)
+        let shareCellContent = CellContent(title: "Share Management", push:sharePushTable, detailIndex:nil)
         let pushShareListener = ShareListener(controller:self)
         shareCellContent.add(tapListener: pushShareListener)
         section3.add(cellPack:CellPack(shareCellContent))
@@ -64,40 +64,16 @@ class CustomController: UIViewController {
 
         sections.append(section3)
 
-        let cellContents = firstCellContents(sections)
+        let tableContent = TableContent(sections:sections)
+        let cellContents = tableContent.allCellContentsFromSections()
+
         plistManager.setup(cellContents:cellContents)
         print("Plist path : \(plistManager.plistPathInDocument)")
         plistManager.adjustCellContents()
 
-        let tableContent = TableContent(sections:sections)
         let tableview = SettingTableView(content:tableContent)
         view = tableview
 
-    }
-
-    func firstCellContents(_ sections:[Section]) -> [CellContent]{
-        var cellContents:[CellContent] = []
-        for section in sections{
-            for pack in section.getCellPacks(){
-                cellContents.append(pack.getCellContent())
-            }
-        }
-        return cellContents
-    }
-
-    func makeSections(header:String, options:[String]) -> [Section]{
-        var optionCellPacks = [MakeCellProtocol]()
-        for str in options {
-            let content = CellContent(title: str,detail: "", addTrigger:false)
-            optionCellPacks.append(CellPack(content))
-        }
-        let tableSection = [
-            Section(
-                header: header,
-                CellPacks: optionCellPacks
-            )
-        ]
-        return tableSection
     }
 
     override func didReceiveMemoryWarning() {

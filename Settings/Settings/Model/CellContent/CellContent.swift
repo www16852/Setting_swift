@@ -26,11 +26,19 @@ public class CellContent{
     private var buttonColor:UIColor = UIColor(red: 0.8, green: 0.5, blue: 0.5, alpha: 1)
 
 
-    public init(title: String,detail: String, push:TableContent){
+    public init(title:String, push:TableContent, detailIndex:Int?){
         self.title = title
-        self.detail = detail
         self.pushTableContent = push
         self.coverHidden = false
+        if let index = detailIndex {
+            if let indexContent = push.cellContent(index: index){
+                self.detail = indexContent.getTitle()
+            }else{
+                print("Can not find detail string")
+            }
+        }else{
+            self.detail = ""
+        }
     }
 
     public init(title: String,detail: String, addTrigger:Bool = true){
