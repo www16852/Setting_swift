@@ -44,12 +44,18 @@ public class ReturnViewController: UIViewController {
         if let indexPath = tableView.indexPathForSelectedRow{
             let cell = tableView.cellForRow(at: indexPath)
             result = cell?.textLabel?.text
-            sourceCell.getCellContent().set(detail: result!)
+            sourceCell.setContent(detail: result!)
             sourceCell.updateView()
         }
         self.backFunc()
         let _ = self.navigationController?.popViewController(animated: true)
     }
 
+    override public var prefersStatusBarHidden: Bool {
+        get {
+            return true
+        }
+    }
+    
 }
 

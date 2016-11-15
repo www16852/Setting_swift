@@ -10,7 +10,7 @@
 		B811A0E31DC1ABF700851F26 /* ReturnViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B811A0E21DC1ABF700851F26 /* ReturnViewController.swift */; };
 		B833FB271DC042BB003D2DDC /* PushListener.swift in Sources */ = {isa = PBXBuildFile; fileRef = B833FB0A1DC042BB003D2DDC /* PushListener.swift */; };
 		B833FB281DC042BB003D2DDC /* AlertListener.swift in Sources */ = {isa = PBXBuildFile; fileRef = B833FB0B1DC042BB003D2DDC /* AlertListener.swift */; };
-		B833FB2A1DC042BB003D2DDC /* CellListener.swift in Sources */ = {isa = PBXBuildFile; fileRef = B833FB0E1DC042BB003D2DDC /* CellListener.swift */; };
+		B833FB2A1DC042BB003D2DDC /* CellTapListener.swift in Sources */ = {isa = PBXBuildFile; fileRef = B833FB0E1DC042BB003D2DDC /* CellTapListener.swift */; };
 		B833FB2B1DC042BB003D2DDC /* SettingDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = B833FB101DC042BB003D2DDC /* SettingDataSource.swift */; };
 		B833FB2C1DC042BB003D2DDC /* TickTableDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B833FB111DC042BB003D2DDC /* TickTableDelegate.swift */; };
 		B833FB311DC042BB003D2DDC /* EventCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B833FB191DC042BB003D2DDC /* EventCell.swift */; };
@@ -41,7 +41,7 @@
 		B811A0E21DC1ABF700851F26 /* ReturnViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ReturnViewController.swift; sourceTree = "<group>"; };
 		B833FB0A1DC042BB003D2DDC /* PushListener.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PushListener.swift; sourceTree = "<group>"; };
 		B833FB0B1DC042BB003D2DDC /* AlertListener.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AlertListener.swift; sourceTree = "<group>"; };
-		B833FB0E1DC042BB003D2DDC /* CellListener.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CellListener.swift; sourceTree = "<group>"; };
+		B833FB0E1DC042BB003D2DDC /* CellTapListener.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CellTapListener.swift; sourceTree = "<group>"; };
 		B833FB101DC042BB003D2DDC /* SettingDataSource.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingDataSource.swift; sourceTree = "<group>"; };
 		B833FB111DC042BB003D2DDC /* TickTableDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TickTableDelegate.swift; sourceTree = "<group>"; };
 		B833FB191DC042BB003D2DDC /* EventCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EventCell.swift; sourceTree = "<group>"; };
@@ -113,7 +113,7 @@
 		B833FB0D1DC042BB003D2DDC /* Protocol */ = {
 			isa = PBXGroup;
 			children = (
-				B833FB0E1DC042BB003D2DDC /* CellListener.swift */,
+				B833FB0E1DC042BB003D2DDC /* CellTapListener.swift */,
 			);
 			path = Protocol;
 			sourceTree = "<group>";
@@ -345,7 +345,7 @@
 				B833FB281DC042BB003D2DDC /* AlertListener.swift in Sources */,
 				B8DE6D8E1DCC69AB00CE27E5 /* ShareListener.swift in Sources */,
 				B833FB2B1DC042BB003D2DDC /* SettingDataSource.swift in Sources */,
-				B833FB2A1DC042BB003D2DDC /* CellListener.swift in Sources */,
+				B833FB2A1DC042BB003D2DDC /* CellTapListener.swift in Sources */,
 				B87336341DD3121F00397ED8 /* MakeCellProtocol.swift in Sources */,
 				B833FB311DC042BB003D2DDC /* EventCell.swift in Sources */,
 				B8341B531DC9E7B200F2912C /* PlistManager.swift in Sources */,

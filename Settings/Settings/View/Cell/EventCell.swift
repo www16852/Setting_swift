@@ -24,14 +24,14 @@ public class EventCell:UITableViewCell{
         updateView()
         setTrigger()
     }
-    
+
     required public init?(coder aDecoder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
 
     func setupViews(){
         coverButton.backgroundColor = UIColor.clear
-//        coverButton.backgroundColor = UIColor(red: 0.8, green: 0.5, blue: 0.8, alpha: 0.5)
+        //        coverButton.backgroundColor = UIColor(red: 0.8, green: 0.5, blue: 0.8, alpha: 0.5)
         button.backgroundColor = UIColor(red: 0.8, green: 0.5, blue: 0.5, alpha: 1)
         button.setTitle(cellContent.getTitle(), for: .normal)
         addSubview(coverButton)
@@ -79,7 +79,7 @@ public class EventCell:UITableViewCell{
         return stView
     }
 
-//MARK:get set
+    //MARK:get set
 
     public func set(tapListeners:[CellTapListener]){
         self.tapListeners = tapListeners
@@ -93,7 +93,11 @@ public class EventCell:UITableViewCell{
         return boolSwitch
     }
 
-//MARK:AutoLayout
+    public func setContent(detail:String){
+        self.cellContent.set(detail:detail)
+    }
+
+    //MARK:AutoLayout
     override public func layoutSubviews() {
         updateConstraints()
         super.layoutSubviews()
@@ -107,9 +111,9 @@ public class EventCell:UITableViewCell{
         self.addConstraint(NSLayoutConstraint(item: boolSwitch,attribute: .trailing,relatedBy: .lessThanOrEqual,toItem: self,attribute: .centerX,multiplier: 1.0,constant: 350))
 
         self.addConstraint(NSLayoutConstraint(item: boolSwitch, attribute: .centerY, relatedBy: .equal, toItem: self , attribute: .centerY, multiplier: 1, constant: 0))
-//        ios9
-//        boolSwitch.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -10).isActive = true
-//        boolSwitch.centerYAnchor.constraint(equalTo: centerYAnchor, constant: 0).isActive = true
+        //        ios9
+        //        boolSwitch.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -10).isActive = true
+        //        boolSwitch.centerYAnchor.constraint(equalTo: centerYAnchor, constant: 0).isActive = true
 
         //button
         let trailingC = NSLayoutConstraint(item: button, attribute: .trailing, relatedBy: .equal, toItem: self , attribute: .trailing, multiplier: 1, constant: -15)
@@ -130,7 +134,7 @@ public class EventCell:UITableViewCell{
         self.addConstraint(NSLayoutConstraint(item: coverButton, attribute: .leading, relatedBy: .equal, toItem: self , attribute: .leading, multiplier: 1, constant: 0))
         self.addConstraint(NSLayoutConstraint(item: coverButton, attribute: .height, relatedBy: .equal, toItem: self , attribute: .height, multiplier: 1, constant: 0))
         self.addConstraint(NSLayoutConstraint(item: coverButton, attribute: .centerY, relatedBy: .equal, toItem: self , attribute: .centerY, multiplier: 1, constant: 0))
-
+        
         super.updateConstraints()
     }
     

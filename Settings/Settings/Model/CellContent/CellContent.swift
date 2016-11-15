@@ -141,8 +141,4 @@ public class CellContent{
         tapListeners.append(tapListener)
     }
     
-    public func remove(listener:CellTapListener){
-        
-    }
-    
 }

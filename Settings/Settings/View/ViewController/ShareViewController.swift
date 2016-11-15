@@ -40,12 +40,7 @@ public class ShareViewController: UIViewController {
     }
 
     func shareAction(bar:UIBarButtonItem){
-        var shareMessage = ""
-        guard let indexPath = tableView.indexPathForSelectedRow else {
-            return
-        }
-        let cell = tableView.cellForRow(at: indexPath)
-        shareMessage = (cell!.textLabel?.text)!
+        let shareMessage = ""
         let shareActivity = UIActivityViewController(activityItems: [shareMessage], applicationActivities: nil)
         shareActivity.modalPresentationStyle = .popover
         shareActivity.popoverPresentationController?.barButtonItem = bar
@@ -55,6 +50,12 @@ public class ShareViewController: UIViewController {
 
     func back(){
         let _ = self.navigationController?.popViewController(animated: true)
+    }
+
+    override public var prefersStatusBarHidden: Bool {
+        get {
+            return true
+        }
     }
     
 }
