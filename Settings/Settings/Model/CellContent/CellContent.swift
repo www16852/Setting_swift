@@ -125,7 +125,7 @@ public class CellContent{
         }else if let bool = value as? Bool{
             set(value: bool)
         }else{
-            print("Unknown Type")
+            print("CellContent -set(value:Any) unknown parameter type")
         }
     }
 

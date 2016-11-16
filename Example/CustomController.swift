@@ -15,10 +15,9 @@ let version = "1.0.13"
 var dayOption:[String] = ["5days","10days","15days","20days"]
 var shareOption:[String] = ["t1@walton.com.tw","t2@walton.com.tw","t3@walton.com.tw","t4@walton.com.tw"]
 
-
-
 class CustomController: UIViewController {
     let plistManager = PlistManager()
+    let factory = CellFactory()
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -26,9 +25,9 @@ class CustomController: UIViewController {
 
         var sections = [Section]()
         let section1 = Section(header: "ACCOUNT")
-        section1.add(cellPack:CellPack(CellContent(title: "Email",detail: userEmail)))
-        section1.add(cellPack:CellPack(CellContent(title: "Device",detail: userDevice)))
-        section1.add(cellPack:CellPack(CellContent(title: "Version",detail: version)))
+        section1.add(content:CellContent(title: "Email",detail: userEmail))
+        section1.add(content:CellContent(title: "Device",detail: userDevice))
+        section1.add(content:CellContent(title: "Version",detail: version))
         sections.append(section1)
 
         let section2 = Section(header: "SETTING")
@@ -36,36 +35,36 @@ class CustomController: UIViewController {
         let alertContent = CellContent(title:"Carmera Uploads", isOn:false)
         let alertListener = AlertListener(controller:self,plist:plistManager)
         alertContent.add(tapListener: alertListener)
-        section2.add(cellPack:CellPack(alertContent))
+        section2.add(content:(alertContent))
         sections.append(section2)
 
         let section3 = Section(header: "MANAGEMENT")
-        section3.add(cellPack:CellPack(CellContent(title: "Space Used",detail: "")))
+        section3.add(content:CellContent(title: "Space Used",detail: ""))
 
-        let LegalPsuhTable = TableContent(header:"", options:[])
+        let LegalPsuhTable = TableContent(header:"", options:[], factory:factory)
         let LegalCellContent = CellContent(title: "Legal and Privacy", push:LegalPsuhTable, detailIndex:nil)
-        section3.add(cellPack: CellPack(LegalCellContent))
+        section3.add(content: LegalCellContent)
 
-        let keepDaysPushTable = TableContent(header:"choose Keep Days", options:dayOption, delegate: TickTableDelegate())
+        let keepDaysPushTable = TableContent(header:"choose Keep Days", options:dayOption, factory:factory, delegate: TickTableDelegate())
         let keepDaysCellContent = CellContent(title: "Keep Days", push:keepDaysPushTable, detailIndex:0)
         let pushListener = PushListener(controller:self, plist:plistManager)
         keepDaysCellContent.add(tapListener:pushListener)
-        section3.add(cellPack:CellPack(keepDaysCellContent))
+        section3.add(content:(keepDaysCellContent))
 
-        section3.add(cellPack:CellPack(CellContent(title: "Connected",detail: "UPnP")))
+        section3.add(content:CellContent(title: "Connected",detail: "UPnP"))
 
-        let sharePushTable = TableContent(header:"Share Management", options:shareOption)
+        let sharePushTable = TableContent(header:"Share Management", options:shareOption, factory:factory)
         let shareCellContent = CellContent(title: "Share Management", push:sharePushTable, detailIndex:nil)
         let pushShareListener = ShareListener(controller:self)
         shareCellContent.add(tapListener: pushShareListener)
-        section3.add(cellPack:CellPack(shareCellContent))
+        section3.add(content:(shareCellContent))
 
-        section3.add(cellPack:CellPack(CellContent(title:"Sign out")))
+        section3.add(content:CellContent(title:"Sign out"))
 
         sections.append(section3)
 
-        let tableContent = TableContent(sections:sections)
-        let cellContents = tableContent.allCellContentsFromSections()
+        let tableContent = TableContent(sections:sections, factory:factory)
+        let cellContents = tableContent.getCellContents()
 
         plistManager.setup(cellContents:cellContents)
         print("Plist path : \(plistManager.plistPathInDocument)")

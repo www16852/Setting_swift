@@ -19,7 +19,7 @@ public class PushListener:CellTapListener{
     }
 
     public func tapAction(sender:EventCell){
-        print("T:\(sender.textLabel?.text) trigger PushController")
+        print("\(sender.textLabel?.text) trigger PushController")
         pushViewController(sender)
     }
 
@@ -27,6 +27,9 @@ public class PushListener:CellTapListener{
         let title = controller.navigationItem.title
         let viewController = ReturnViewController(sender:cell, table:cell.makeTableView(), backTitle:title){
             self.plistManager.savePlist()
+        }
+        if controller.navigationController == nil {
+            print("the UIViewController don't have navigationController")
         }
         controller.navigationController?.pushViewController(viewController, animated: true)
     }

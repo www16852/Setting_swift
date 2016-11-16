@@ -7,6 +7,5 @@
 //
 
 public protocol MakeCellProtocol{
-    func packToCell() -> EventCell
-    func getCellContent() -> CellContent
+    func makeCell(_ content:CellContent) -> EventCell
 }

@@ -10,71 +10,62 @@ import Foundation
 public class TableContent{
 
     private var sections:[Section]
+    private var factory:CellFactory
     let delegate: UITableViewDelegate?
     let allowsSelection: Bool
 
-    public init(header:String, options:[String], delegate: UITableViewDelegate? = nil, allowsSelection: Bool = true){
+    public init(header:String, options:[String], factory:CellFactory, delegate: UITableViewDelegate? = nil, allowsSelection: Bool = true){
         self.delegate = delegate
         self.allowsSelection = allowsSelection
-        var optionCellPacks = [MakeCellProtocol]()
+        self.factory = factory
+        var optionCellContents = [CellContent]()
         for str in options {
             let content = CellContent(title:str, detail: "", addTrigger:false)
-            optionCellPacks.append(CellPack(content))
+            optionCellContents.append(content)
         }
         self.sections = [
-            Section(header:header, CellPacks:optionCellPacks)
+            Section(header:header, contents:optionCellContents)
         ]
-
     }
 
-    func makeSections(header:String, options:[String]) -> [Section]{
-        var optionCellPacks = [MakeCellProtocol]()
-        for str in options {
-            let content = CellContent(title: str,detail: "", addTrigger:false)
-            optionCellPacks.append(CellPack(content))
-        }
-        let tableSection = [
-            Section(
-                header: header,
-                CellPacks: optionCellPacks
-            )
-        ]
-        return tableSection
-    }
-
-    public init(sections:[Section], delegate: UITableViewDelegate? = nil, allowsSelection: Bool = false){
+    public init(sections:[Section], factory:CellFactory, delegate: UITableViewDelegate? = nil, allowsSelection: Bool = false){
         self.sections = sections
         self.delegate = delegate
         self.allowsSelection = allowsSelection
-    }
-
-    public func getSections() -> [Section]{
-        return sections
-    }
-
-    public func allCellContentsFromSections() -> [CellContent]{
-        var cellContents:[CellContent] = []
-        for section in sections{
-            for pack in section.getCellPacks(){
-                cellContents.append(pack.getCellContent())
-            }
-        }
-        return cellContents
+        self.factory = factory
     }
 
     public func cellContent(index:Int) -> CellContent?{
         var i = 0
-        var cellContent:CellContent?
         for section in sections{
-            for pack in section.getCellPacks(){
+            for content in section.getcellContents(){
                 if index == i {
-                    cellContent = pack.getCellContent()
-                    return cellContent
+                    return content
                 }
                 i += 1
             }
         }
         return nil
+    }
+
+    //MARK: get set
+
+    public func getSections() -> [Section]{
+        return sections
+    }
+
+    public func getFactory() -> CellFactory{
+        return factory
+    }
+
+    public func getCellContents() -> [CellContent]{
+        var cellContents:[CellContent] = []
+        for section in sections{
+            for content in section.getcellContents(){
+                cellContents.append(content)
+            }
+        }
+        return cellContents
     }
 
 }

@@ -19,14 +19,14 @@ public class AlertListener:CellTapListener{
     }
 
     public func tapAction(sender:EventCell){
-        print("T:\(sender.textLabel?.text) trigger AlertController")
-        if sender.getBoolSwitch().isOn == true {
-            pushVC(sender)
+        print("\(sender.textLabel?.text) trigger AlertController")
+        if sender.getIsOn() == true {
+            pushViewController(sender)
         }
         plistManager.savePlist()
     }
 
-    func pushVC(_ cell:EventCell){
+    func pushViewController(_ cell:EventCell){
         let alert = UIAlertController(title: "Enabling Camera Uploads", message:
             nil, preferredStyle: UIAlertControllerStyle.alert)
         alert.addAction(UIAlertAction(title: "Cancel", style: UIAlertActionStyle.default){(action) in })

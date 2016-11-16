@@ -13,9 +13,13 @@ public class EventCell:UITableViewCell{
     private var tapListeners:[CellTapListener] = []
     private var cellContent:CellContent
 
-    private let boolSwitch = UISwitch()
-    private let button = UIButton()
-    private let coverButton = UIButton()
+    private var boolSwitch = UISwitch()
+    private var button = UIButton()
+    private var coverButton = UIButton()
+
+    public var modifySwitch:(UISwitch) -> UISwitch = {return $0}
+    public var modifyButton:(UIButton) -> UIButton = {return $0}
+    public var modifyCoverButton:(UIButton) -> UIButton = {return $0}
 
     public init(cellContent:CellContent){
         self.cellContent = cellContent
@@ -31,12 +35,9 @@ public class EventCell:UITableViewCell{
 
     func setupViews(){
         coverButton.backgroundColor = UIColor.clear
-        //        coverButton.backgroundColor = UIColor(red: 0.8, green: 0.5, blue: 0.8, alpha: 0.5)
+//        coverButton.backgroundColor = UIColor(red: 0.8, green: 0.5, blue: 0.8, alpha: 0.5)
         button.backgroundColor = UIColor(red: 0.8, green: 0.5, blue: 0.5, alpha: 1)
         button.setTitle(cellContent.getTitle(), for: .normal)
-        addSubview(coverButton)
-        addSubview(button)
-        addSubview(boolSwitch)
 
         coverButton.isHidden = cellContent.getCoverHidden()
         boolSwitch.isHidden = cellContent.getSwitchHidden()
@@ -49,19 +50,29 @@ public class EventCell:UITableViewCell{
             self.accessoryType = .disclosureIndicator
         }
 
+        addSubview(coverButton)
+        addSubview(button)
+        addSubview(boolSwitch)
+
         boolSwitch.translatesAutoresizingMaskIntoConstraints = false
         coverButton.translatesAutoresizingMaskIntoConstraints = false
         button.translatesAutoresizingMaskIntoConstraints = false
     }
 
-    public func setTrigger(){
+    private func setTrigger(){
         boolSwitch.addTarget(self, action: #selector(self.tapAction), for: .valueChanged)
         coverButton.addTarget(self, action: #selector(self.tapAction), for: .touchUpInside)
         button.addTarget(self, action: #selector(self.tapAction), for: .touchUpInside)
     }
 
+    public func modifySubViews(){
+        self.coverButton = modifyCoverButton(coverButton)
+        self.button = modifyButton(button)
+        self.boolSwitch = modifySwitch(boolSwitch)
+    }
+
     public func tapAction(){
-        print("T:\(type(of:self)) tapAction")
+        print("\(self.cellContent.getTitle()) tapAction")
         cellContent.set(value: boolSwitch.isOn)
         for tapL in tapListeners{
             tapL.tapAction(sender: self)
@@ -89,8 +100,8 @@ public class EventCell:UITableViewCell{
         return cellContent
     }
 
-    public func getBoolSwitch() -> UISwitch{
-        return boolSwitch
+    public func getIsOn() -> Bool{
+        return boolSwitch.isOn
     }
 
     public func setContent(detail:String){

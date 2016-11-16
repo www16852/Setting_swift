@@ -17,7 +17,7 @@ public class ShareListener:CellTapListener{
     }
 
     public func tapAction(sender:EventCell){
-        print("T:\(sender.textLabel?.text) trigger ShareController")
+        print("\(sender.textLabel?.text) trigger ShareController")
         pushViewController(sender)
     }
 

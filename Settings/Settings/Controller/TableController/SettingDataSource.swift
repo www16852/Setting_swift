@@ -12,25 +12,25 @@ public class Section {
 
     fileprivate let header: String
     fileprivate let footer: String
-    fileprivate var cellPacks: [MakeCellProtocol]
+    fileprivate var cellContents: [CellContent]
     fileprivate var heightForHeader: CGFloat
     fileprivate var heightForFooter: CGFloat
 
-    public init(header: String,footer: String = "",CellPacks:[MakeCellProtocol] = [],
+    public init(header: String,footer: String = "",contents:[CellContent] = [],
                 heightForHeader: CGFloat = 40,heightForFooter: CGFloat = 10.0){
         self.header = header
         self.footer = footer
-        self.cellPacks = CellPacks
+        self.cellContents = contents
         self.heightForHeader = heightForHeader
         self.heightForFooter = heightForFooter
     }
 
-    public func add(cellPack:MakeCellProtocol){
-        cellPacks.append(cellPack)
+    public func add(content:CellContent){
+        cellContents.append(content)
     }
 
-    public func getCellPacks() -> [MakeCellProtocol]{
-        return cellPacks
+    public func getcellContents() -> [CellContent]{
+        return cellContents
     }
     
 }
@@ -38,9 +38,11 @@ public class Section {
 class SettingDataSource:NSObject,UITableViewDataSource{
 
     private var sections:[Section]
+    private var factory:CellFactory
 
-    init(sections: [Section]){
+    init(sections: [Section], factory:CellFactory){
         self.sections = sections
+        self.factory = factory
     }
 
     open func numberOfSections(in tableView: UITableView) -> Int {
@@ -48,7 +50,7 @@ class SettingDataSource:NSObject,UITableViewDataSource{
     }
 
     open func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return sections[section].cellPacks.count
+        return sections[section].cellContents.count
     }
 
     open func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
@@ -70,7 +72,8 @@ class SettingDataSource:NSObject,UITableViewDataSource{
     }
 
     open func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell{
-        let cell = sections[indexPath.section].cellPacks[indexPath.row].packToCell()
+        let content = sections[indexPath.section].cellContents[indexPath.row]
+        let cell = factory.makeCell(content)
         return cell
     }
 
