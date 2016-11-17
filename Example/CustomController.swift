@@ -59,7 +59,7 @@ class CustomController: UIViewController {
         shareCellContent.add(tapListener: pushShareListener)
         section3.add(content:(shareCellContent))
 
-        section3.add(content:CellContent(title:"Sign out"))
+        section3.add(content:CellContent(title:"Sign out",buttonColor:UIColor(red: 0.8, green: 0.5, blue: 0.5, alpha: 1)))
 
         sections.append(section3)
 

@@ -21,7 +21,7 @@ public class CellFactory:MakeCellProtocol{
         cell.set(tapListeners: content.getTapListeners())
 
         cell.modifySwitch = {return $0}
-        cell.modifyButton = {
+        cell.modifyColorButton = {
             let button = $0
             button.layer.borderWidth = 0.5
             return button

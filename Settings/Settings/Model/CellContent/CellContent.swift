@@ -22,8 +22,7 @@ public class CellContent{
     private var switchHidden:Bool = true
     private var isOn:Bool = false
     //Button
-    private var buttonHidden:Bool = true
-    private var buttonColor:UIColor = UIColor(red: 0.8, green: 0.5, blue: 0.5, alpha: 1)
+    private var buttonColor:UIColor?
 
 
     public init(title:String, push:TableContent, detailIndex:Int?){
@@ -53,10 +52,10 @@ public class CellContent{
         self.switchHidden = false
     }
 
-    public init(title: String, buttonColor:UIColor = UIColor(red: 0.8, green: 0.5, blue: 0.5, alpha: 1)){
+    public init(title: String, buttonColor:UIColor){
         self.title = title
         self.buttonColor = buttonColor
-        self.buttonHidden = false
+        self.coverHidden = false
     }
 
     //MARK:get set
@@ -85,12 +84,12 @@ public class CellContent{
         return isOn
     }
 
-    public func getSwitchHidden() -> Bool{
-        return switchHidden
+    public func getButtonColor() -> UIColor?{
+        return buttonColor
     }
 
-    public func getButtonHidden() -> Bool{
-        return buttonHidden
+    public func getSwitchHidden() -> Bool{
+        return switchHidden
     }
 
     public func getCoverHidden() -> Bool{
