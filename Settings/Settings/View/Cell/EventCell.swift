@@ -33,9 +33,6 @@ public class EventCell:UITableViewCell{
     }
 
     func setupViews(){
-
-//        coverButton.backgroundColor = UIColor(red: 0.8, green: 0.5, blue: 0.8, alpha: 0.5)
-
         coverButton.isHidden = cellContent.getCoverHidden()
         boolSwitch.isHidden = cellContent.getSwitchHidden()
 
@@ -46,15 +43,14 @@ public class EventCell:UITableViewCell{
             self.detailTextLabel?.isHidden = true
         }else{
             coverButton.backgroundColor = UIColor.clear
+//            coverButton.backgroundColor = UIColor(red: 0.8, green: 0.5, blue: 0.8, alpha: 0.5)
         }
 
         if cellContent.getPushTableContent() != nil {
             self.accessoryType = .disclosureIndicator
         }
-
         addSubview(coverButton)
         addSubview(boolSwitch)
-
         boolSwitch.translatesAutoresizingMaskIntoConstraints = false
         coverButton.translatesAutoresizingMaskIntoConstraints = false
     }
@@ -125,30 +121,28 @@ public class EventCell:UITableViewCell{
         self.addConstraint(NSLayoutConstraint(item: boolSwitch,attribute: .trailing,relatedBy: .lessThanOrEqual,toItem: self,attribute: .centerX,multiplier: 1.0,constant: 350))
 
         self.addConstraint(NSLayoutConstraint(item: boolSwitch, attribute: .centerY, relatedBy: .equal, toItem: self , attribute: .centerY, multiplier: 1, constant: 0))
-        //        ios9
-        //        boolSwitch.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -10).isActive = true
-        //        boolSwitch.centerYAnchor.constraint(equalTo: centerYAnchor, constant: 0).isActive = true
 
-        //button
-//        let trailingC = NSLayoutConstraint(item: button, attribute: .trailing, relatedBy: .equal, toItem: self , attribute: .trailing, multiplier: 1, constant: -15)
-//        trailingC.priority = 999
-//        self.addConstraint(trailingC)
-//        self.addConstraint(NSLayoutConstraint(item: button, attribute: .trailing, relatedBy: .lessThanOrEqual, toItem: self , attribute: .centerX, multiplier: 1, constant: 350))
-//
-//        let leadingC = NSLayoutConstraint(item: button, attribute: .leading, relatedBy: .equal, toItem: self , attribute: .leading, multiplier: 1, constant: 15)
-//        leadingC.priority = 999
-//        self.addConstraint(leadingC)
-//        self.addConstraint(NSLayoutConstraint(item: button, attribute: .leading, relatedBy: .greaterThanOrEqual, toItem: self , attribute: .centerX, multiplier: 1, constant: -350))
-//
-//        self.addConstraint(NSLayoutConstraint(item: button, attribute: .height, relatedBy: .equal, toItem: self , attribute: .height, multiplier: 1, constant: 0))
-//        self.addConstraint(NSLayoutConstraint(item: button, attribute: .centerY, relatedBy: .equal, toItem: self , attribute: .centerY, multiplier: 1, constant: 0))
+        if cellContent.getButtonColor() == nil{
+            //coverButton
+            self.addConstraint(NSLayoutConstraint(item: coverButton, attribute: .trailing, relatedBy: .equal, toItem: self , attribute: .trailing, multiplier: 1, constant: 0))
+            self.addConstraint(NSLayoutConstraint(item: coverButton, attribute: .leading, relatedBy: .equal, toItem: self , attribute: .leading, multiplier: 1, constant: 0))
+            self.addConstraint(NSLayoutConstraint(item: coverButton, attribute: .height, relatedBy: .equal, toItem: self , attribute: .height, multiplier: 1, constant: 0))
+            self.addConstraint(NSLayoutConstraint(item: coverButton, attribute: .centerY, relatedBy: .equal, toItem: self , attribute: .centerY, multiplier: 1, constant: 0))
+        }else{
+            //ColorButton
+            let trailingC = NSLayoutConstraint(item: coverButton, attribute: .trailing, relatedBy: .equal, toItem: self , attribute: .trailing, multiplier: 1, constant: -15)
+            trailingC.priority = 999
+            self.addConstraint(trailingC)
+            self.addConstraint(NSLayoutConstraint(item: coverButton, attribute: .trailing, relatedBy: .lessThanOrEqual, toItem: self , attribute: .centerX, multiplier: 1, constant: 350))
 
-        //coverButton
-        self.addConstraint(NSLayoutConstraint(item: coverButton, attribute: .trailing, relatedBy: .equal, toItem: self , attribute: .trailing, multiplier: 1, constant: 0))
-        self.addConstraint(NSLayoutConstraint(item: coverButton, attribute: .leading, relatedBy: .equal, toItem: self , attribute: .leading, multiplier: 1, constant: 0))
-        self.addConstraint(NSLayoutConstraint(item: coverButton, attribute: .height, relatedBy: .equal, toItem: self , attribute: .height, multiplier: 1, constant: 0))
-        self.addConstraint(NSLayoutConstraint(item: coverButton, attribute: .centerY, relatedBy: .equal, toItem: self , attribute: .centerY, multiplier: 1, constant: 0))
-        
+            let leadingC = NSLayoutConstraint(item: coverButton, attribute: .leading, relatedBy: .equal, toItem: self , attribute: .leading, multiplier: 1, constant: 15)
+            leadingC.priority = 999
+            self.addConstraint(leadingC)
+            self.addConstraint(NSLayoutConstraint(item: coverButton, attribute: .leading, relatedBy: .greaterThanOrEqual, toItem: self , attribute: .centerX, multiplier: 1, constant: -350))
+
+            self.addConstraint(NSLayoutConstraint(item: coverButton, attribute: .height, relatedBy: .equal, toItem: self , attribute: .height, multiplier: 1, constant: 0))
+            self.addConstraint(NSLayoutConstraint(item: coverButton, attribute: .centerY, relatedBy: .equal, toItem: self , attribute: .centerY, multiplier: 1, constant: 0))
+        }
         super.updateConstraints()
     }
     
