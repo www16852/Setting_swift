@@ -33,7 +33,7 @@ public class CellContent{
             if let indexContent = push.cellContent(index: index){
                 self.detail = indexContent.getTitle()
             }else{
-                print("Can not find detail string")
+                print("Settings:the index can not find detail string")
             }
         }else{
             self.detail = ""
@@ -124,7 +124,7 @@ public class CellContent{
         }else if let bool = value as? Bool{
             set(value: bool)
         }else{
-            print("CellContent -set(value:Any) unknown parameter type")
+            print("Settings:CellContent -set(value:Any) unknown parameter type")
         }
     }
 

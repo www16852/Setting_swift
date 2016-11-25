@@ -6,6 +6,20 @@
 	objectVersion = 46;
 	objects = {
 
+/* Begin PBXAggregateTarget section */
+		B894F2C21DE7CCAA005FC7E3 /* SettingsAggregate */ = {
+			isa = PBXAggregateTarget;
+			buildConfigurationList = B894F2C51DE7CCAB005FC7E3 /* Build configuration list for PBXAggregateTarget "SettingsAggregate" */;
+			buildPhases = (
+				B894F2C61DE7CCC0005FC7E3 /* ShellScript */,
+			);
+			dependencies = (
+			);
+			name = SettingsAggregate;
+			productName = SettingsAggregate;
+		};
+/* End PBXAggregateTarget section */
+
 /* Begin PBXBuildFile section */
 		B811A0E31DC1ABF700851F26 /* ReturnViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B811A0E21DC1ABF700851F26 /* ReturnViewController.swift */; };
 		B833FB271DC042BB003D2DDC /* PushListener.swift in Sources */ = {isa = PBXBuildFile; fileRef = B833FB0A1DC042BB003D2DDC /* PushListener.swift */; };
@@ -284,6 +298,11 @@
 				LastUpgradeCheck = 0810;
 				ORGANIZATIONNAME = waltoncob;
 				TargetAttributes = {
+					B894F2C21DE7CCAA005FC7E3 = {
+						CreatedOnToolsVersion = 8.1;
+						DevelopmentTeam = ZADQ8AK2T5;
+						ProvisioningStyle = Automatic;
+					};
 					B8DF3C281DB079C700F31F46 = {
 						CreatedOnToolsVersion = 8.0;
 						DevelopmentTeam = ZADQ8AK2T5;
@@ -311,6 +330,7 @@
 			targets = (
 				B8DF3C281DB079C700F31F46 /* Settings */,
 				B8DF3C311DB079C700F31F46 /* SettingsTests */,
+				B894F2C21DE7CCAA005FC7E3 /* SettingsAggregate */,
 			);
 		};
 /* End PBXProject section */
@@ -331,6 +351,22 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		B894F2C61DE7CCC0005FC7E3 /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "# Sets the target folders and the final framework product.\n# 如果工程名称和Framework的Target名称不一样的话，要自定义FMKNAME\n# 例如: FMK_NAME = \"MyFramework\"\nFMK_NAME=${PROJECT_NAME}\n# Install dir will be the final output to the framework.\n# The following line create it in the root folder of the current project.\nINSTALL_DIR=${SRCROOT}/Products/${FMK_NAME}.framework\n# Working dir will be deleted after the framework creation.\nWRK_DIR=build\nDEVICE_DIR=${WRK_DIR}/Release-iphoneos/${FMK_NAME}.framework\n#SIMULATOR_DIR=${WRK_DIR}/Release-iphonesimulator/${FMK_NAME}.framework\n# -configuration ${CONFIGURATION}\n# Clean and Building both architectures.\nxcodebuild -configuration \"Release\" -target \"${FMK_NAME}\" -sdk iphoneos clean build\n#xcodebuild -configuration \"Release\" -target \"${FMK_NAME}\" -sdk iphonesimulator clean build\n# Cleaning the oldest.\nif [ -d \"${INSTALL_DIR}\" ]\nthen\nrm -rf \"${INSTALL_DIR}\"\nfi\nmkdir -p \"${INSTALL_DIR}\"\ncp -R \"${DEVICE_DIR}/\" \"${INSTALL_DIR}/\"\n#cp -R \"${SIMULATOR_DIR}/\" \"${INSTALL_DIR}/\"\n# Uses the Lipo Tool to merge both binary files (i386 + armv6/armv7) into one Universal final product.\n#lipo -create \"${DEVICE_DIR}/${FMK_NAME}\" \"${SIMULATOR_DIR}/${FMK_NAME}\" -output \"${INSTALL_DIR}/${FMK_NAME}\"\nlipo -create \"${DEVICE_DIR}/${FMK_NAME}\" -output \"${INSTALL_DIR}/${FMK_NAME}\"\nrm -r \"${WRK_DIR}\"\nopen \"${INSTALL_DIR}\"";
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		B8DF3C241DB079C700F31F46 /* Sources */ = {
@@ -374,6 +410,22 @@
 /* End PBXTargetDependency section */
 
 /* Begin XCBuildConfiguration section */
+		B894F2C31DE7CCAA005FC7E3 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				DEVELOPMENT_TEAM = ZADQ8AK2T5;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Debug;
+		};
+		B894F2C41DE7CCAA005FC7E3 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				DEVELOPMENT_TEAM = ZADQ8AK2T5;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Release;
+		};
 		B8DF3C3B1DB079C700F31F46 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
@@ -545,6 +597,14 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
+		B894F2C51DE7CCAB005FC7E3 /* Build configuration list for PBXAggregateTarget "SettingsAggregate" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				B894F2C31DE7CCAA005FC7E3 /* Debug */,
+				B894F2C41DE7CCAA005FC7E3 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
 		B8DF3C231DB079C700F31F46 /* Build configuration list for PBXProject "Settings" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (

@@ -1,0 +1,10 @@
+framework module Settings {
+  umbrella header "Settings.h"
+
+  export *
+  module * { export * }
+}
+
+module Settings.Swift {
+    header "Settings-Swift.h"
+}

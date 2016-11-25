@@ -72,7 +72,7 @@ public class PlistManager{
         buildDictionary()
         let nsDictionary = dictionary as NSDictionary
         if nsDictionary.write(toFile:plistPathInDocument, atomically:true) == false{
-            print("Plist creat fail")
+            print("Settings:Plist creat fail")
         }
     }
     

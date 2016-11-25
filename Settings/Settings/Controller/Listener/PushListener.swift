@@ -29,7 +29,7 @@ public class PushListener:CellTapListener{
             self.plistManager.savePlist()
         }
         if controller.navigationController == nil {
-            print("the UIViewController don't have navigationController")
+            print("Settings:the UIViewController don't have navigationController")
         }
         controller.navigationController?.pushViewController(viewController, animated: true)
     }
