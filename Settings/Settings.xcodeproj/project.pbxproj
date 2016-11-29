@@ -31,8 +31,8 @@
 		B833FB3C1DC042BB003D2DDC /* SettingTableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B833FB261DC042BB003D2DDC /* SettingTableView.swift */; };
 		B8341B531DC9E7B200F2912C /* PlistManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8341B521DC9E7B200F2912C /* PlistManager.swift */; };
 		B8341B551DCACF0000F2912C /* TableContent.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8341B541DCACF0000F2912C /* TableContent.swift */; };
-		B87336341DD3121F00397ED8 /* MakeCellProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = B87336331DD3121F00397ED8 /* MakeCellProtocol.swift */; };
-		B8DAA9DA1DDC3D170007337B /* CellFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8DAA9D91DDC3D170007337B /* CellFactory.swift */; };
+		B87336341DD3121F00397ED8 /* CellFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = B87336331DD3121F00397ED8 /* CellFactory.swift */; };
+		B8DAA9DA1DDC3D170007337B /* SimpleCellFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8DAA9D91DDC3D170007337B /* SimpleCellFactory.swift */; };
 		B8DE6D8E1DCC69AB00CE27E5 /* ShareListener.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8DE6D8D1DCC69AB00CE27E5 /* ShareListener.swift */; };
 		B8DE6D901DCC69F700CE27E5 /* ShareViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8DE6D8F1DCC69F700CE27E5 /* ShareViewController.swift */; };
 		B8DE6D981DCC74DF00CE27E5 /* CellContent.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8DE6D971DCC74DF00CE27E5 /* CellContent.swift */; };
@@ -62,8 +62,8 @@
 		B833FB261DC042BB003D2DDC /* SettingTableView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingTableView.swift; sourceTree = "<group>"; };
 		B8341B521DC9E7B200F2912C /* PlistManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PlistManager.swift; sourceTree = "<group>"; };
 		B8341B541DCACF0000F2912C /* TableContent.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TableContent.swift; sourceTree = "<group>"; };
-		B87336331DD3121F00397ED8 /* MakeCellProtocol.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MakeCellProtocol.swift; sourceTree = "<group>"; };
-		B8DAA9D91DDC3D170007337B /* CellFactory.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = CellFactory.swift; path = Settings/View/Factory/CellFactory.swift; sourceTree = SOURCE_ROOT; };
+		B87336331DD3121F00397ED8 /* CellFactory.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CellFactory.swift; sourceTree = "<group>"; };
+		B8DAA9D91DDC3D170007337B /* SimpleCellFactory.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SimpleCellFactory.swift; path = Settings/View/Factory/SimpleCellFactory.swift; sourceTree = SOURCE_ROOT; };
 		B8DE6D8D1DCC69AB00CE27E5 /* ShareListener.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ShareListener.swift; sourceTree = "<group>"; };
 		B8DE6D8F1DCC69F700CE27E5 /* ShareViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ShareViewController.swift; sourceTree = "<group>"; };
 		B8DE6D971DCC74DF00CE27E5 /* CellContent.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = CellContent.swift; path = Settings/Model/CellContent/CellContent.swift; sourceTree = SOURCE_ROOT; };
@@ -176,7 +176,7 @@
 		B833FB1B1DC042BB003D2DDC /* Factory */ = {
 			isa = PBXGroup;
 			children = (
-				B8DAA9D91DDC3D170007337B /* CellFactory.swift */,
+				B8DAA9D91DDC3D170007337B /* SimpleCellFactory.swift */,
 			);
 			name = Factory;
 			path = CellPack;
@@ -185,7 +185,7 @@
 		B833FB201DC042BB003D2DDC /* Protocol */ = {
 			isa = PBXGroup;
 			children = (
-				B87336331DD3121F00397ED8 /* MakeCellProtocol.swift */,
+				B87336331DD3121F00397ED8 /* CellFactory.swift */,
 			);
 			path = Protocol;
 			sourceTree = "<group>";
@@ -382,8 +382,8 @@
 				B8DE6D8E1DCC69AB00CE27E5 /* ShareListener.swift in Sources */,
 				B833FB2B1DC042BB003D2DDC /* SettingDataSource.swift in Sources */,
 				B833FB2A1DC042BB003D2DDC /* CellTapListener.swift in Sources */,
-				B87336341DD3121F00397ED8 /* MakeCellProtocol.swift in Sources */,
-				B8DAA9DA1DDC3D170007337B /* CellFactory.swift in Sources */,
+				B87336341DD3121F00397ED8 /* CellFactory.swift in Sources */,
+				B8DAA9DA1DDC3D170007337B /* SimpleCellFactory.swift in Sources */,
 				B833FB311DC042BB003D2DDC /* EventCell.swift in Sources */,
 				B8341B531DC9E7B200F2912C /* PlistManager.swift in Sources */,
 				B8DE6D901DCC69F700CE27E5 /* ShareViewController.swift in Sources */,
@@ -604,6 +604,7 @@
 				B894F2C41DE7CCAA005FC7E3 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		B8DF3C231DB079C700F31F46 /* Build configuration list for PBXProject "Settings" */ = {
 			isa = XCConfigurationList;

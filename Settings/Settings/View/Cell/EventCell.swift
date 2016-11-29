@@ -16,9 +16,9 @@ public class EventCell:UITableViewCell{
     private var boolSwitch = UISwitch()
     private var coverButton = UIButton()
 
-    public var modifySwitch:(UISwitch) -> UISwitch = {return $0}
-    public var modifyColorButton:(UIButton) -> UIButton = {return $0}
-    public var modifyCoverButton:(UIButton) -> UIButton = {return $0}
+    public var modifySwitch = {(origin:UISwitch) -> UISwitch in return origin}
+    public var modifyColorButton = {(origin:UIButton) -> UIButton in return origin}
+    public var modifyCoverButton = {(origin:UIButton) -> UIButton in return origin}
 
     public init(cellContent:CellContent){
         self.cellContent = cellContent

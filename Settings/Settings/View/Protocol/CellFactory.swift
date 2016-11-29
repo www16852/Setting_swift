@@ -6,6 +6,6 @@
 //  Copyright © 2016年 waltoncob. All rights reserved.
 //
 
-public protocol MakeCellProtocol{
+public protocol CellFactory{
     func makeCell(_ content:CellContent) -> EventCell
 }

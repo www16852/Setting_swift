@@ -8,21 +8,21 @@
 
 import UIKit
 
-public class CellFactory:MakeCellProtocol{
+public class SimpleCellFactory:CellFactory{
 
     public init(){
 
     }
 
-    //MARK: MakeCellProtocol
+    //MARK: CellFactory
 
     public func makeCell(_ content:CellContent) -> EventCell{
         let cell = EventCell(cellContent:content)
         cell.set(tapListeners: content.getTapListeners())
 
-        cell.modifySwitch = {return $0}
-        cell.modifyColorButton = {return $0}
-        cell.modifyCoverButton = {return $0}
+        cell.modifySwitch = {(origin:UISwitch) in return origin}
+        cell.modifyColorButton = {(origin:UIButton) in return origin}
+        cell.modifyCoverButton = {(origin:UIButton) in return origin}
         cell.modifySubViews()
         return cell
     }

@@ -17,7 +17,7 @@ var shareOption:[String] = ["t1@walton.com.tw","t2@walton.com.tw","t3@walton.com
 
 class CustomController: UIViewController {
     let plistManager = PlistManager()
-    let factory = CellFactory()
+    let factory = SimpleCellFactory()
 
     override func viewDidLoad() {
         super.viewDidLoad()
