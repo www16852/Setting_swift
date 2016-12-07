@@ -78,12 +78,12 @@ class CustomController: UIViewController {
 
 ```
 #### result:
-![](https://github.com/www16852/Setting_swift/tree/master/README_content/Phone_Demo1.png "Phone Demo1")
+![Phone Demo1](https://github.com/www16852/Setting_swift/blob/master/README_content/Phone_Demo1.png "Phone Demo1")
 
 # UI of the cell are determined by content of the CellContent:
 
 ## Text Cell
-![](https://github.com/www16852/Setting_swift/tree/master/README_content/TextCell.png "Text Cell")
+![Text Cell](https://github.com/www16852/Setting_swift/blob/master/README_content/TextCell.png "Text Cell")
 ```swift
 Class CellContent{
  init(title: String,detail: String, addTrigger:Bool = true)
@@ -93,7 +93,7 @@ Class CellContent{
 - addTrigger: select if use listener system(use listener would cover native UITableViewCell selection 
 
 ## Pushable Options Cell
-![](https://github.com/www16852/Setting_swift/tree/master/README_content/Pushable_Options_Cell.png "Pushable Options Cell")
+![Pushable Options Cell](https://github.com/www16852/Setting_swift/blob/master/README_content/Pushable_Options_Cell.png "Pushable Options Cell")
 ```swift
 Class CellContent{
  init(title:String, push:TableContent, detailIndex:Int?)
@@ -103,7 +103,7 @@ Class CellContent{
 - detailIndex: set initial detail content
 
 ## Switch Cell
-![](https://github.com/www16852/Setting_swift/tree/master/README_content/Switch_Cell.png "Switch Cell")
+![Switch Cell](https://github.com/www16852/Setting_swift/blob/master/README_content/Switch_Cell.png "Switch Cell")
 ```swift
 Class CellContent{
  init(title: String, isOn:Bool)
@@ -112,7 +112,7 @@ Class CellContent{
 - isOn: set initial ON/OFF
 
 ## Color Button
-![](https://github.com/www16852/Setting_swift/tree/master/README_content/Color_Button.png "Color Button")
+![Color Button](https://github.com/www16852/Setting_swift/blob/master/README_content/Color_Button.png "Color Button")
 ```swift
 Class CellContent{
  init(title: String, isOn:Bool)
