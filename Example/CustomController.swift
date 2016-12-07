@@ -25,7 +25,7 @@ import UIKit
 import Settings
 
 let userEmail = "Box03@walton.com.tw"
-let userDevice = "WAS-14-003"
+let userDevice = "IOS-66-789"
 let version = "1.0.13"
 var dayOption:[String] = ["5days","10days","15days","20days"]
 var shareOption:[String] = ["t1@walton.com.tw","t2@walton.com.tw","t3@walton.com.tw","t4@walton.com.tw"]
