@@ -14,7 +14,7 @@ and supports both iPhone and iPad
 - iOS 8.0+ (iPhone and iPad compatible)
 - Xcode 8
 
-##Usage
+## Set Cells
 
 - Declare a storage manager using PlistManager
 - Create a Section Array
@@ -27,7 +27,7 @@ and supports both iPhone and iPad
 import Settings
 
 let userEmail = "Box03@walton.com.tw"
-let userDevice = "WAS-14-003"
+let userDevice = "IOS-66-789"
 let version = "1.0.13"
 var dayOption:[String] = ["5days","10days","15days","20days"]
 var shareOption:[String] = ["t1@walton.com.tw","t2@walton.com.tw","t3@walton.com.tw","t4@walton.com.tw"]
@@ -47,42 +47,11 @@ class CustomController: UIViewController {
         section1.add(content:CellContent(title: "Version",detail: version))
         sections.append(section1)
 
-        let section2 = Section(header: "SETTING")
-
-        let alertContent = CellContent(title:"Carmera Uploads", isOn:false)
-        let alertListener = AlertListener(controller:self,plist:plistManager)
-        alertContent.add(tapListener: alertListener)
-        section2.add(content:(alertContent))
-        sections.append(section2)
-
-        let section3 = Section(header: "MANAGEMENT")
-        section3.add(content:CellContent(title: "Space Used",detail: ""))
-
-        let LegalPsuhTable = TableContent(header:"", options:[], factory:factory)
-        let LegalCellContent = CellContent(title: "Legal and Privacy", push:LegalPsuhTable, detailIndex:nil)
-        section3.add(content: LegalCellContent)
-
-        let keepDaysPushTable = TableContent(header:"choose Keep Days", options:dayOption, factory:factory, delegate: TickTableDelegate())
-        let keepDaysCellContent = CellContent(title: "Keep Days", push:keepDaysPushTable, detailIndex:0)
-        let pushListener = PushListener(controller:self, plist:plistManager)
-        keepDaysCellContent.add(tapListener:pushListener)
-        section3.add(content:(keepDaysCellContent))
-
-        section3.add(content:CellContent(title: "Connected",detail: "UPnP"))
-
-        let sharePushTable = TableContent(header:"Share Management", options:shareOption, factory:factory)
-        let shareCellContent = CellContent(title: "Share Management", push:sharePushTable, detailIndex:nil)
-        let pushShareListener = ShareListener(controller:self)
-        shareCellContent.add(tapListener: pushShareListener)
-        section3.add(content:(shareCellContent))
-
-        section3.add(content:CellContent(title:"Sign out",buttonColor:UIColor(red: 0.8, green: 0.5, blue: 0.5, alpha: 1)))
-
-        sections.append(section3)
-        
 //...
 
 ```
+
+## Import Cells and set the table
 
 - Use sections and CellFactory create a tableContent
 - Get cellContent Array of tableContent for plistManager
@@ -108,28 +77,46 @@ class CustomController: UIViewController {
 }
 
 ```
+#### result:
+![](https://github.com/www16852/Setting_swift/tree/master/README_content/Phone_Demo1.png "Phone Demo1")
 
-##CellContent init()
+# UI of the cell are determined by content of the CellContent:
 
-UI of the cell are determined by content of the CellContent:
-
-
-Options Button
+## Text Cell
+![](https://github.com/www16852/Setting_swift/tree/master/README_content/TextCell.png "Text Cell")
 ```swift
- init(title:String, push:TableContent, detailIndex:Int?)
-```
-Text Button
-```swift
+Class CellContent{
  init(title: String,detail: String, addTrigger:Bool = true)
 ```
-Switch
+- title: title text displayed on a UILabel
+- detail: detail text displayed on a UILabel
+- addTrigger: select if use listener system(use listener would cover native UITableViewCell selection 
+
+## Pushable Options Cell
+![](https://github.com/www16852/Setting_swift/tree/master/README_content/Pushable_Options_Cell.png "Pushable Options Cell")
 ```swift
+Class CellContent{
+ init(title:String, push:TableContent, detailIndex:Int?)
+```
+- title: title text displayed on a UILabel
+- push: set TableContent of View that will be pushed
+- detailIndex: set initial detail content
+
+## Switch Cell
+![](https://github.com/www16852/Setting_swift/tree/master/README_content/Switch_Cell.png "Switch Cell")
+```swift
+Class CellContent{
  init(title: String, isOn:Bool)
 ```
-Color Button
+- title: title text displayed on a UILabel
+- isOn: set initial ON/OFF
+
+## Color Button
+![](https://github.com/www16852/Setting_swift/tree/master/README_content/Color_Button.png "Color Button")
 ```swift
- init(title: String, buttonColor:UIColor)
+Class CellContent{
+ init(title: String, isOn:Bool)
 ```
-
-
+- title: title text displayed on a UILabel
+- isOn: set initial ON/OFF
 
