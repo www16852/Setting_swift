@@ -45,13 +45,24 @@ public class ReturnViewController: UIViewController {
     override public func viewDidLoad() {
         super.viewDidLoad()
         self.view = tableView
-        self.navigationItem.hidesBackButton = true
-        setupTopBar()
+//        self.navigationItem.hidesBackButton = true
+//        setupTopBar()
     }
 
     func setupTopBar(){
         let newBackButton = UIBarButtonItem(title: "＜" + backTitle, style: UIBarButtonItemStyle.plain, target: self, action: #selector(back))
         self.navigationItem.leftBarButtonItem = newBackButton;
+    }
+
+    deinit {
+        var result:String?
+        if let indexPath = tableView.indexPathForSelectedRow{
+            let cell = tableView.cellForRow(at: indexPath)
+            result = cell?.textLabel?.text
+            sourceCell.setContent(detail: result!)
+            sourceCell.updateView()
+        }
+        self.backFunc()
     }
 
     func back(){

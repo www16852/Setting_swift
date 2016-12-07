@@ -43,6 +43,7 @@ public class PushListener:CellTapListener{
         let viewController = ReturnViewController(sender:cell, table:cell.makeTableView(), backTitle:title){
             self.plistManager.savePlist()
         }
+        viewController.title = cell.getTitle()
         if controller.navigationController == nil {
             print("Settings:the UIViewController don't have navigationController")
         }

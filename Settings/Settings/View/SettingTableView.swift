@@ -1,5 +1,3 @@
-//
-//  SettingTableView.swift
 /*
  * Copyright (C) 2016 Xu,Cheng Wei <www16852@gmail.com>
  *
@@ -15,6 +13,8 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
+//
+//  SettingTableView.swift
 //  Setting
 //
 //  Created by waltoncob on 2016/10/5.

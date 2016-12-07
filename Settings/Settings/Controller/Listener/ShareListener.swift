@@ -39,6 +39,9 @@ public class ShareListener:CellTapListener{
     func pushViewController(_ cell:EventCell){
         let title = controller.navigationItem.title
         let viewController = ShareViewController(sender:cell, table:cell.makeTableView(), backTitle:title)
+        if controller.navigationController == nil {
+            print("Settings:the UIViewController don't have navigationController")
+        }
         controller.navigationController?.pushViewController(viewController, animated: true)
     }
     

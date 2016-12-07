@@ -43,8 +43,8 @@ public class ShareViewController: UIViewController {
     override public func viewDidLoad() {
         super.viewDidLoad()
         self.view = tableView
-        self.navigationItem.hidesBackButton = true
-        setupTopBar()
+//        self.navigationItem.hidesBackButton = true
+//        setupTopBar()
     }
 
     func setupTopBar(){

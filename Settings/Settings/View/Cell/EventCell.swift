@@ -110,6 +110,10 @@ public class EventCell:UITableViewCell{
         self.tapListeners = tapListeners
     }
 
+    public func getTitle() -> String{
+        return cellContent.getTitle()
+    }
+
     public func getCellContent() -> CellContent{
         return cellContent
     }
