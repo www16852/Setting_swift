@@ -44,12 +44,12 @@ public class ShareViewController: UIViewController {
         super.viewDidLoad()
         self.view = tableView
 //        self.navigationItem.hidesBackButton = true
-//        setupTopBar()
+        setupTopBar()
     }
 
     func setupTopBar(){
-        let newBackButton = UIBarButtonItem(title: "＜" + backTitle, style: UIBarButtonItemStyle.plain, target: self, action: #selector(back))
-        self.navigationItem.leftBarButtonItem = newBackButton;
+//        let newBackButton = UIBarButtonItem(title: "＜" + backTitle, style: UIBarButtonItemStyle.plain, target: self, action: #selector(back))
+//        self.navigationItem.leftBarButtonItem = newBackButton;
         let shareButton = UIBarButtonItem(barButtonSystemItem: .action, target: self, action: #selector(shareAction(bar:)))
         self.navigationItem.rightBarButtonItem = shareButton;
     }

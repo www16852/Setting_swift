@@ -48,7 +48,7 @@ class CustomController: UIViewController {
         let section2 = Section(header: "SETTING")
 
         let alertContent = CellContent(title:"Carmera Uploads", isOn:false)
-        let alertListener = AlertListener(controller:self,plist:plistManager)
+        let alertListener = AlertListener(controller:self,plist:plistManager, alert:makeAlert())
         alertContent.add(tapListener: alertListener)
         section2.add(content:(alertContent))
         sections.append(section2)
@@ -61,7 +61,7 @@ class CustomController: UIViewController {
         section3.add(content: LegalCellContent)
 
         let keepDaysPushTable = TableContent(header:"choose Keep Days", options:dayOption, factory:factory, delegate: TickTableDelegate())
-        let keepDaysCellContent = CellContent(title: "Keep Days", push:keepDaysPushTable, detailIndex:0)
+        let keepDaysCellContent = CellContent(title:"Keep Days", push:keepDaysPushTable, detailIndex:0)
         let pushListener = PushListener(controller:self, plist:plistManager)
         keepDaysCellContent.add(tapListener:pushListener)
         section3.add(content:(keepDaysCellContent))
@@ -88,6 +88,14 @@ class CustomController: UIViewController {
         let tableview = SettingTableView(content:tableContent)
         view = tableview
 
+    }
+
+    public func makeAlert() -> UIAlertController {
+        let alert = UIAlertController(title: "Enabling Camera Uploads", message:
+            nil, preferredStyle: UIAlertControllerStyle.alert)
+        alert.addAction(UIAlertAction(title: "Cancel", style: UIAlertActionStyle.default){(action) in })
+        alert.addAction(UIAlertAction(title: "Confirm", style: UIAlertActionStyle.default){(action) in })
+        return alert
     }
 
     override func didReceiveMemoryWarning() {

@@ -27,10 +27,12 @@ public class AlertListener:CellTapListener{
 
     unowned let controller:UIViewController
     unowned let plistManager:PlistManager
+    private var alert:UIAlertController
 
-    public init(controller: UIViewController, plist:PlistManager){
+    public init(controller: UIViewController, plist:PlistManager, alert:UIAlertController){
         self.controller = controller
         self.plistManager = plist
+        self.alert = alert
     }
 
     public func tapAction(sender:EventCell){
@@ -42,10 +44,6 @@ public class AlertListener:CellTapListener{
     }
 
     func pushViewController(_ cell:EventCell){
-        let alert = UIAlertController(title: "Enabling Camera Uploads", message:
-            nil, preferredStyle: UIAlertControllerStyle.alert)
-        alert.addAction(UIAlertAction(title: "Cancel", style: UIAlertActionStyle.default){(action) in })
-        alert.addAction(UIAlertAction(title: "Confirm", style: UIAlertActionStyle.default){(action) in })
         controller.present(alert, animated: true, completion: nil)
     }
 
