@@ -21,6 +21,6 @@
 //  Copyright © 2016年 waltoncob. All rights reserved.
 //
 
-public protocol CellFactory{
+@objc public protocol CellFactory{
     func makeCell(_ content:CellContent) -> EventCell
 }

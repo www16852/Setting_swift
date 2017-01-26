@@ -14,27 +14,21 @@
  * limitations under the License.
  */
 //
-//  TickTableDelegate.swift
-//  Setting
+//  Settings.h
+//  Settings
 //
-//  Created by waltoncob on 2016/10/5.
+//  Created by waltoncob on 2016/10/14.
 //  Copyright © 2016年 waltoncob. All rights reserved.
 //
 
-import UIKit
+#import <UIKit/UIKit.h>
 
-@objc public class TickTableDelegate:NSObject,UITableViewDelegate{
+//! Project version number for Settings.
+FOUNDATION_EXPORT double SettingsVersionNumber;
 
-    public func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath){
-        if let cell = tableView.cellForRow(at: indexPath) {
-            cell.accessoryType = .checkmark
-        }
-    }
+//! Project version string for Settings.
+FOUNDATION_EXPORT const unsigned char SettingsVersionString[];
 
-    public func tableView(_ tableView: UITableView, didDeselectRowAt indexPath: IndexPath){
-        if let cell = tableView.cellForRow(at: indexPath) {
-            cell.accessoryType = .none
-        }
-    }
+// In this header, you should import all the public headers of your framework using statements like #import <Settings/PublicHeader.h>
 
-}
+

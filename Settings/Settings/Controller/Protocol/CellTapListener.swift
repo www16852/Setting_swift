@@ -21,6 +21,6 @@
 //  Copyright © 2016年 waltoncob. All rights reserved.
 //
 
-public protocol CellTapListener{
+@objc public protocol CellTapListener{
     func tapAction(sender:EventCell)
 }

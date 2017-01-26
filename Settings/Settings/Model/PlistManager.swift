@@ -23,7 +23,7 @@
 
 import Foundation
 
-public class PlistManager{
+@objc public class PlistManager:NSObject{
 
     private var cellContents:[CellContent] = []
     private var dictionary:[String:Any] = [:]
@@ -39,7 +39,7 @@ public class PlistManager{
         }
     }
 
-    public init(){
+    public override init(){
 
     }
 

@@ -23,7 +23,7 @@
 
 import  UIKit
 
-public class AlertListener:CellTapListener{
+@objc public class AlertListener:NSObject,CellTapListener{
 
     unowned let controller:UIViewController
     unowned let plistManager:PlistManager

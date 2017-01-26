@@ -23,7 +23,7 @@
 
 import UIKit
 
-public class CellContent{
+@objc public class CellContent:NSObject{
 
     private var title:String
     private var tapListeners:[CellTapListener] = []
@@ -40,12 +40,12 @@ public class CellContent{
     private var buttonColor:UIColor?
 
 
-    public init(title:String, push:TableContent, detailIndex:Int?){
+    public init(title:String, push:TableContent, detailIndex:Int){
         self.title = title
         self.pushTableContent = push
         self.coverHidden = false
-        if let index = detailIndex {
-            if let indexContent = push.cellContent(index: index){
+        if detailIndex != -1 {
+            if let indexContent = push.cellContent(index: detailIndex){
                 self.detail = indexContent.getTitle()
             }else{
                 print("Settings:the index can not find detail string")

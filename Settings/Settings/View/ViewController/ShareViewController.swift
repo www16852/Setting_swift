@@ -23,7 +23,7 @@
 
 import UIKit
 
-public class ShareViewController: UIViewController {
+@objc public class ShareViewController: UIViewController {
 
     private let tableView:UITableView
     private let sourceCell:EventCell

@@ -23,7 +23,7 @@
 
 import UIKit
 
-public class EventCell:UITableViewCell{
+@objc public class EventCell:UITableViewCell{
 
     private var tapListeners:[CellTapListener] = []
     private var cellContent:CellContent

@@ -23,7 +23,7 @@
 
 import UIKit
 
-public class ReturnViewController: UIViewController {
+@objc public class ReturnViewController: UIViewController {
 
     private let tableView:UITableView
     private let sourceCell:EventCell

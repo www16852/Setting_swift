@@ -23,7 +23,7 @@
 
 import UIKit
 
-public class Section {
+@objc public class Section:NSObject {
 
     fileprivate let header: String
     fileprivate let footer: String

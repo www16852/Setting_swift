@@ -23,7 +23,7 @@
 
 import  UIKit
 
-public class ShareListener:CellTapListener{
+@objc public class ShareListener:NSObject,CellTapListener{
 
     unowned let controller:UIViewController
 

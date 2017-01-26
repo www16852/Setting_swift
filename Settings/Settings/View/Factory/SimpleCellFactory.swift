@@ -23,9 +23,9 @@
 
 import UIKit
 
-public class SimpleCellFactory:CellFactory{
+@objc public class SimpleCellFactory:NSObject,CellFactory{
 
-    public init(){
+    public override init(){
 
     }
 

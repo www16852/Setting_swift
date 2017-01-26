@@ -22,7 +22,7 @@
 //
 import Foundation
 
-public class TableContent{
+@objc public class TableContent:NSObject{
 
     private var sections:[Section]
     private var factory:CellFactory
@@ -82,5 +82,5 @@ public class TableContent{
         }
         return cellContents
     }
-
+    
 }
