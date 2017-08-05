@@ -28,6 +28,7 @@ public class EventCell:UITableViewCell{
     private var tapListeners:[CellTapListener] = []
     private var cellContent:CellContent
 
+    private var textField = UITextField()
     private var boolSwitch = UISwitch()
     private var coverButton = UIButton()
 
@@ -50,6 +51,7 @@ public class EventCell:UITableViewCell{
     func setupViews(){
         coverButton.isHidden = cellContent.getCoverHidden()
         boolSwitch.isHidden = cellContent.getSwitchHidden()
+        textField.isHidden = cellContent.getTextFieldHidden()
 
         if let buttonColor = cellContent.getButtonColor(){
             coverButton.backgroundColor = buttonColor
@@ -66,13 +68,16 @@ public class EventCell:UITableViewCell{
         }
         addSubview(coverButton)
         addSubview(boolSwitch)
+        addSubview(textField)
         boolSwitch.translatesAutoresizingMaskIntoConstraints = false
         coverButton.translatesAutoresizingMaskIntoConstraints = false
+        textField.translatesAutoresizingMaskIntoConstraints = false
     }
 
     private func setTrigger(){
         boolSwitch.addTarget(self, action: #selector(self.tapAction), for: .valueChanged)
         coverButton.addTarget(self, action: #selector(self.tapAction), for: .touchUpInside)
+        textField.addTarget(self, action: #selector(self.doEditFieldDone(sender:)), for: .editingDidEndOnExit)
     }
 
     public func modifySubViews(){
@@ -83,6 +88,11 @@ public class EventCell:UITableViewCell{
         }
 
         self.boolSwitch = modifySwitch(boolSwitch)
+    }
+    
+    public func doEditFieldDone(sender:UITextField){
+        sender.resignFirstResponder()
+        tapAction()
     }
 
     public func tapAction(){
@@ -96,6 +106,7 @@ public class EventCell:UITableViewCell{
     public func updateView(){
         self.textLabel?.text = cellContent.getTitle()
         self.detailTextLabel?.text = cellContent.getDetail()
+        self.textField.placeholder = cellContent.getTextFieldDetail()
         self.boolSwitch.isOn = cellContent.getIsOn()
     }
 
@@ -112,6 +123,10 @@ public class EventCell:UITableViewCell{
 
     public func getTitle() -> String{
         return cellContent.getTitle()
+    }
+    
+    public func getTextFieldTitle() -> String{
+        return textField.text!
     }
 
     public func getCellContent() -> CellContent{
@@ -133,6 +148,7 @@ public class EventCell:UITableViewCell{
     }
 
     override public func updateConstraints() {
+        super.updateConstraints()
         //boolSwitch
         let constraint = NSLayoutConstraint(item: boolSwitch, attribute: .trailing, relatedBy: .equal, toItem: self , attribute: .trailing, multiplier: 1, constant: -15)
         constraint.priority = 999
@@ -162,7 +178,19 @@ public class EventCell:UITableViewCell{
             self.addConstraint(NSLayoutConstraint(item: coverButton, attribute: .height, relatedBy: .equal, toItem: self , attribute: .height, multiplier: 1, constant: 0))
             self.addConstraint(NSLayoutConstraint(item: coverButton, attribute: .centerY, relatedBy: .equal, toItem: self , attribute: .centerY, multiplier: 1, constant: 0))
         }
-        super.updateConstraints()
+        //TextField
+        let trailingC = NSLayoutConstraint(item: textField, attribute: .trailing, relatedBy: .equal, toItem: self , attribute: .trailing, multiplier: 1, constant: -15)
+        trailingC.priority = 999
+        self.addConstraint(trailingC)
+        self.addConstraint(NSLayoutConstraint(item: textField, attribute: .trailing, relatedBy: .lessThanOrEqual, toItem: self , attribute: .centerX, multiplier: 1, constant: 350))
+        
+        let leadingC = NSLayoutConstraint(item: textField, attribute: .leading, relatedBy: .equal, toItem: self.textLabel , attribute: .trailing, multiplier: 1, constant: 70)
+        leadingC.priority = 999
+        self.addConstraint(leadingC)
+        self.addConstraint(NSLayoutConstraint(item: textField, attribute: .leading, relatedBy: .greaterThanOrEqual, toItem: self , attribute: .centerX, multiplier: 1, constant: -350))
+        
+        self.addConstraint(NSLayoutConstraint(item: textField, attribute: .height, relatedBy: .equal, toItem: self , attribute: .height, multiplier: 1, constant: 0))
+        self.addConstraint(NSLayoutConstraint(item: textField, attribute: .centerY, relatedBy: .equal, toItem: self , attribute: .centerY, multiplier: 1, constant: 0))
     }
     
 }

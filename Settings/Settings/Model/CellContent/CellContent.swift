@@ -29,6 +29,9 @@ public class CellContent{
     private var tapListeners:[CellTapListener] = []
     private var detail:String = " "
 
+    //TextFieldCell
+    private var textFieldHidden:Bool = true
+    private var textFieldDetail = ""
     //TextCell
     private var coverHidden:Bool = true
     //AccessoryCell
@@ -60,6 +63,12 @@ public class CellContent{
         self.detail = detail
         self.coverHidden = !addTrigger
     }
+    
+    public init(textTitle: String,detail: String){
+        self.title = textTitle
+        self.textFieldDetail = detail
+        self.textFieldHidden = false
+    }
 
     public init(title: String, isOn:Bool){
         self.title = title
@@ -90,9 +99,13 @@ public class CellContent{
     public func getTitle() -> String{
         return title
     }
-
+    
     public func getDetail() -> String{
         return detail
+    }
+    
+    public func getTextFieldDetail() -> String{
+        return textFieldDetail
     }
 
     public func getIsOn() -> Bool{
@@ -110,7 +123,11 @@ public class CellContent{
     public func getCoverHidden() -> Bool{
         return coverHidden
     }
-
+    
+    public func getTextFieldHidden() -> Bool{
+        return textFieldHidden
+    }
+    
     public func getPushTableContent() -> TableContent?{
         return pushTableContent
     }

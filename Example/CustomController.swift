@@ -73,6 +73,9 @@ class CustomController: UIViewController {
         let pushShareListener = ShareListener(controller:self)
         shareCellContent.add(tapListener: pushShareListener)
         section3.add(content:(shareCellContent))
+        let fieldContent = CellContent(textTitle: "TEST",detail: "test2")
+        fieldContent.add(tapListener: TextFieldListener(controller: self, message:"fieldDemo"))
+        section3.add(content:fieldContent)
 
         section3.add(content:CellContent(title:"Sign out",buttonColor:UIColor(red: 0.8, green: 0.5, blue: 0.5, alpha: 1)))
 
